@@ -1,7 +1,7 @@
 package java101;
 import java.util.Scanner;
 
-public class hypotenuseCalculator {
+public class HypotenuseCalculator {
 	public static void main(String[] args) {
 		int a,b;
 		double c,u;
