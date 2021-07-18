@@ -7,7 +7,6 @@ public class Calculator {
 		
 		Scanner scanner = new Scanner(System.in);
 		double input1=0,input2=0;
-		double output=0;
 		int select;
 		
 		
