@@ -333,6 +333,6 @@ UNION
 ```
 4_ payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.<br />
 ```sql
-?
-```
 
+SELECT customer_id FROM payment GROUP BY customer_id ORDER BY COUNT(*) DESC;
+```
