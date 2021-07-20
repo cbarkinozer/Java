@@ -10,8 +10,10 @@ public class GcdLcmCalculator {
 		n1=scanner.nextInt();
 		System.out.println("Enter n2");
 		n2=scanner.nextInt();
+    
 		scanner.close();
-		int ebob=1;
+		int GCD=1;
+
 		for(int i=1;i<=n1;i++) {
 			if(n1%i==0&&n2%2==0) {
 				System.out.println(i);
@@ -20,11 +22,11 @@ public class GcdLcmCalculator {
 		for(int k=n1;k>=1;k--) {
 			if(n1%k==0&&n2%k==0) {
 				ebob=k;
-				System.out.println("Ebob: "+ ebob);
+				System.out.println("GCD: "+ GCD);
 				break;
 			}
 		}
-		System.out.println("Ekok: "+((n1*n2) / ebob));
+		System.out.println("LCM: "+((n1*n2) / GCD));
 		
 		
 	}
