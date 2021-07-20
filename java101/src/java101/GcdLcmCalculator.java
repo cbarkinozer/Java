@@ -11,7 +11,7 @@ public class GcdLcmCalculator {
 		System.out.println("Enter n2");
 		n2=scanner.nextInt();
 		scanner.close();
-		int ebob=1;
+		int GCD=1;
 		for(int i=1;i<=n1;i++) {
 			if(n1%i==0&&n2%2==0) {
 				System.out.println(i);
