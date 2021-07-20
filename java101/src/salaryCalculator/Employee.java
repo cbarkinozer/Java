@@ -55,7 +55,6 @@ public class Employee {
 		System.out.println("Bonus: " + bonus(salary, workHours));
 		System.out.println("Maaþ artýþý: " + raiseSalary(salary, hireYear));
 		System.out.println("Vergi ve Bonuslar ile birlikte maaþ: " + (salary + bonus(salary, workHours) - tax(salary)));
-		System.out.println(
-				"Toplam Maaþ: " + (salary + bonus(salary, workHours) - tax(salary) + raiseSalary(salary, hireYear)));
+		System.out.println("Toplam Maaþ: " + (salary + bonus(salary, workHours) - tax(salary) + raiseSalary(salary, hireYear)));
 	}
 }
