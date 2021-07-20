@@ -10,5 +10,6 @@ public class ArrayHarmonicMeanCalculator {
 		}
         System.out.println(n/sum);
          
+        
 	}
 }
