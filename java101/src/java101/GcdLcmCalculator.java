@@ -20,11 +20,11 @@ public class GcdLcmCalculator {
 		for(int k=n1;k>=1;k--) {
 			if(n1%k==0&&n2%k==0) {
 				ebob=k;
-				System.out.println("Ebob: "+ ebob);
+				System.out.println("GCD: "+ GCD);
 				break;
 			}
 		}
-		System.out.println("Ekok: "+((n1*n2) / ebob));
+		System.out.println("LCM: "+((n1*n2) / GCD));
 		
 		
 	}
