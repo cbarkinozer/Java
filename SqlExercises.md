@@ -327,10 +327,12 @@ SELECT MAX(rental_rate) FROM film
 ```
 3_ film tablosunda en düşük rental_rate ve en düşük replacement_cost değerlerine sahip filmleri sıralayınız.<br />
 ```sql
-?
+(SELECT film.title FROM film WHERE rental_rate=(SELECT MIN(rental_rate)FROM film))
+UNION
+(SELECT film.title FROM film WHERE rental_rate=(SELECT MIN(replacement_cost)FROM film));
 ```
 4_ payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.<br />
 ```sql
-?
-```
 
+SELECT customer_id FROM payment GROUP BY customer_id ORDER BY COUNT(*) DESC;
+```
