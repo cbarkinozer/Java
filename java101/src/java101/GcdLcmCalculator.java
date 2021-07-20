@@ -19,7 +19,7 @@ public class GcdLcmCalculator {
 		}
 		for(int k=n1;k>=1;k--) {
 			if(n1%k==0&&n2%k==0) {
-				ebob=k;
+				GCD=k;
 				System.out.println("GCD: "+ GCD);
 				break;
 			}
