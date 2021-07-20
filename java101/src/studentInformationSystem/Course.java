@@ -2,10 +2,15 @@ package studentInformationSystem;
 
 public class Course {
 	Teacher courseTeacher;
-    String name;
+    
+	String name;
     String code;
     String prefix;
+    
     int note;
+    int verbalNote;
+    int verbalNotePercent;
+    
     
     
     public Course(String name, String code, String prefix) {
@@ -13,6 +18,8 @@ public class Course {
         this.code = code;
         this.prefix = prefix;
         this.note = 0;
+        this.verbalNote = 0;
+        this.verbalNotePercent = 0;
     }
     
     public void addTeacher(Teacher t) {

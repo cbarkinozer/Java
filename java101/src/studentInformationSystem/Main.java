@@ -16,14 +16,17 @@ public class Main {
 
 		Student s1 = new Student("Ýnek Þaban", 4, "140144015", math, physic, chemistry);
 		s1.addBulkExamNote(50, 20, 40);
+		s1.addVerbalGrade(50, 20, 40);
 		s1.isPass();
 
 		Student s2 = new Student("Güdük Necmi", 4, "2211133", math, physic, chemistry);
 		s2.addBulkExamNote(100, 50, 40);
+		s2.addVerbalGrade(100, 50, 40);
 		s2.isPass();
 
 		Student s3 = new Student("Hayta Ýsmail", 4, "221121312", math, physic, chemistry);
 		s3.addBulkExamNote(50, 20, 40);
+		s3.addVerbalGrade(50, 20, 40);
 		s3.isPass();
 
 	}
