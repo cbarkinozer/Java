@@ -10,7 +10,7 @@ public class FibonacciSerie {
 		
 		System.out.print("N Sayýsýný Girin:");
 		n = scanner.nextInt();
-		
+		scanner.close();
 		System.out.print(n1 + " " + n2);
 		
 		// Döngü 2 den baþlýyor çünkü ilk 2 terim 0 ve 1 her zaman yazýlacak
