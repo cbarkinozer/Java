@@ -1,6 +1,5 @@
 package java101;
 
-import java.util.Arrays;
 
 public class MatrixTranspose {
 	public static void main(String args[]) {
