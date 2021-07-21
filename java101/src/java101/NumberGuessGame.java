@@ -9,6 +9,7 @@ public class NumberGuessGame {
         Random rand = new Random();
         int number = rand.nextInt(100);
 
+        
         Scanner input = new Scanner(System.in);
         int MAX_RIGHT=5;
         int right = 0;
