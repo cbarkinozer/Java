@@ -1,5 +1,4 @@
-
-Object oriented UML software designs
+**Object oriented UML software designs**
 
 **1.Ödev- Üniversite Yönetim Sistemi**<br/>
 Üniversiteye ait sınıflıklar, çalışma ofisleri ve departmanlar vardır.<br/>
@@ -32,3 +31,5 @@ Havaalanlarının benzersiz kimlikleri ve isimleri vardır.<br/>
 Havayolu şirketlerinin pilotları vardır ve her pilotun bir deneyim seviyesi mevcuttur.<br/>
 Bir uçak tipi, belirli sayıda pilota ihtiyaç duyabilir.<br/>
 Bu sistemi tasvir eden Class (Sınıf) diyagramını çiziniz.<br/>
+![FlightAdministrationSystem](https://user-images.githubusercontent.com/43732258/126636924-8acb62ee-a0e5-4180-a7d8-42102a40bade.png)
+*Not: getter ve setter'ları, onların varlıkları bariz olduğu için eklemedim.*
