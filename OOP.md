@@ -43,4 +43,5 @@ Sadece abone olan kullanıcılar, kredileri ile film kiralayabilir ve kiraladı�
 Normal kullanıcılar ve aboneler film satın alabilirler.<br/>
 Eğer film mevcut değilse ise talep edilebilir.<br/>
 Bu sistemi tasvir eden Class (Sınıf) diyagramını çiziniz.<br/>
-![OnlineMovieSystem](https://user-images.githubusercontent.com/43732258/126642639-3fa2a063-3744-415d-a4c4-707a0d9e164e.png)
+![OnlineMovieSystem (1)](https://user-images.githubusercontent.com/43732258/126642794-0e705aa8-02aa-4810-a889-c532b36ec08b.png)
+
