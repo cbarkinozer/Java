@@ -20,3 +20,15 @@ Sistem Yem verme zamanlarını hesaplayabilmelidir => getFeedSchedule ()<br/>
 Sistemin bu işlevleri yerine getirme mantığı, her gruplama için farklı olacaktır. Örneğin, atlar için yem verme algoritması farklı olup, kaplanlar için farklı olacaktır.<br/>
 Polimorfizm modelini kullanarak, yukarıda açıklanan durumu ele almak için bir sınıf diyagramı tasarlayın.<br/>
 ![zoo](https://user-images.githubusercontent.com/43732258/126627251-036b6fb3-cb5c-4af0-a327-1dd195049711.png)
+
+**3.Ödev- Uçuş Yönetim Sistemi**<br/>
+Uçuşların ve pilotların yönetimi için bir sistem tasarlayın.<br/>
+Havayolu şirketleri uçuşları gerçekleştirir. Her havayolunun bir kimliği vardır.<br/>
+Havayolu şirketi, farklı tipteki uçaklara sahiptir.<br/>
+Uçaklar çalışır veya onarım durumunda olabilir.<br/>
+Her uçuşun benzersiz kimliği, kalkacağı ve ineceği havaalanı, kalkış ve iniş saatleri vardır.<br/>
+Her uçuşun bir pilotu ve yardımcı pilotu vardır ve uçağı kullanırlar.<br/>
+Havaalanlarının benzersiz kimlikleri ve isimleri vardır.<br/>
+Havayolu şirketlerinin pilotları vardır ve her pilotun bir deneyim seviyesi mevcuttur.<br/>
+Bir uçak tipi, belirli sayıda pilota ihtiyaç duyabilir.<br/>
+Bu sistemi tasvir eden Class (Sınıf) diyagramını çiziniz.<br/>
