@@ -33,3 +33,14 @@ Bir uçak tipi, belirli sayıda pilota ihtiyaç duyabilir.<br/>
 Bu sistemi tasvir eden Class (Sınıf) diyagramını çiziniz.<br/>
 ![FlightAdministrationSystem](https://user-images.githubusercontent.com/43732258/126636924-8acb62ee-a0e5-4180-a7d8-42102a40bade.png)
 <br/>*Not: getter ve setter'ları, onların varlıkları bariz olduğu için eklemedim.*<br/>
+
+
+**4.Ödev-Online Film Sitesi**<br/>
+Online film satan veya kiralayan uygulamanın sistemini tasarlayın.
+Uygulamada filmler listenebilir, sıralanabilir ve kullanıcılar uygulamaya abone olabilir.<br/>
+Kullanıcılar abonelik için sistem üzerinden kredi satın alır.<br/>
+Sadece abone olan kullanıcılar, kredileri ile film kiralayabilir ve kiraladığı filmin kredi bedeli kadar hesabından düşülür.<br/>
+Normal kullanıcılar ve aboneler film satın alabilirler.<br/>
+Eğer film mevcut değilse ise talep edilebilir.<br/>
+Bu sistemi tasvir eden Class (Sınıf) diyagramını çiziniz.<br/>
+
