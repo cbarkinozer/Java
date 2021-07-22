@@ -32,4 +32,4 @@ Havayolu şirketlerinin pilotları vardır ve her pilotun bir deneyim seviyesi m
 Bir uçak tipi, belirli sayıda pilota ihtiyaç duyabilir.<br/>
 Bu sistemi tasvir eden Class (Sınıf) diyagramını çiziniz.<br/>
 ![FlightAdministrationSystem](https://user-images.githubusercontent.com/43732258/126636924-8acb62ee-a0e5-4180-a7d8-42102a40bade.png)
-*Not: getter ve setter'ları, onların varlıkları bariz olduğu için eklemedim.*<br/>
+<br/>*Not: getter ve setter'ları, onların varlıkları bariz olduğu için eklemedim.*<br/>
