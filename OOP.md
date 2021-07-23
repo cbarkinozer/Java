@@ -67,3 +67,4 @@ Bir asansörün bir kata varması, dış asansör kapısının üzerindeki göst
 Bir asansör bir katta durduğunda, her iki kapı grubu da önceden belirlenmiş bir süre boyunca otomatik olarak açılarak yolcuların asansöre girip çıkmalarına izin verir.<br/>
 Simülatör, gerçek zaman geçişini simüle etmek ve simülasyonda meydana gelen olayları zaman damgası ve günlüğe kaydetmek için bir "saat" kullanır.<br/>
 Simülatör tarafından yolcu oluşturmak ve her yolcu için kalkış ve varış katlarını belirlemek için rastgele bir sayı üreteci kullanılır.<br/>
+![ElevatorSimulation](https://user-images.githubusercontent.com/43732258/126760136-aa1e3d36-6d04-4443-9ca7-0599bc1b6bc6.png)
