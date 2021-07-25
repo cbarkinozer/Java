@@ -1,6 +1,4 @@
-package adventureGame.GameCharacters;
-
-import adventureGame.GameCharacter;
+package adventureGame;
 
 public class Samurai extends GameCharacter {
 
