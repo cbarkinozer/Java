@@ -22,11 +22,8 @@ public class Player {
 		System.out.println("ID \t Name \t Damage Health Money");
 
 		for (GameCharacter gameCharacter : characterList) {
-			System.out.println(gameCharacter.getId()+
-					"\t"+gameCharacter.getName() + ":   " +
-					gameCharacter.getDamage() + "\t"+ 
-					gameCharacter.getHealth() + "\t" +
-					gameCharacter.getMoney());
+			System.out.println(gameCharacter.getId() + "\t" + gameCharacter.getName() + ":   "
+					+ gameCharacter.getDamage() + "\t" + gameCharacter.getHealth() + "\t" + gameCharacter.getMoney());
 		}
 		System.out.println("----------------------");
 		System.out.println("Enter a character: ");

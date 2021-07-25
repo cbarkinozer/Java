@@ -8,6 +8,7 @@ public abstract class NormalLocation extends Location{
 	
 	@Override
 	public boolean onLocation() {
+		
 		return true;
 	}
 
