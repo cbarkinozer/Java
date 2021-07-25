@@ -1,13 +1,14 @@
 package adventureGame;
 
-public class NormalLocation extends Location{
+public abstract class NormalLocation extends Location{
 
 	public NormalLocation(Player player,String name) {
 		super(player,name);
 	}
 	
 	@Override
-	boolean onLocation() {
+	public boolean onLocation() {
+		
 		return true;
 	}
 
