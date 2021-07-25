@@ -1,5 +1,7 @@
 package adventureGame;
 
+import java.util.Scanner;
+
 import adventureGame.GameCharacters.*;
 
 public class Player {
@@ -8,6 +10,7 @@ public class Player {
 	private int money;
 	private String name;
 	private String characterName;
+	private Scanner input = new Scanner(System.in);
 
 	public Player(String name) {
 		this.name = name;
@@ -17,16 +20,39 @@ public class Player {
 
 		GameCharacter[] characterList = { new Samurai(), new Archer(), new Knight() };
 
-		System.out.println();
-		System.out.println("\t Damage Health Money");
+		System.out.println("----------------------");
+		System.out.println("ID \t Name \t Damage Health Money");
 
 		for (GameCharacter gameCharacter : characterList) {
-			System.out.println(gameCharacter.getName() + ":" +"  "+
-					gameCharacter.getDamage() + "\t"+
+			System.out.println(gameCharacter.getId()+
+					"\t"+gameCharacter.getName() + ":   " +
+					gameCharacter.getDamage() + "\t"+ 
 					gameCharacter.getHealth() + "\t" +
 					gameCharacter.getMoney());
 		}
+		System.out.println("----------------------");
+		System.out.println("Enter a character: ");
+		int selectCharacter = input.nextInt();
+		switch (selectCharacter) {
+		case 1:
+			initializePlayer(new Samurai());
+			break;
+		case 2:
+			initializePlayer(new Archer());
+			break;
+		case 3:
+			initializePlayer(new Knight());
+			break;
+		default:
+			initializePlayer(new Samurai());
+		}
 
+	}
+
+	public void initializePlayer(GameCharacter gameCharacter) {
+		this.setDamage(gameCharacter.getDamage());
+		this.setHealth(gameCharacter.getHealth());
+		this.setMoney(gameCharacter.getMoney());
 	}
 
 	public int getDamage() {
