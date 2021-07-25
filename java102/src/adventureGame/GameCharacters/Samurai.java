@@ -4,8 +4,8 @@ import adventureGame.GameCharacter;
 
 public class Samurai extends GameCharacter {
 
-	public Samurai(int damage, int health, int money) {
-		super(damage, health, money);
+	public Samurai() {
+		super("Samurai", 5, 21, 15);
 	}
 
 }
