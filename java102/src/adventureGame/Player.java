@@ -1,22 +1,32 @@
 package adventureGame;
 
+import adventureGame.GameCharacters.*;
+
 public class Player {
 	private int damage;
 	private int health;
 	private int money;
 	private String name;
 	private String characterName;
-	
-	public void selectCharacter() {
-		System.out.println();
-		System.out.println("\t ID \t Damage Health Money");
-		System.out.println("Samurai: 1 \t 5 \t 21 \t 15");
-		System.out.println("Archer:\t 2 \t 7 \t 18 \t 20");
-		System.out.println("Knight:\t 3 \t 8 \t 24 \t 5");
-	}
-	
+
 	public Player(String name) {
 		this.name = name;
+	}
+
+	public void selectCharacter() {
+
+		GameCharacter[] characterList = { new Samurai(), new Archer(), new Knight() };
+
+		System.out.println();
+		System.out.println("\t Damage Health Money");
+
+		for (GameCharacter gameCharacter : characterList) {
+			System.out.println(gameCharacter.getName() + ":" +"  "+
+					gameCharacter.getDamage() + "\t"+
+					gameCharacter.getHealth() + "\t" +
+					gameCharacter.getMoney());
+		}
+
 	}
 
 	public int getDamage() {
@@ -58,5 +68,5 @@ public class Player {
 	public void setCharacterName(String characterName) {
 		this.characterName = characterName;
 	}
-	
+
 }
