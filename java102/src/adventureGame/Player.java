@@ -2,8 +2,6 @@ package adventureGame;
 
 import java.util.Scanner;
 
-import adventureGame.GameCharacters.*;
-
 public class Player {
 	private int damage;
 	private int health;
