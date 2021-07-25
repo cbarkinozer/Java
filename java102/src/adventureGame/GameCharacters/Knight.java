@@ -5,7 +5,7 @@ import adventureGame.GameCharacter;
 public class Knight extends GameCharacter {
 
 	public Knight() {
-		super("Knight", 8, 24, 5);
+		super(3,"Knight", 8, 24, 5);
 	}
 
 }

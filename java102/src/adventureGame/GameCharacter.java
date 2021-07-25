@@ -1,13 +1,15 @@
 package adventureGame;
 
 public abstract class GameCharacter {
+	private int id;
 	private String name;
 	private int damage;
 	private int health;
 	private int money;
 
-	public GameCharacter(String name, int damage, int health, int money) {
+	public GameCharacter(int id,String name, int damage, int health, int money) {
 		super();
+		this.id=id;
 		this.name = name;
 		this.damage = damage;
 		this.health = health;
@@ -15,6 +17,16 @@ public abstract class GameCharacter {
 	}
 
 	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public String getName() {
 		return name;
 	}

@@ -5,7 +5,7 @@ import adventureGame.GameCharacter;
 public class Samurai extends GameCharacter {
 
 	public Samurai() {
-		super("Samurai", 5, 21, 15);
+		super(1,"Samurai", 5, 21, 15);
 	}
 
 }
