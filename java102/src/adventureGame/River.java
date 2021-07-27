@@ -6,7 +6,6 @@ public class River extends BattleLocation {
 	
 	public River(Player player, String name) {
 		super(player, name);
-		// TODO Auto-generated constructor stub
 	}
 
 }
