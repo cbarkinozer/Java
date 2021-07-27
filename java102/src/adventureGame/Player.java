@@ -8,6 +8,7 @@ public class Player {
 	private int money;
 	private String name;
 	private String characterName;
+	private Inventory inventory;
 	private Scanner input = new Scanner(System.in);
 
 	public Player(String name) {
