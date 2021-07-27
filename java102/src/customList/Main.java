@@ -1,7 +1,7 @@
 package customList;
 
 public class Main {
-	public void main(String[] args) {
+	public static void main(String[] args) {
 
 		// Tests
 
@@ -74,7 +74,7 @@ public class Main {
 
 		// Listeyi tamamen boþaltýr ve varsayýlan boyutuna çevirir
 		liste3.clear();
-		System.out.println(liste.toString());
+		System.out.println(liste3.toString());
 
 	}
 }

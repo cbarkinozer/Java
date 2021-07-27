@@ -40,7 +40,7 @@ public class CustomList<T> {
 	@SuppressWarnings("unchecked")
 	public T get(int index) {
 		if (index >= size || index < 0) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size " + index);
+			return null;
 		}
 		return (T) elements[index];
 	}
@@ -48,7 +48,7 @@ public class CustomList<T> {
 	@SuppressWarnings("unchecked")
 	public T remove(int index) {
 		if (index >= size || index < 0) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size " + index);
+			return null;
 		}
 		Object item = elements[index];
 		int numberElements = elements.length - (index + 1);
@@ -57,12 +57,14 @@ public class CustomList<T> {
 		return (T) item;
 	}
 
-	public void set(int index, T data) {
+	public T set(int index, T data) {
 		if (index >= size || index < 0) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size " + index);
+			return null;
 		}
-		remove(index);
+		T value;
+		value=remove(index);
 		elements[index] = data;
+		return value;
 
 	}
 
@@ -70,9 +72,13 @@ public class CustomList<T> {
 		StringBuilder sb = new StringBuilder();
 		sb.append('[');
 		for (int i = 0; i < size; i++) {
-			sb.append(elements[i].toString());
+			if(elements[i]!=null) {
+				sb.append(elements[i].toString());
+			}
 			if (i < size - 1) {
-				sb.append(",");
+				if(elements[i]!=null) {
+					sb.append(",");
+				}
 			}
 		}
 		sb.append(']');
@@ -115,15 +121,18 @@ public class CustomList<T> {
 		Arrays.fill(elements, null);
 	}
 
+	@SuppressWarnings("unchecked")
 	public CustomList<T> subList(int start, int finish) {
 		if (start >= size || start < 0 || finish >= size || finish < 0) {
 			throw new IndexOutOfBoundsException("Start: " + start +"Finish: "+finish+ ", Size " + size);
 		}
-		final CustomList<T> result=null;
+		Object[] result= new Object[size];
 		int numberElements = finish-start;
-		System.arraycopy(elements, start + 1, result, finish, numberElements);
+		System.arraycopy(elements, start + 1, result, 0 , numberElements);
 		
-		return result;
+		return (CustomList<T>)(Object)result;
+		
+		
 	}
 
 	boolean contains(T data) {
