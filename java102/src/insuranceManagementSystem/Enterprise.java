@@ -7,4 +7,10 @@ public class Enterprise extends Account {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public int compareTo(Account o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
