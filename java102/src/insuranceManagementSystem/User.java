@@ -12,6 +12,10 @@ public class User {
 	private int age;
 	private Date loginTime;
 	
+	enum AuthenticationStatus {
+		FAIL,SUCCESS
+	}
+	public AuthenticationStatus authenticationStatus=AuthenticationStatus.FAIL;
 	public User user;
 	public ArrayList<Address>addressList;
 	public ArrayList<Insurance>insuranceList;
@@ -58,6 +62,22 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public AuthenticationStatus getAuthenticationStatus() {
+		return authenticationStatus;
+	}
+	public void setAuthenticationStatus(AuthenticationStatus authenticationStatus) {
+		this.authenticationStatus = authenticationStatus;
+	}
+	
+	public void login(String email,String password) throws InvalidAuthenticationException {
+		if(email==this.email&&password==this.password) {
+			authenticationStatus=AuthenticationStatus.SUCCESS;
+		}else {
+			throw new InvalidAuthenticationException("Error:");
+		}
+	}
+	
+	
 	
 	
 }

@@ -2,7 +2,7 @@ package insuranceManagementSystem;
 
 import java.util.ArrayList;
 
-public abstract class Account {
+public abstract class Account implements Comparable<Account>{
 	private User user = new User();
 	public ArrayList<Insurance>insuranceList;
 	
