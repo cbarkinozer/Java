@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
+		
+		//It works but needs little work :)
+		
 		ArrayList<Integer> intList0 = new ArrayList<Integer>();
 		
 		ArrayList<Integer> intList1 = new ArrayList<Integer>();
@@ -12,16 +15,16 @@ public class Main {
 		ArrayList<Integer> intList4 = new ArrayList<Integer>();
 		
 		//List 0 has 10 thousand integer
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i <= 100; i++) {
 			intList0.add(i);
 			
 		}
 		System.out.println("List 0 loaded");
 		//Divide it to 4 lists
-		intList1.addAll(intList0.subList(0, 2500));
-		intList2.addAll(intList0.subList(0, 2500));
-		intList3.addAll(intList0.subList(0, 2500));
-		intList4.addAll(intList0.subList(0, 2500));
+		intList1.addAll(intList0.subList(0, 25));
+		intList2.addAll(intList0.subList(26, 50));
+		intList3.addAll(intList0.subList(51, 75));
+		intList4.addAll(intList0.subList(76, 100));
 		System.out.println("Lists are divided to 4");
 		
 		//2 thread for odd and even
@@ -65,7 +68,7 @@ public class Main {
         System.out.println("Threads started.");
 		
 
-        //Check result
+      //Check result
         System.out.println("Printing the result...");
 		taskOdd1.result();
 		taskOdd2.result();
