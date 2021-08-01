@@ -12,9 +12,7 @@ public class User {
 	private int age;
 	private Date loginTime;
 	
-	enum AuthenticationStatus {
-		FAIL,SUCCESS
-	}
+	
 	public AuthenticationStatus authenticationStatus=AuthenticationStatus.FAIL;
 	public User user;
 	public ArrayList<Address>addressList;
