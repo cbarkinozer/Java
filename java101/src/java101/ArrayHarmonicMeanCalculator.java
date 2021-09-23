@@ -6,7 +6,7 @@ public class ArrayHarmonicMeanCalculator {
 		double sum = 0;
 		double n= numbers.length;
 		for (int i = 0; i < n; i++) {
-            sum += (1/numbers[i]);
+            sum += (1/(double)numbers[i]);
 		}
         System.out.println(n/sum);
          
