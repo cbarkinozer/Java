@@ -17,3 +17,13 @@ Yukarıdaki dizinin sort türüne göre aşamalarını yazınız.<br/>
 [16,21],[8,11],[12,22]->[8,11,16,21],[12,22]->[8,11,12,16,21,22]<br/>
 Big-O gösterimini yazınız.<br/>
 Average, best, worst: O(n*Log n)<br/>
+
+Proje 3<br/>
+[7, 5, 1, 8, 3, 6, 0, 9, 4, 2] dizisinin Binary-Search-Tree aşamalarını yazınız.<br/>
+Bulk loading değil sıra ile yüklendiği varsayılmıştır.<br/>
+7-> 7 -> 7  ->  7   ->    7    ->  7    ->   7    ->   7     ->       7        <br/>
+   5    5     5  8      5   8     5  8      5  8      5   8          5  8      <br/>
+       1     1        1  6       1  6      1 6  9    1  6   9      1  6  9     <br/>
+              3         3       0  3      0 3       0 3           0  3         <br/>
+                                                       4            2  4       <br/>
+ 
