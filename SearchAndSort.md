@@ -20,5 +20,5 @@ Average, best, worst: O(n*Log n)<br/>
 
 Proje 3<br/>
 [7, 5, 1, 8, 3, 6, 0, 9, 4, 2] dizisinin Binary-Search-Tree aşamalarını yazınız.<br/>
-Bulk loading değil sıra ile yüklendiği varsayılmıştır.<br/>
+Sıra ile yüklendiği ve denge kuralı olmadığı varsayılmıştır.<br/>
 ![Ekran Görüntüsü (231)](https://user-images.githubusercontent.com/43732258/140581172-87516632-059e-426d-ab58-20a5f3d9186e.png)
