@@ -27,3 +27,4 @@ Bulk loading değil sıra ile yüklendiği varsayılmıştır.<br/>
               3         3       0  3      0 3       0 3           0  3         <br/>
                                                        4            2  4       <br/>
  
+![Ekran Görüntüsü (231)](https://user-images.githubusercontent.com/43732258/140581172-87516632-059e-426d-ab58-20a5f3d9186e.png)
