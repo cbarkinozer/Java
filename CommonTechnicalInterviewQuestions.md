@@ -22,8 +22,18 @@ What is HTTP? <br/>
 What are database types?<br/>
 What are the differences between RDBMS and NoSql?<br/>
 What is a  monolithic code?<br/>
-
-
+What is microservice structure? How it works? <br/>
+What is SOA? <br/>
+<br/>
+<br/>
+***DevOps Questions**<br/>
+What is message queuing?<br/>
+What is Redis, how it is used?<br/>
+What is Docker, how it is used?<br/>
+What is container technology?<br/>
+What is monitoring, how it is used?<br/>
+What is IP? What is DNS?<br/>
+What are the differences between VM and Container?<br/>
 
 
 
