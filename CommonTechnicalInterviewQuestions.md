@@ -26,7 +26,7 @@ What is microservice structure? How it works? <br/>
 What is SOA? <br/>
 <br/>
 <br/>
-***DevOps Questions**<br/>
+**DevOps Questions**<br/>
 What is message queuing?<br/>
 What is Redis, how it is used?<br/>
 What is Docker, how it is used?<br/>
