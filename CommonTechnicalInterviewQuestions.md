@@ -14,18 +14,18 @@
 **Backend Questions**<br/>
 **What is Backend?**<br/>
 The part of a computer system or application that is not directly accessed by the user, typically responsible for storing and manipulating data.<br/>
-What are the differences between backend and frontend?**<br/>
-Frontend refers to the client-side, whereas backend refers to the server-side of the application**<br/>
-What is multilayered arcihtecture on Backend?**<br/>
-Multi layered applications consists of multiple layers, each of which corresponds for a different specific responsibility. Separating the layers and responsibilities in this way makes it very easy to develop and maintain the application.**<br/>
-What is a web server?**<br/>
+**What are the differences between backend and frontend?**<br/>
+Frontend refers to the client-side, whereas backend refers to the server-side of the application<br/>
+**What is multilayered arcihtecture on Backend?**<br/>
+Multi layered applications consists of multiple layers, each of which corresponds for a different specific responsibility. Separating the layers and responsibilities in this way makes it very easy to develop and maintain the application.<br/>
+**What is a web server?**<br/>
 A web server is a computer that runs websites. The basic objective of the web server is to store, process and deliver web pages to the users. This intercommunication is done using Hypertext Transfer Protocol (HTTP).
-What are the communication protocols?**<br/>
+**What are the communication protocols?**<br/>
 A communication protocol is a system of rules that allows two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The protocol defines the rules, syntax, semantics and synchronization of communication and possible error recovery methods.<br/>
-How Socket works?**<br/>
+**How Socket works?**<br/>
 A socket is one endpoint of a two-way communication link between two programs running on the network. A socket is bound to a port number so that the TCP layer can identify the application that data is destined to be sent to. An endpoint is a combination of an IP address and a port number.<br/>
-What is HTTP? **<br/>
-The Hypertext Transfer Protocol is an application protocol for distributed, collaborative, hypermedia information systems that allows users to communicate data on the World Wide Web.**<br/>
+**What is HTTP?**<br/>
+The Hypertext Transfer Protocol is an application protocol for distributed, collaborative, hypermedia information systems that allows users to communicate data on the World Wide Web.<br/>
 **What are database types?**<br/>
 Centralized Database (low risk of management,cheaper,better data quality|large,high ping, hard to update, server failure risk cost high)<br/>
 Distributed Database(servers communicate with each other,server failure will not affect, modular developement is possible)<br/>
@@ -45,18 +45,18 @@ Enterprise Database. <br/>
 <br/>
 <br/>
 **DevOps Questions**<br/>
-What is message queuing?<br/>
-What is Redis, how it is used?<br/>
-What is Docker, how it is used?<br/>
-What is container technology?<br/>
-What is monitoring, how it is used?<br/>
-What is IP? What is DNS?<br/>
-What are the differences between VM and Container?<br/>
+**What is message queuing?**<br/>
+**What is Redis, how it is used?**<br/>
+**What is Docker, how it is used?**<br/>
+**What is container technology?**<br/>
+**What is monitoring, how it is used?**<br/>
+**What is IP? What is DNS?**<br/>
+**What are the differences between VM and Container?**<br/>
 
 
 
-Algorithm Questions<br/>
-Critical Thinking Questions<br/>
-Data Structures Questions<br/>
-Object Oriented Programming Questions<br/>
-Big O Notation Questions <br/>
+**Algorithm Questions**<br/>
+**Critical Thinking Questions**<br/>
+**Data Structures Questions**<br/>
+**Object Oriented Programming Questions**<br/>
+**Big O Notation Questions**<br/>
