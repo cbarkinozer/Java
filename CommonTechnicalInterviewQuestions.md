@@ -8,7 +8,7 @@
 **What is Closure?**<br/>
 **What are the differences between Cookie, LocalStore,SessionStorage,LocalForge?**<br/>
 **What are the differences between a Web page and a web application?**<br/>
-**Can you debug on Chrome dev tools?**<br/>
+**What is the Chrome dev tools?**<br/>
 <br/>
 <br/>
 **Backend Questions**<br/>
@@ -31,13 +31,13 @@ Centralized Database (low risk of management,cheaper,better data quality|large,h
 Distributed Database(servers communicate with each other,server failure will not affect, modular developement is possible)<br/>
 Relational Database(ACID properties atomicity,consistency,isolation,durability)<br/>
 NoSQL Database(storing data in non-structured format, better for managing and handling large, highly scalable, qucik access)<br/>
-Cloud Database()<br/>
-Object-oriented Databases()<br/>
-Hierarchical Databases<br/>
-Network Databases<br/>
-Personal Database<br/>
-Operational Database<br/>
-Enterprise Database. <br/>
+Cloud Database(virtual environment, many services such as SaaS, PaaS, IaaS)<br/>
+Object-oriented Databases(data is stored as objects)<br/>
+Hierarchical Databases(form of parent-children relationship nodes)<br/>
+Network Databases(form of parent-children relationship nodes)<br/>
+Personal Database(Collecting and storing data on the user's system.Easy,small,simple)<br/>
+Operational Database(creates and updates the database in real-time)<br/>
+Enterprise Database(used by enterprises,large,multi process,parallel queries)<br/>
 **What are the differences between RDBMS and NoSql?**<br/>
 **What is a  monolithic code?**<br/>
 **What is microservice structure? How it works?** <br/>
