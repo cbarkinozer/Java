@@ -1,14 +1,14 @@
 **Frontend Questions**<br />
-What is HTML?<br/>
-Is CSS a programming language?<br/>
-Is CSS Turing complete?<br/>
-How Asynchron programming works in Javascript?<br/>
-What are ES5 and ES6?<br/>
-How to define a class in Javascript?<br/>
-What is Closure?<br/>
-What are the differences between Cookie, LocalStore,SessionStorage,LocalForge?<br/>
-What are the differences between a Web page and a web application?<br/>
-Can you debug on Chrome dev tools?<br/>
+**What is HTML?**<br/>
+**Is CSS a programming language?**<br/>
+**Is CSS Turing complete?**<br/>
+**How Asynchron programming works in Javascript?<br/>
+**What are ES5 and ES6?<br/>
+**How to define a class in Javascript?**<br/>
+**What is Closure?**<br/>
+**What are the differences between Cookie, LocalStore,SessionStorage,LocalForge?**<br/>
+**What are the differences between a Web page and a web application?**<br/>
+**Can you debug on Chrome dev tools?**<br/>
 <br/>
 <br/>
 **Backend Questions**<br/>
