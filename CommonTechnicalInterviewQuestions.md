@@ -52,7 +52,6 @@ RDBMS applications store data in the form of table structured manner. NoSQL is a
 <br/>
 **What is a monolithic system?**<br/>
 In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.<br/>
-
 <br/>
 **What is microservice structure and how it works?**<br/>
 Microservices are an architectural approach to creating cloud applications. When using microservices, you isolate software functionality into multiple independent modules that are individually responsible for performing precisely defined, standalone tasks. These modules communicate with each other through simple, universally accessible application programming interfaces (APIs).<br/>
