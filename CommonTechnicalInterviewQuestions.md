@@ -60,7 +60,7 @@ In software engineering, a monolithic application describes a single-tiered soft
 **What is microservice structure and how it works?**<br/>
 Microservices are an architectural approach to creating cloud applications. When using microservices, you isolate software functionality into multiple independent modules that are individually responsible for performing precisely defined, standalone tasks. These modules communicate with each other through simple, universally accessible application programming interfaces (APIs).<br/>
 <br/>
-![Ekran Görüntüsü (236)](https://user-images.githubusercontent.com/43732258/141445956-e6aaf116-39c9-4072-8867-4f47fc49a586.png)
+![Ekran Görüntüsü (237)](https://user-images.githubusercontent.com/43732258/141446753-6334400f-f30c-4e1b-a265-d25ff32d77fc.png)
 [Source:KablosuzKedi-Mikroservis Mimarisi Nedir ve avantajları nedir?]<br/>
 <br/>
 
