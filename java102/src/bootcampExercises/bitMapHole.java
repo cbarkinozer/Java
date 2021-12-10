@@ -7,7 +7,7 @@ For example: if strArr is ["10111", "10101", "11101", "11111"], then this looks 
 
 1 0 1 1 1
 1 0 1 0 1
-1 1 1 0 1
+1 1 1 0 0
 1 1 1 1 1
 
 For the input above, your program should return 2 because there are two separate contiguous regions of 0's, which create "holes" in the matrix.
