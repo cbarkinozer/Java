@@ -1,4 +1,5 @@
 /*
+LEVEL: HARD
 Optimal Assignments
 Have the function OptimalAssignments(strArr) read strArr which will represent an NxN matrix and it will be in the following format:
 ["(n,n,n...)","(...)",...] where the n's represent integers. This matrix represents a machine at row i performing task at column j.
