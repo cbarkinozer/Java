@@ -39,14 +39,14 @@ public class Main {
             }
         }
         for (int c = 0; c < index.size(); c++) {
-            checker = false;
+            checker = true;
             for (int k = c + 1; k < index.size(); k++) {
                 if (index.get(k).get(0) == index.get(c).get(0) + 1 && index.get(k).get(1) == index.get(c).get(1) || index.get(k).get(0) == index.get(c).get(0) && index.get(k).get(1) == index.get(c).get(1) + 1){
-                     checker = true;
+                     checker = false;
                 }
             }
 
-            if (checker == false){ 
+            if (checker){ 
                  holes++;
             }
         } 
