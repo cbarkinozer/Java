@@ -15,6 +15,20 @@ import java.util.*;
 import java.io.*;
 public class Main {
     public static String featuredProduct(List<String>products){
+        ArrayList<Integer> count= new ArrayList<Integer>();
+        for(int i=0;i<products.size();i++){
+            count.add(0);
+        }
+        for(int i=0;i<products.size();i++)){
+            if(Arrays.asList(products).contains(products.get(i))){
+                count.set(i,count.get(i)+1);
+            }
+        }
+        if(Arrays.asList(count).contains(Collections.max(count))){
+            Collections.sort(products);
+            return products.get(products.size()-1);
+        }
+        return products.get(count.indexOf(Collections.max(count)));
     }
 
     public static void main(String[] args){
