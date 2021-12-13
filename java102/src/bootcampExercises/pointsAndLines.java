@@ -4,9 +4,10 @@ Level: MEDIUM?
 Given two fully implemented classes, Point and Line. Read through the given code to understand their implementations.
 Implement the class LineList which implements the interface LineListInterface in order to perform some operations on a list of lines.
 Interface LineListInterface consists of:
-Attribute "Vector<Line>list_of_lines" which stores a list of lines.
-Constructor with parameter Vector<Line> to initialize the list_of_lines attribute.
+Attribute: "Vector<Line>list_of_lines" which stores a list of lines.
+Constructor: With parameter Vector<Line> to initialize the list_of_lines attribute.
 Method: 'Line getLineWithMaxLength()' which returns the first longest line from the list of lines.
+Method: 'Vector<Line> getLinesStratingFromPoint(Point p)' which returns the list of all the lines starting from the given point p.
 */
 
 import java.util.*;
