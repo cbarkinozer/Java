@@ -3,7 +3,7 @@
 Level:MEDIUM?
 For a given array of transactions, group all of the transactions by item name. Return an array of strings where each string contains the item name followed by
 a space and the number of associated transactions.
-Note: Sort the array descending by transactions count, the nascending alphabetically by item name for items with matching transaction counts.
+Note: Sort the array descending by transactions count, then ascending alphabetically by item name for items with matching transaction counts.
 Example:
 transactions=["notebook","notebook","mouse","keyboard","mouse"]
 There are 2 items with 2 transactions each:
