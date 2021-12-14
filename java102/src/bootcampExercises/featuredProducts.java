@@ -10,7 +10,6 @@ redShirt is the last product listed so it is selected.
 Function has a string products[n] array. 1<= n <=10^4.
 Function should return selected product as a string.
 */
-
 import java.util.*;
 import java.io.*;
 public class Main {
@@ -19,7 +18,7 @@ public class Main {
         for(int i=0;i<products.size();i++){
             count.add(0);
         }
-        for(int i=0;i<products.size();i++)){
+        for(int i=0;i<products.size();i++){
             if(Arrays.asList(products).contains(products.get(i))){
                 count.set(i,count.get(i)+1);
             }
@@ -32,8 +31,7 @@ public class Main {
     }
 
     public static void main(String[] args){
-        String[] strArr= new String[] {"0011", "0010"} ;
-        System.out.println("Correct Result: 2 . Your Result: "+function(strArr));
+        
         
     }
 }
