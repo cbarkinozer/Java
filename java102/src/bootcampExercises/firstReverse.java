@@ -9,3 +9,15 @@ Output: etybredoc
 Input: "I Love Code"
 Output: edoC evoL I
 */
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static String firstReverse(String str){
+      String reverse = new StringBuilder(str).reverse().toString();
+      return reverse;
+    }
+    public static void main(String[] args){
+      Scanner scanner = new Scanner(System.in);
+      System.out.println(FirstReverse(scanner.nextLine()));
+    }
+}
