@@ -14,6 +14,7 @@ The return array sorted as required is ["mouse 2", "keyboard 2", "notebook 1"]
 
 import java.util.*;
 import java.io.*;
+import java.util.stream.Collectors;
 public class Main {
     
     /*
@@ -25,25 +26,36 @@ public class Main {
     */
     
     
-    public static List<String> groupTransactions(List<String>transacitons){
-    
-        
-        
+   public static List<String> groupTransactions(List<String>transactions){
+       //Unfinished
+       ArrayList<String> list= new ArrayList<>();
+       Map<String,Integer> list= new HashMap<>();
+       
+       for(String str:transactions){
+           Integer count = freq.set(str);
+           if(count==null){
+               count=0;
+           }
+           freq.put(s,count+1);
+       }
+        return transactions;
     }
-    public static List<String> groupTransactions2(List<String>transacitons){
+    
+    public static List<String> groupTransactions2(List<String>transactions){
     
         
         final String SPACE=" ";
         //1_finding frequency
-        Map<String,Integer> freq=transactions.stream()
-        .collect(Collectors.groupingBy(i->i,Collectors.counting()));
+        Map<String,Long> freq=transactions.stream()
+        .collect(Collectors.groupingBy(i -> i, Collectors.counting())); 
+        //Collectors.counting() returns Long
         
         List<String> formattedTransactions = freq.entrySet().stream()
-        .sorted(Map.Entry<String,Integer>ComparingByValue()
+        .sorted(Map.Entry.<String,Long>comparingByValue()
             .reversed()
             .thenComparing(Map.Entry.comparingByKey())
             )
-        .map(i->i.getKey()+SPACE+e.getValue()) //Transform as "key value"
+        .map(i->i.getKey()+SPACE+i.getValue()) //Transform as "key value"
         .collect(Collectors.toList());
         
         //4_return
@@ -51,7 +63,13 @@ public class Main {
     }
 
     public static void main(String[] args){
-        ArrayList<String> transactions = new ArrayList<>("notebook","notebook","mouse","keyboard","mouse");
+        ArrayList<String> transactions = new ArrayList<String>();
+        
+        transactions.add("notebook");
+        transactions.add("notebook");
+        transactions.add("mouse");
+        transactions.add("keyboard");
+        transactions.add("mouse");
         
         System.out.println("Algorithmic solution:"+groupTransactions(transactions));
         System.out.println("Stream solution:"+groupTransactions2(transactions));
