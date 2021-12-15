@@ -16,11 +16,16 @@ import java.util.*;
 import java.io.*;
 public class Main {
     public static List<String> groupTransactions(List<String>transacitons){
+    
+        //Algorithmic solution
+    }
+    public static List<String> groupTransactions2(List<String>transacitons){
+    
+        //Functional programming solution with streams
     }
 
     public static void main(String[] args){
-        String[] strArr= new String[] {"0011", "0010"} ;
-        System.out.println("Correct Result: 2 . Your Result: "+function(strArr));
+        
         
     }
 }
