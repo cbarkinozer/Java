@@ -15,17 +15,46 @@ The return array sorted as required is ["mouse 2", "keyboard 2", "notebook 1"]
 import java.util.*;
 import java.io.*;
 public class Main {
+    
+    /*
+    Pseduocode
+    1_Find frequency count for item name
+    2_sort items by their frequency count descending
+    3_if count duplicate sort by item name alphabetically ascending
+    4_return List<String>
+    */
+    
+    
     public static List<String> groupTransactions(List<String>transacitons){
     
-        //Algorithmic solution
+        
+        
     }
     public static List<String> groupTransactions2(List<String>transacitons){
     
-        //Functional programming solution with streams
+        
+        final String SPACE=" ";
+        //1_finding frequency
+        Map<String,Integer> freq=transactions.stream()
+        .collect(Collectors.groupingBy(i->i,Collectors.counting()));
+        
+        List<String> formattedTransactions = freq.entrySet().stream()
+        .sorted(Map.Entry<String,Integer>ComparingByValue()
+            .reversed()
+            .thenComparing(Map.Entry.comparingByKey())
+            )
+        .map(i->i.getKey()+SPACE+e.getValue()) //Transform as "key value"
+        .collect(Collectors.toList());
+        
+        //4_return
+        return formattedTransactions;
     }
 
     public static void main(String[] args){
+        ArrayList<String> transactions = new ArrayList<>("notebook","notebook","mouse","keyboard","mouse");
         
+        System.out.println("Algorithmic solution:"+groupTransactions(transactions));
+        System.out.println("Stream solution:"+groupTransactions2(transactions));
         
     }
 }
