@@ -115,8 +115,8 @@ public static String ShortestPath2(String[] strArr) {
     String[] str = {"5", "A", "B", "C","D","F","A-B","A-C","B-C","C-D","D-F"};
     String[] str2 = {"4", "X", "Y", "Z","W","X-Y","Y-Z","X-W"};
     
-    System.out.println(ShortestPath(str));
-    System.out.println(ShortestPath(str2));
+    System.out.println("A-C-D-F: "+ShortestPath(str));
+    System.out.println("X-W: "+ShortestPath(str2));
     
   }
 
