@@ -13,8 +13,7 @@ import java.util.*;
 import java.io.*;
 public class Main {
     public static String firstReverse(String str){
-      String reverse = new StringBuilder(str).reverse().toString();
-      return reverse;
+      return new StringBuilder(str).reverse().toString();
     }
     public static void main(String[] args){
       Scanner scanner = new Scanner(System.in);
