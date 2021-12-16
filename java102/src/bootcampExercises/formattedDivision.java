@@ -1,5 +1,4 @@
 /*
--UNFINISHED-
 Level:MEDIUM
 Formatted Division
 Have the function FormattedDivision(num1,num2) take both parameters being passed, divide num1 by num2,
@@ -20,43 +19,9 @@ import java.text.DecimalFormat;
 class Main {
 
   public static String FormattedDivision(int num1, int num2) {
-    /*
-    int result=0;
-    int remainder=0;
-    String strResult = new String();
-
-    result=num1/num2; //integer part
-    remainder=num1%num2; //remainder part
-    strResult=String.valueOf(result); //strResult is integer part as string
-    int len =strResult.length();
-    int a=0,b=1,c=2;
-    StringBuffer newStr = new StringBuffer(strResult);
     
-    //Below part does not work
-    for(int i=0;i<len;i++){
-      
-      if(len%3==0& i%3==c){
-        newStr.insert(i+1,",");
-        a+=3;
-      }else if(len%3==1& i%3==a){
-        newStr.insert(i+1,",");
-        b+=2;
-      }else if(len%3==2& i%3==b){
-        newStr.insert(i+1,",");
-        c+=4;
-      }
-      
-    }
-    strResult=strResult.toString();
-    return strResult+"."+remainder;
-    */
-    
-    String str= new String();
-    DecimalFormat decimalFormat= new DecimalFormat("0.0000");
-    str=String.valueOf(decimalFormat.format(num1/num2));
-    return str;
-    //Does not add commas
-    // Prints 12345.6789 instead of 12,345.6789
+    double division = num1 * 1.00 / num2;
+    return String.format("%,.4f", division);
     
   }
 
