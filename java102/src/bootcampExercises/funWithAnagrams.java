@@ -13,13 +13,40 @@ string text[n]. 0<=n<=1000.
 
 import java.util.*;
 import java.io.*;
-public class Main {
-    public static List<String> funWithAnagrams(List<String>text){
-    }
 
+public class Main {
+    
+    public static List<String> funWithAnagrams(List<String>text){
+        boolean status=false;
+        
+        for(int i=0;i<text.size();i++){
+            if(!(text.get(i+1)==null)){
+                if(text.get(i).length() != text.get(i) ){
+                    status=false;
+                }else{
+                    
+                    char[] Array1=text.get(i).toCharArray();
+                    char[] Array2=text.get(i).toCharArray();
+                    
+                    Arrays.sort(Array1);
+                    Arrays.sort(Array2);
+                    
+                    status=Arrays.equals(Array1,Array2);
+                }
+            }
+            if(status){
+                text.remove(i+1);
+            }
+        }
+        Collections.sort(text);
+        return text;
+    }
+    public static List<String> funWithAnagrams2(List<String>text){
+        //Stream solution
+        return text.get(0);
+    }
     public static void main(String[] args){
-        String[] strArr= new String[] {"0011", "0010"} ;
-        System.out.println("Correct Result: 2 . Your Result: "+function(strArr));
+        
         
     }
 }
