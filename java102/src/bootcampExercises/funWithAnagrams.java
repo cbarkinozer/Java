@@ -21,7 +21,7 @@ public class Main {
         
         for(int i=0;i<text.size();i++){
             if(!(text.get(i+1)==null)){
-                if(text.get(i).length() != text.get(i) ){
+                if(text.get(i).length() != text.get(i+1).length() ) {
                     status=false;
                 }else{
                     
@@ -43,7 +43,7 @@ public class Main {
     }
     public static List<String> funWithAnagrams2(List<String>text){
         //Stream solution
-        return text.get(0);
+        return text;
     }
     public static void main(String[] args){
         
