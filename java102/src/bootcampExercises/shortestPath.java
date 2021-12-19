@@ -105,6 +105,25 @@ public class Main {
     }
   }
 
+public static String ShortestPath2(String[] strArr) {
+    //Stream solution
+    //-UNFINISHED-
+    int count=0;
+    int N=Integer.parseInt(strArr[0]);
+    ArrayList<String> newStrArray= new ArrayList<String>();
+    for(int i=1;i<N;i++){
+        newStrArray.add(strArr[i]);
+    }
+    return Arrays.stream(strArr)
+    .skip(N)                        //Take only starting from N
+    .limit(strArr.length-N+1)       //To the end
+    .filter(i->i.startsWith(newStrArray.get(count))) 
+    //Take only ones starting with the first node name
+    .forEach(i->i.endsWith(newStrArray.get(count++)))  
+    //Check ones ending with next node name
+    .reduce((s1,s2)->s1+s2) //concat strings
+    .orElse("-1"); //If no elements exist return String -1
+}
 
 public static String ShortestPath2(String[] strArr) {
     //Stream solution
@@ -117,6 +136,9 @@ public static String ShortestPath2(String[] strArr) {
     
     System.out.println("A-C-D-F: "+ShortestPath(str));
     System.out.println("X-W: "+ShortestPath(str2));
+    
+    System.out.println("A-C-D-F: "+ShortestPath2(str));
+    System.out.println("X-W: "+ShortestPath2(str2));
     
   }
 
