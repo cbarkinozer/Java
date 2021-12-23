@@ -1,4 +1,6 @@
 /*
+-UNFINISHED-
+LEVEL:HARD
 Transitivity Relations
 Have the function TransitivityRelations(strArr) read the strArr parameter being passed which will make up an NxN matrix where the rows are separated
 by each pair of parentheses (the matrix will range from 2x2 to 5x5). The matrix represents connections between nodes in a graph where each node corresponds to the 
