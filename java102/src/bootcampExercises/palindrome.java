@@ -1,5 +1,4 @@
 /*
--UNFINISHED-
 LEVEL:EASY
 Palindrome
 Have the function Palindrome(str) take the str parameter being passed and return the string true if the parameter is a palindrome,
@@ -11,4 +10,22 @@ Output: true
 Input: "eye"
 Output: true
 */
+
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static String firstReverse(String str){
+      str=str.replace(" ","");
+      StringBuilder strBuilder = new StringBuilder(str);
+      if(strBuilder.toString().equals(strBuilder.reverse().toString())){
+        return "true";
+      }else{
+        return "false";
+      }
+    }
+    public static void main(String[] args){
+      Scanner scanner = new Scanner(System.in);
+      System.out.println(FirstReverse(scanner.nextLine()));
+    }
+}
 
