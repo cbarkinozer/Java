@@ -14,7 +14,7 @@ Output: true
 import java.util.*;
 import java.io.*;
 public class Main {
-    public static String firstReverse(String str){
+    public static String palindrome(String str){
       str=str.replace(" ","");
       StringBuilder strBuilder = new StringBuilder(str);
       if(strBuilder.toString().equals(strBuilder.reverse().toString())){
@@ -25,7 +25,7 @@ public class Main {
     }
     public static void main(String[] args){
       Scanner scanner = new Scanner(System.in);
-      System.out.println(FirstReverse(scanner.nextLine()));
+      System.out.println(palindrome(scanner.nextLine()));
     }
 }
 
