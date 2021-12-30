@@ -9,6 +9,26 @@ Input: "after badly"
 Output: false
 Input: "Laura sobs"
 Output: true
+TEST CASES
+1. For input "after it" the output was incorrect. The correct output is false
+
+2. For input "Laura sobs" the output was incorrect. The correct output is true
+
+3. For input "away obe" the output was incorrect. The correct output is true
+
+4. For input "noah obe" the output was incorrect. The correct output is true
+
+5. For input "far ebs" the output was incorrect. The correct output is true
+
+6. For input "aaaaddddd" the output was incorrect. The correct output is false
+
+7. For input "123advb" the output was incorrect. The correct output is false
+
+8. For input "123adzvb" the output was incorrect. The correct output is true
+
+9. For input "abccccazzzb" the output was incorrect. The correct output is true
+
+10. For input "bzzza" the output was incorrect. The correct output is true
 */
 
 
