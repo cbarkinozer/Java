@@ -11,7 +11,7 @@ Input: "Laura sobs"
 Output: true
 */
 
-/*
+
 import java.util.*; 
 import java.io.*;
 import java.math.*;
@@ -42,4 +42,3 @@ class Main {
   }
 
 }
-*/
