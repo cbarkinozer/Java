@@ -1,5 +1,4 @@
 /*
--UNFINISHED-
 LEVEL:MEDIUM
 Run Length
 Have the function RunLength(str) take the str parameter being passed and return a compressed version of the string using the Run-length encoding algorithm.
@@ -12,7 +11,6 @@ Input: "wwwbbbw"
 Output: 3w3b1w
 */
 public static String RunLength(String str) {
-    // code goes here
     String repost = "";
     int count = 1;
     char c = str.charAt(0);
