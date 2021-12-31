@@ -11,34 +11,26 @@ Output: 2a2b1c1d1e
 Input: "wwwbbbw"
 Output: 3w3b1w
 */
-import java.util.*;
-import java.io.*;
-public class Main {
-    public static String runLength(String str){
-      int count=1;
-      ArrayList<Character> ch = new ArrayList<Character>();
-      for(char c: str.toCharArray()){
-        ch.add(c);
+public static String RunLength(String str) {
+    // code goes here
+    String repost = "";
+    int count = 1;
+    char c = str.charAt(0);
+    for(int i=1; i<str.length();i++){
+      if(str.charAt(i)==c){
+        count++;
       }
-      ArrayList<Character> ch2 = new ArrayList<Character>();
-      for(int i=0;i<ch.size();i++){
-        count=1;
-        for(int j=i;j<ch.size();j++){
-          if(ch.get(i).equals(ch.get(j))){
-            count++;
-          }else{
-            ch2.add(String.valueOf(count)).charAt(0));
-            ch2.add(ch.get(i));
-            break;
-          }
-        }
+      else{
+        repost += count + "" +c;
+        c = str.charAt(i); 
+        count = 1;
       }
-    StringBuilder sb= new StringBuilder();
-    for(Character c:ch2){
-      sb.append(c);
     }
-    return sb.toString();
-    }
+
+    repost += count + "" +c;
+
+    return repost;
+  }
     public static void main(String[] args){
       Scanner scanner = new Scanner(System.in);
       System.out.println(runLength(scanner.nextLine()));
