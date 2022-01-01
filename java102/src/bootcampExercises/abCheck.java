@@ -1,5 +1,5 @@
 /*
-UNFINISHED
+
 LEVEL:EASY
 AB Check
 Have the function ABCheck(str) take the str parameter being passed and return the string true if the characters a and b are separated by exactly 3 places anywhere
@@ -31,17 +31,17 @@ TEST CASES
 10. For input "bzzza" the output was incorrect. The correct output is true
 */
 
-import java.util.; 
-import java.io.;
+import java.util.*; 
+import java.io.*;
 
-class Main {
+public class Main {
 
   public static String ABCheck(String str) {
     for (int i = 0; i < str.length(); i++) {
-      if (str.charAt(i) == 'a'  str.charAt(i) == 'b') {
+      if (str.charAt(i) == 'a' || str.charAt(i) == 'b') {
         int count = 0;
         for (int j = i+1; j < str.length(); j++) {
-          if (((str.charAt(j) == 'b' && str.charAt(i) == 'a')  (str.charAt(j) == 'a' && str.charAt(i) == 'b')) && count == 3) {
+          if (((str.charAt(j) == 'b' && str.charAt(i) == 'a') ||  (str.charAt(j) == 'a' && str.charAt(i) == 'b')) && count == 3) {
             return "true";
           }
           count++;
