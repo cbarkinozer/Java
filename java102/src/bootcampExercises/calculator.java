@@ -33,40 +33,117 @@ Output: 1
 
 10. For input "8-7*(12+100/2)*9-2" the output was incorrect. The correct output is -3900
 */
+import java.util.; 
+import java.io.;
 
+public class Main {
 
+  Stack<Integer> num = new Stack<Integer>();
+    Stack<Character> op = new Stack<Character>();
+    StringBuilder s = new StringBuilder();
 
-import java.util.*; 
-import java.io.*;
+    String Calculator(String str) {
 
-class Main {
+        for (int i = 0; i < str.length(); i++) {
 
-  public static String Calculator(String str) {
-    char operation=' ';
-    int result=0;
-    ArrayList<Integer> values = new ArrayList<Integer>();
-    //TODO: Find values from string
-    switch(operation){
-      case'*':
-      result=values.get(0)* values.get(1);
-      break;
-      case'/':
-      result=values.get(0)/ values.get(1);
-      break;
-      case '+':
-      result=values.get(0)+ values.get(1);
-      break;
-      case '-':
-      result=values.get(0)- values.get(1);
-      break;
-    }  
-    return Integer.toString(result);
-  }
+            char c = str.charAt(i);
 
-  public static void main (String[] args) {  
-    // keep this function call here     
+            if (Character.isDigit(c))
+                if(i == str.length()-1)
+                {
+                    s.append(c);
+                    num.push(Integer.parseInt(s.toString()));
+                }
+                else
+                    s.append(c);
+
+            else {
+                if(s.length() > 0)
+                    num.push(Integer.parseInt(s.toString()));
+                s = new StringBuilder("");
+
+                if (c == ')') {
+                    while (op.peek() != '(')
+                        eval();
+                    op.pop();
+                    if (i < str.length() - 1
+                            && (str.charAt(i + 1) == '(' || Character
+                                    .isDigit(str.charAt(i + 1))))
+                        op.push('');
+                }
+
+                else if (op.size() > 0 && hasLowEqPrec(c, op.peek())) {
+                    while(op.size() > 0 && hasLowEqPrec(c, op.peek()))
+                        eval();
+                    op.push(c);
+                } else
+                    if( c == '(' &&  i>0 && Character
+                            .isDigit(str.charAt(i - 1)))
+                            {
+                                op.push('');
+                                op.push(c);
+                            }
+                    else
+                    op.push(c);
+            }
+        }
+while (op.size() != 0) {
+            eval();
+        }
+
+        int finalAns = num.pop();
+
+        return String.valueOf(finalAns);
+
+    }
+
+    private boolean hasLowEqPrec(char c, char peek) {
+
+        if (c == '+'  c == '-')
+            if (peek == '*'  peek == '/'  peek == '+'  peek == '-')
+                return true;
+            else
+                return false;
+        else
+            if(c == '' || c == '/')
+                if (peek == '' || peek == '/')
+            return true;
+                else
+                    return false;
+
+        return false;
+    }
+
+    void eval() {
+        int n1 = num.pop();
+        int n2 = num.pop();
+        int ans = 0;
+
+        char c = op.pop();
+
+        switch (c) {
+        case '+':
+            ans = n2 + n1;
+            break;
+        case '-':
+            ans = n2 - n1;
+            break;
+        case '*':
+            ans = n2 * n1;
+            break;
+        case '/':
+            ans = n2 / n1;
+            break;
+        }
+
+        num.push(ans);
+
+    }
+public static void main (String[] args) {
+    // keep this function call here
     Scanner s = new Scanner(System.in);
-    System.out.print(Calculator(s.nextLine())); 
+    Main m=new Main();
+    System.out.print(m.Calculator(s.nextLine())); 
   }
 
 }
