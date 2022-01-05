@@ -7,6 +7,11 @@ Input: "Hello World"
 Output: 7
 Input: "Alphabets"
 Output: 6
+
+1. For input "Hewlett-Packard" the output was incorrect. The correct output is 10
+
+2. For input "zz*" the output was incorrect. The correct output is 2
+
 */
 
 import java.util.*; 
