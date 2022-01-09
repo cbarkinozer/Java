@@ -1,6 +1,6 @@
 # JavaProjects
 Java projects that I made to learn the Java language.<br/>
-I used Eclipse IDE. Now I prefer Intellij because it is more begineer-friendly.<br/>
+I used Eclipse IDE, I do not use anymore. I prefer NetBeans IDE for desktop developement and Intellij IDE for other java developement (like web) because it is more begineer-friendly.<br/>
 Origin branch is the default branch. I push updates on master branch than pull to the origin branch.<br/>
 
 ### Notes
