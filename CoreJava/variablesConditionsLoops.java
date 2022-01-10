@@ -174,8 +174,8 @@ public class Main {
         
         
         //Switch
-            int day = 2;
-            switch (day) {
+            int door = 2;
+            switch (door) {
                 case 1:
                     System.out.println("1. door Mr. Gill");
                     break;
