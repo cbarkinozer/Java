@@ -54,11 +54,32 @@ public class Main {
         
         
         */
-        
-        
-        
-        
         //Classes
+        /*
+            Object oriented programming is programming by creating structures as
+            objects. These objects have attributes (variables) and they do behaviours(methods).
+            
+            //Encapsulation
+            If we make object's attributes public, these values can be assigned values that 
+            are error-free but meaningless in the context of the program.
+            So to prevent this, we should prevent direct access(public), instead,
+            we should access private attributes and change with methods named setter,
+            and read values with getter. This is called encapsulation.
+            
+            Example:
+            public class Car{
+                private int doorNumber;
+            
+                public void setDoorNumber(int doorNumber){
+                    this.doorNumber=doorNumber;
+                }
+            }
+            this keyword tells the compiler that,
+            the variable we are using is the variable that is defined inside that
+            scope.
+        
+            
+        */
         //Constructors
         //Inheritence
         //Composition
