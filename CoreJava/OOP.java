@@ -128,6 +128,30 @@ public class Main {
                     this(1111,"no name"); //Runs the parameterized method
                 }
             }
+            
+            //Object References
+        
+            Question: Does below code print anything?
+            Account account1 = new Account();
+            Account account2 = new Account();
+        
+            account2=account1;
+            
+            if(account1==account2){ //Check if they point the same place memory
+                System.out.println("They have the same memory");
+            }
+        
+            Yes , it prints "They have the same memory". They are reference type
+            objects they can point each other in memory.
+        
+        
+            The below lines are also legal.
+            new Account(1234,"abc");
+            new Account(1234,"abc").printValues();
+        
+            Constructors and methods used without creating reference.
+            These techniques are prefered for single line operations.
+        
         */
         //Inheritence
         //Composition
