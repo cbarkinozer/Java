@@ -81,6 +81,35 @@ public class Main {
             
         */
         //Constructors
+        /*
+            Classes have methods with the same name as they are constructors
+            (for class Account, method named Account() is a constructor).
+            Constructors work when an object is created.
+            Constructors generally used to give initial values to class's attributes.
+            
+            Example:
+            public class Account{
+                int accountId;
+                String accountName;
+                
+                //this is a constructor
+                public Account(int accountId, String accountName){
+                    this.accountId=accountId;
+                    this.accountName=accountName;
+                }
+            }
+            
+            Inside Main class, and main() method:
+                //Object created initial values are given to constructor
+                Account account = new Account(12345,"first account");
+                
+        
+            Also in c++ there are destructors for deleting object. But in Java
+            there is no direct equivalent of destructor because there is garbage
+            collector that automatically deletes object memory.
+            There is a inherited method finalize to do final works on a object but
+            it is not common.
+        */
         //Inheritence
         //Composition
         //Encapsulation
