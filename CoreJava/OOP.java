@@ -109,6 +109,25 @@ public class Main {
             collector that automatically deletes object memory.
             There is a inherited method finalize to do final works on a object but
             it is not common.
+            
+            We can also method overload constructor for no parameters given version.
+            And you can assign default values.
+            
+            Example:
+            public class Account{
+                int accountId;
+                String accountName;
+                
+                //this is a constructor
+                public Account(int accountId, String accountName){
+                    this.accountId=accountId;
+                    this.accountName=accountName;
+                }
+                
+                public Account(){
+                    this(1111,"no name"); //Runs the parameterized method
+                }
+            }
         */
         //Inheritence
         //Composition
