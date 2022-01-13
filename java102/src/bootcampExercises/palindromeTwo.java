@@ -16,7 +16,7 @@ Output: true
 import java.util.*; 
 import java.io.*;
 
-class Main {
+public class Main {
 
   public static String PalindromeTwo(String str) {
     String str2 = new String();
@@ -24,15 +24,18 @@ class Main {
     str2= sBuffer.reverse().toString();
     
     str= str.replaceAll(" ","");
-    str= str.replaceAll("[^\\d]","");
-
+    str= str.replaceAll("[^a-zA-Z]","");
+    
     str2= str2.replaceAll(" ","");
-    str2= str2.replaceAll("[^\\d]","");
+    str2= str2.replaceAll("[^a-zA-Z]","");
+    
     
     if(str.equalsIgnoreCase(str2)){
       return "true";
-    }else{
+    }else if(!(str.equalsIgnoreCase(str2))){
       return "false";
+    }else{
+        return "error";
     }  
     
   }
