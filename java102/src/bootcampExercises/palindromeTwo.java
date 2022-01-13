@@ -10,3 +10,20 @@ Output: true
 Input: "A war at Tarawa!"
 Output: true
 */
+import java.util.*; 
+import java.io.*;
+
+class Main {
+
+  public static String PalindromeTwo(String str) {
+    // code goes here  
+    return str;
+  }
+
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(PalindromeTwo(s.nextLine())); 
+  }
+
+}
