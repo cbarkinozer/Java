@@ -16,8 +16,22 @@ import java.io.*;
 class Main {
 
   public static String PalindromeTwo(String str) {
-    // code goes here  
-    return str;
+    String str2 = new String();
+    StringBuffer sBuffer = new StringBuffer(str);
+    str2= sBuffer.reverse().toString();
+    
+    str= str.replaceAll(" ","");
+    str= str.replaceAll("[^\\d]","");
+
+    str2= str2.replaceAll(" ","");
+    str2= str2.replaceAll("[^\\d]","");
+    
+    if(str.equalsIgnoreCase(str2)){
+      return "true";
+    }else{
+      return "false";
+    }  
+    
   }
 
   public static void main (String[] args) {  
