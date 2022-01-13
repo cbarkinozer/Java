@@ -9,6 +9,18 @@ Input: 1
 Output: 1
 Input: 3
 Output: 3
+
+1. For input 1 the output was incorrect. The correct output is 1
+2. For input 2 the output was incorrect. The correct output is 2
+3. For input 3 the output was incorrect. The correct output is 3
+4. For input 4 the output was incorrect. The correct output is 5
+5. For input 5 the output was incorrect. The correct output is 8
+6. For input 6 the output was incorrect. The correct output is 13
+7. For input 7 the output was incorrect. The correct output is 21
+8. For input 8 the output was incorrect. The correct output is 34
+9. For input 9 the output was incorrect. The correct output is 55
+10. For input 13 the output was incorrect. The correct output is 377
+
 */
 import java.util.*; 
 import java.io.*;
