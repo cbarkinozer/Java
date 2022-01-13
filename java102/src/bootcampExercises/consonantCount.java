@@ -9,7 +9,6 @@ Input: "Alphabets"
 Output: 6
 
 */
-
 import java.util.*; 
 import java.io.*;
 
@@ -20,9 +19,7 @@ public class Main {
     str= str.replaceAll("[aeiouAEIOU]","");
     //Delete non-alphanumeric
     str= str.replaceAll("[^a-zA-Z0-9]","");
-    StringBuffer strbuff = new StringBuffer(str);
-    int len = strbuff.length();
-    return String.valueOf(len);
+    return String.valueOf(str.length());
   }
 
   public static void main (String[] args) {  
