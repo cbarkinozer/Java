@@ -9,6 +9,9 @@ Input: "Noel - sees Leon"
 Output: true
 Input: "A war at Tarawa!"
 Output: true
+1. For input "not a palindrome" the output was incorrect. The correct output is false
+2. For input "Sir{} I am not Iris!" the output was incorrect. The correct output is false
+3. For input "radars belong underwater" the output was incorrect. The correct output is false
 */
 import java.util.*; 
 import java.io.*;
