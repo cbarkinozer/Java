@@ -15,8 +15,15 @@ import java.io.*;
 class Main {
 
   public static int CheckNums(int num1, int num2) {
-    // code goes here  
-    return num1;
+    if(num2>num1){
+      return "true";
+    }else if(num1>num2){
+      return "false";
+    }else if(num1==num2){
+      return "-1";
+    }else{
+      return "error";
+    }  
   }
 
   public static void main (String[] args) {  
