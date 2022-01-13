@@ -8,19 +8,18 @@ Output: 7
 Input: "Alphabets"
 Output: 6
 
-1. For input "Hewlett-Packard" the output was incorrect. The correct output is 10
-
-2. For input "zz*" the output was incorrect. The correct output is 2
-
 */
 
 import java.util.*; 
 import java.io.*;
 
-class Main {
+public class Main {
 
   public static String ConsonantCount(String str) {
-    str= str.replaceAll("[aeiou AEIOU]","");
+    //Delete uppercase and lowercase vowels
+    str= str.replaceAll("[aeiouAEIOU]","");
+    //Delete non-alphanumeric
+    str= str.replaceAll("[^a-zA-Z0-9]","");
     StringBuffer strbuff = new StringBuffer(str);
     int len = strbuff.length();
     return String.valueOf(len);
