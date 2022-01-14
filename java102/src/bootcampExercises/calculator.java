@@ -33,117 +33,129 @@ Output: 1
 
 10. For input "8-7*(12+100/2)*9-2" the output was incorrect. The correct output is -3900
 */
-import java.util.; 
-import java.io.;
+import java.util.*; 
+import java.io.*;
 
 public class Main {
+  //In stacks hold numbers and operations
+  Stack<Integer> number = new Stack<Integer>();
+  Stack<Character> operation = new Stack<Character>();
+  StringBuilder string = new StringBuilder();
 
-  Stack<Integer> num = new Stack<Integer>();
-    Stack<Character> op = new Stack<Character>();
-    StringBuilder s = new StringBuilder();
+  //Has to be non-static to reach global Stacks
+  public String MathChallenge(String str) {
 
-    String Calculator(String str) {
+    for(int i=0;i<str.length();i++){ //Do following for each char in str
+      char c=str.charAt(i);          //c is the char in str
 
-        for (int i = 0; i < str.length(); i++) {
+      if(Character.isDigit(c)){      //If c is number
+        
+        if(i==str.length()-1){       //if i is the last char
+          string.append(c);          //Add number to StringBuilder
+          number.push(Integer.parseInt(string.toString())); //add number to numbers
+        
+        }else{                       //If i is not the last char
+          string.append(c);          // Add number to StringBuilder
+        }
+      
+      
+      }else{                         //If c is not number
+        
+        if(string.length()>0){       //If string is not empty
+          number.push(Integer.parseInt(string.toString())); //Add number to numbers
+        }
+        
+        string= new StringBuilder("");     //stringBuilder string now empty
 
-            char c = str.charAt(i);
+        if(c==')'){                   //If char is close paranthesis
 
-            if (Character.isDigit(c))
-                if(i == str.length()-1)
-                {
-                    s.append(c);
-                    num.push(Integer.parseInt(s.toString()));
-                }
-                else
-                    s.append(c);
-
-            else {
-                if(s.length() > 0)
-                    num.push(Integer.parseInt(s.toString()));
-                s = new StringBuilder("");
-
-                if (c == ')') {
-                    while (op.peek() != '(')
-                        eval();
-                    op.pop();
-                    if (i < str.length() - 1
-                            && (str.charAt(i + 1) == '(' || Character
-                                    .isDigit(str.charAt(i + 1))))
-                        op.push('');
-                }
-
-                else if (op.size() > 0 && hasLowEqPrec(c, op.peek())) {
-                    while(op.size() > 0 && hasLowEqPrec(c, op.peek()))
-                        eval();
-                    op.push(c);
-                } else
-                    if( c == '(' &&  i>0 && Character
-                            .isDigit(str.charAt(i - 1)))
-                            {
-                                op.push('');
-                                op.push(c);
-                            }
-                    else
-                    op.push(c);
+          while(operation.peek()!='('){      //Calculate operations until see new paranthesis
+            calculate();
             }
+          
+          operation.pop();                   //Delete last operation
+          
+          
+          if(i<str.length()-1 &&              //If i is not the last element and
+          (str.charAt(i+1)=='(' ||           //Next char is open paranthesis or
+          Character.isDigit(str.charAt(i+1)) ) ){ //Next char is digit
+            operation.push('*');                  // push * to operation
+          }
+
         }
-while (op.size() != 0) {
-            eval();
+        //If there are operations and priority is at the lowest
+      else if(operation.size()>0 && hasLowProcessPriority(c,operation.peek())){ 
+        //While there are operations and priority is at the lowest
+        while(operation.size()>0 && hasLowProcessPriority(c,operation.peek())){
+          calculate();                       //Do the calculation
+        }
+        operation.push(c);                   //push to operation
+      }else{              
+          //Character open paranthesis and i is positive and previous char is digit                   
+          if(c=='(' && i>0 && Character.isDigit(str.charAt(i-1))){ 
+            operation.push('*');                 //push * to operaiton
+            operation.push(c);                  //push char to operations
+          }else{
+            operation.push(c);                 //else push char to operation
+          }
         }
 
-        int finalAns = num.pop();
 
-        return String.valueOf(finalAns);
 
-    }
+      }//else
 
-    private boolean hasLowEqPrec(char c, char peek) {
-
-        if (c == '+'  c == '-')
-            if (peek == '*'  peek == '/'  peek == '+'  peek == '-')
-                return true;
-            else
-                return false;
-        else
-            if(c == '' || c == '/')
-                if (peek == '' || peek == '/')
-            return true;
-                else
-                    return false;
-
+      
+    }//for
+      
+    while(operation.size()!=0){calculate();} //While operaiton size is not empty calculate
+    int finalAnswer =number.pop();           //Final answer is the last element on number
+    return String.valueOf(finalAnswer);  
+  
+  }//MatchChallange
+  
+  
+  //The other 2 methods are private because we are reaching from outside
+  
+  //Check process priority if lowest
+  private boolean hasLowProcessPriority(char c, char peek){
+    if(c=='+'||c=='-'){
+      if(peek=='*'||peek=='/'||peek=='+'||peek=='-'){
+        return true;
+      }else{
         return false;
+      }
     }
+    return false;
+  }
+  //Do the calculation
+  private void calculate(){
+    int num1= number.pop();
+    int num2= number.pop();
+    int result=0;
 
-    void eval() {
-        int n1 = num.pop();
-        int n2 = num.pop();
-        int ans = 0;
-
-        char c = op.pop();
-
-        switch (c) {
-        case '+':
-            ans = n2 + n1;
-            break;
-        case '-':
-            ans = n2 - n1;
-            break;
-        case '*':
-            ans = n2 * n1;
-            break;
-        case '/':
-            ans = n2 / n1;
-            break;
-        }
-
-        num.push(ans);
-
+    char c= operation.pop();
+    switch(c){
+      case'+':
+        result=num2+num1;
+        break;
+      case '-':
+        result = num2-num1;
+        break;
+      case '*':
+        result = num2*num1;
+        break;
+      case '/':
+        result = num2/num1;
+        break;  
     }
-public static void main (String[] args) {
-    // keep this function call here
+    number.push(result);
+  }
+
+  public static void main (String[] args) {  
+         
     Scanner s = new Scanner(System.in);
-    Main m=new Main();
-    System.out.print(m.Calculator(s.nextLine())); 
+    Main main = new Main(); //Create object of Main because methods are not static
+    System.out.print(main.MathChallenge(s.nextLine())); 
   }
 
 }
