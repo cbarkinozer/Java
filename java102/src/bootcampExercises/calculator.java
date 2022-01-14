@@ -12,25 +12,16 @@ Output: 15
 Input: "6/3-1"
 Output: 1
 
-1. For input "1+1+1+2" the output was incorrect. The correct output is 5
-
-2. For input "7-2+(5-2)" the output was incorrect. The correct output is 8
-
-3. For input "(4/2)(3-1)" the output was incorrect. The correct output is 4
-
-4. For input "6-3/1" the output was incorrect. The correct output is 3
-
-5. For input "45-10*2-1" the output was incorrect. The correct output is 24
-
-6. For input "100*2" the output was incorrect. The correct output is 200
-
-7. For input "812/2*(5-3)" the output was incorrect. The correct output is 812
-
-8. For input "7-4-1+8(3)/2" the output was incorrect. The correct output is 14
-
-9. For input "(5-2*0-9*0)*0" the output was incorrect. The correct output is 0
-
-10. For input "8-7*(12+100/2)*9-2" the output was incorrect. The correct output is -3900
+1. For input "1+1+1+2" The correct output is 5
+2. For input "7-2+(5-2)"  The correct output is 8
+3. For input "(4/2)(3-1)"  The correct output is 4
+4. For input "6-3/1"  The correct output is 3
+5. For input "45-10*2-1"  The correct output is 24
+6. For input "100*2" The correct output is 200
+7. For input "812/2*(5-3)" The correct output is 812
+8. For input "7-4-1+8(3)/2" The correct output is 14
+9. For input "(5-2*0-9*0)*0" The correct output is 0
+10. For input "8-7*(12+100/2)*9-2" The correct output is -3900
 */
 import java.util.*; 
 import java.io.*;
