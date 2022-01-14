@@ -27,35 +27,12 @@ import java.io.*;
 
 class Main {
 
-   public static int StepWalking(int num) {
-    int ways=1; //full 1 way
+   public static int StepWalking(int num){
+        if(num == 1) return 1;
+        if(num == 2) return 2;
 
-    //If num(except 2) is dividable to 2, you can climb full 2 way
-    if(num%2==0 && num!=2){ 
-      ways++;
+        return StepWalking(num-1) + StepWalking(num-2);
     }
-
-    int number=num;
-    for(int i=1;i<=num;i++){
-      
-      
-      label: 
-      for(int m=i;m<=num;m++){
-        number=num;
-        if(number-(m%3)>=0){
-          number=number-(m%3);
-          System.out.println("p1: "+m+" "+number);
-        }
-        if(number==0){
-          ways++;
-          break label;
-        }
-        
-      }
-    }
-
-    return ways;
-  }
 
   public static void main (String[] args) {  
     // keep this function call here     
