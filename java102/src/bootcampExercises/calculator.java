@@ -1,5 +1,4 @@
 /*
-UNFINISHED
 LEVEL:HARD
 Calculator
 Have the function Calculator(str) take the str parameter being passed and evaluate the mathematical expression within in.
