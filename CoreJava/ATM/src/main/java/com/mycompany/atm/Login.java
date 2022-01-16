@@ -9,7 +9,7 @@ import java.util.*;
  * @author barkin
  */
 public class Login {
-    public void boolean login(Account account){
+    public boolean login(Account account){
         Scanner scanner = new Scanner(System.in);
         String userName;
         String password;
@@ -18,8 +18,11 @@ public class Login {
         System.out.println("Please enter the password: ");
         password= scanner.nextLine();
         
+        if(account.getAccountName().equals(userName)&& account.getPassword().equals(password)){
+            return true;
+        }else{
+            return false;
+        }
         
-        
-        return true;
     }
 }
