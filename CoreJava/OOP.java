@@ -54,6 +54,7 @@ public class Main {
         
         
         */
+        
         //Classes
         /*
             Object oriented programming is programming by creating structures as
@@ -71,7 +72,7 @@ public class Main {
                 private int doorNumber;
             
                 public void setDoorNumber(int doorNumber){
-                    this.doorNumber=doorNumber;
+                    this.model=model;
                 }
             }
             this keyword tells the compiler that,
@@ -109,7 +110,7 @@ public class Main {
             collector that automatically deletes object memory.
             There is a inherited method finalize to do final works on a object but
             it is not common.
-            
+        
             We can also method overload constructor for no parameters given version.
             And you can assign default values.
             
@@ -154,8 +155,29 @@ public class Main {
         
         */
         //Inheritence
+        /* 
+            IS-A relationship between classes is inheritance.
+            Subclasses inherit superclasses.
+            
+            A class inherits another class by extends keyword.
+        
+            public class Worker{}
+            public class Manager extends Worker{} //Because Manager IS-A Worker
+        
+            But there is a problem. You can not use Worker private attributes
+            inside Manager class's constructor. You have to use "super()" to reach
+            inherited classes constructor. You can also reach different named
+            methods. For example: "super.showValues()" .
+            
+            //Method overriding
+            We can define superclass's method with the same name and write its
+            body different specificly for our subclass's needs(improve/change).
+            This is called method overriding.
+            
+        
+        
+        */
         //Composition
-        //Encapsulation
         //Polymorphism
         //Abstract Class
         //Inner Class
