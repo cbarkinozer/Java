@@ -45,6 +45,7 @@ public class Account {
     
     public void depositMoney(int amount){
         this.balance+=amount;
+        System.out.println("Money successfully deposited");
         System.out.println("New balance: "+this.balance);
     }
     public void withdrawMoney(int amount){
@@ -52,11 +53,10 @@ public class Account {
             System.out.println("You do not have enough amount");
         }else{
             this.balance-=amount;
+            System.out.println("Money successfully withdrawed");
             System.out.println("New balance: "+this.balance);
         }
         
     }
-    
-    
-    
+
 }
