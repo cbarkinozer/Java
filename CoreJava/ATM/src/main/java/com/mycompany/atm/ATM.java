@@ -36,24 +36,34 @@ public class ATM {
         String operations ="1.Show balance:\n"
                 +"2.Deposit Money:\n"
                 +"3.Withdraw Money:\n"
-                +"To exit press: 4";
+                +"To exit press: q";
         System.out.println(operations);
         System.out.println("***********************************************");
         
-        
-        
-        
-        
+        while(true){
+            System.out.println("Select operation: ");
+            String operation = scanner.nextLine();
+            if(operation.equals("q")){
+                System.out.println("Leaving the application...");
+                break; //no need to return because no operation after while
+            }else if(operation.equals("1")){
+                System.out.println("Balance: "+account.getBalance());
+            }else if(operation.equals("2")){
+                System.out.println("Enter the amount you want to deposit: ");
+                int amount=scanner.nextInt();
+                scanner.nextLine(); //Incase user enters more than an integer
+                account.depositMoney(amount);
+            }else if(operation.equals("3")){
+                System.out.println("Enter the amount you want to withdraw: ");
+                int amount=scanner.nextInt();
+                scanner.nextLine(); //Incase user enters more than an integer
+                account.withdrawMoney(amount);
+            }else{
+                System.out.println("Please enter a valid input");
+            }
+   
+        }
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
