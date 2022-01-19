@@ -178,6 +178,30 @@ public class Main {
         
         */
         //Composition
+        /*
+            Has-a relationship. For example Computer has a monitor,
+            a case.
+        
+            
+            public class Monitor{
+                //Monitor class's attributes,constructor,getters&setters
+            }
+            public class Case{
+                //Case class's attributes,constructor,getters&setters
+            }
+            public class Computer{
+                Monitor monitor;
+                Case case;
+                Computer(Monitor monitor, Case case){
+                    this.monitor=monitor;
+                    this.case=case;
+                }
+                public Monitor getMonitor(){return this.monitor;}
+                public void setMonitor(Monitor monitor){this.monitor=monitor;}
+                public Case getCase(){return this.case;}
+                public void setCase(Case case){this.case=case;}
+            }
+        */
         //Polymorphism
         //Abstract Class
         //Inner Class
