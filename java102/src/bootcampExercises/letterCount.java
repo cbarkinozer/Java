@@ -8,6 +8,12 @@ Input: "Hello apple pie"
 Output: Hello
 Input: "No words"
 Output: -1
+
+1. For input "no words here" the output was incorrect. The correct output is here
+2. For input "I lied before" the output was incorrect. The correct output is before
+3. For input "coderbyte" the output was incorrect. The correct output is coderbyte
+4. For input "yellow and red" the output was incorrect. The correct output is yellow
+5. For input "a b c d ee" the output was incorrect. The correct output is ee
 */
 import java.util.*; 
 import java.io.*;
