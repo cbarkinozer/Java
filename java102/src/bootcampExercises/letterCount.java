@@ -9,7 +9,6 @@ Output: Hello
 Input: "No words"
 Output: -1
 */
-
 import java.util.*; 
 import java.io.*;
 
@@ -42,8 +41,10 @@ class Main {
         count=0;
       } 
     }
-    ArrayList<Integer> sortedList = new ArrayList<Integer>(list.sort());
-    int wordIndex= list.indexOf(sortedList.get(list.size()-1)); //Show the max word  
+    ArrayList<Integer> newList = new ArrayList<Integer>();
+    newList=list;
+    Collections.sort(list);
+    int wordIndex= newList.indexOf(list.get(list.size()-1)); //Show the max word  
     
     String[] words = str.split(" ");
     
