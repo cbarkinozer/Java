@@ -27,7 +27,7 @@ class Main {
           map.put(ch,1);
         }else{                 //if character already exist
           map.put(ch,map.get(ch)+1); //increase its value
-          if(map.get(ch)+1>count){   //if value is the new largest
+          if(map.get(ch)+1>count){   //if value is the new greatest
             count = map.get(ch)+1;   //save count
           }
         }
@@ -41,13 +41,19 @@ class Main {
         count=0;
       } 
     }
+    
+    
     ArrayList<Integer> newList = new ArrayList<Integer>();
     newList=list;
     Collections.sort(list);
     int wordIndex= newList.indexOf(list.get(list.size()-1)); //Show the max word  
-    
     String[] words = str.split(" ");
     
+    if(list.get(list.size()-1)==-1){ //If list's greates number is -1 (means all -1)
+      return "-1";
+    }
+
+
     return words[wordIndex];
   }
 
