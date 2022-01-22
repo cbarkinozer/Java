@@ -203,6 +203,11 @@ public class Main {
             }
         */
         //Polymorphism
+        /*
+            Poly(many) morphism (forms): An object acting like another object.
+            @Override : This is annotation (like a tag) that tells the reader that method is a override of a superclass's method( works without it too).
+            The most common polymorphism in OOP is when a parent class reference is used to refer to a child class object.
+        */
         //Abstract Class
         //Inner Class
         //Generics
