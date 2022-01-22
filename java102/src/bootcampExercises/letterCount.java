@@ -9,8 +9,7 @@ Output: Hello
 Input: "No words"
 Output: -1
 
-1. For input "Hello apple pie" the output was incorrect. The correct output is Hello. Your output is apple.
-2. For input "yellow and red" the output was incorrect. The correct output is yellow. Your output is red.
+1. For input "Helo apple pie" the output was incorrect. The correct output is apple. Your output is Helo.
 */
 import java.util.*; 
 import java.io.*;
@@ -18,46 +17,36 @@ import java.io.*;
 public class Main {
 
   public static String LetterCount(String str) {
-    int count=0;
-    str +=" "; //adding space at the end to get each word witg "ch !=' '" expression
-    int length= str.length();
+    int count;
     Map<Character,Integer> map = new HashMap<Character,Integer>();
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    ArrayList<String> list = new ArrayList<String>();
     Character ch;
-    for(int i=0;i<length;i++){
-      ch=str.charAt(i); // character in str
-      if(ch !=' '){ //for each word
-        
-        if(map.get(ch)==null){ //if character is new add 1
-          map.put(ch,1);
-        }else{                 //if character already exist
-          
-          map.put(ch,map.get(ch)+1); //increase its value
-          if(map.get(ch)+1>count){   //if value is the new greatest
-            count = map.get(ch)+1;   //save count
-          }
-        }
-
-      }else{
-        if(count==0){
-          count=-1;
-        }
-        System.out.println(map.toString());
-        list.add(count); //save count for that word
-        map.clear();     //empty the map
-        count=0;
-      } 
+    String[] strArr =str.split(" ");
+    for(int i=0;i<strArr.length;i++){
+     for(int j=0;j<strArr[i].length();j++){
+         count=0;
+         ch=strArr[i].charAt(i);
+         if(!map.containsKey(ch)){
+             map.put(ch,1);
+         }else{
+             map.put(ch,map.get(ch)+1);
+             if(map.get(ch)+1>count){    //if value is the new greatest
+                count = map.get(ch)+1;   //save count
+                list.add(strArr[i]);     //
+                }
+             
+         }
+     } 
+     map.clear();
+    }
+    String result = new String();
+    if(list.isEmpty()){
+        result ="-1";
+    }else{
+        result = list.get(0);
     }
     
-    ArrayList<Integer> newList = new ArrayList<Integer>();
-    newList=list;
-    Collections.sort(list);
-    int wordIndex= newList.indexOf(list.get(list.size()-1)); //Show the max word's index
-    String[] words = str.split(" "); //split words by word
-    if(list.get(list.size()-1)==-1){ //If list's greates number is -1 (means all -1)
-      return "-1";
-    }
-    return words[wordIndex];
+    return result;
   }
 
   public static void main (String[] args) {  
