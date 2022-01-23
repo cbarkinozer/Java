@@ -230,6 +230,10 @@ public class Main {
           System.out.println("Not equal");
         }
         
+        //Multidimensional arrays
+        int[] array = new array[2][2]; //Creates 2 row 2 column matrix(2d array)
+        
+        
         
          //ArrayList
          //String
