@@ -194,7 +194,14 @@ public class Main {
         Using break. These break and continue structures are not prefered often 
         because they are error prone.
         */
-        
-        
+         //Collection Framework
+         //String
+         //Packages
+         //Java Naming Conventions
+        //Exception Handling
+        //Java I/O (Input/Output)
+        //Multithreading and Concurrency
+        //Swing ile arayüz geliştirme
+        //JDBC and Mysql
     }
 }
