@@ -231,7 +231,42 @@ public class Main {
         }
         
         //Multidimensional arrays
+        //You can put array inside arrays
         int[] array = new array[2][2]; //Creates 2 row 2 column matrix(2d array)
+        int[] array1 = {{1,2},{3,4}};  //Initializing a matrix (2 arrays inside an array)
+        
+        //To reach values nested for loops are used
+        
+        for(int i=0;i<5;i++){ //For every arrray inside the array
+            for(int j=0;j<5;j++){ //For values inside the array
+            array2[i][j]=j+1; //Increases every value by 1
+            }
+         }
+        
+        //If you are not going to perform index operations on array (for example just printing values), you can use foreach loop
+        //There is a foreach loop mentality in programming languages, in java this is performed as following:
+        for(Integer i: array2){ //For every integer i in array2
+            System.out.println(i); //Print every value
+        }
+        
+        //This is also useful for object arrays
+        //Let's assume we have: 
+        public Account{
+            private String name; //attribute
+            Account(String name){ //constructor
+                this.name=name;
+            }
+        }
+        //... (assume following are inside main function)
+        Account[] accountArray={new Account("account_name1"),new Account("account_name1"), new Account("account_name1")};
+        for(Account account: accountArray){
+            System.out.println(account); 
+        }
+        /* It prints following:
+        account_name1
+        account_name2
+        account_name3
+        */
         
         
         
