@@ -214,19 +214,10 @@ public class Main {
             Object class is the global superclass. All classes inherit from the Object class as they created.
             
         */
+        //Interface
         //Abstract Class
         //Inner Class
         //Generics
-        //Java Naming Conventions
         //Access Modifiers
-        //Java Collection Framework
-        //Exception Handling
-        //Java I/O (Input/Output)
-        //Multithreading and Concurrency
-        //Swing ile arayüz geliştirme
-        //Proje1 
-        //Proje2
-        //JDBC and Mysql
-        //Project3
     }
 }
