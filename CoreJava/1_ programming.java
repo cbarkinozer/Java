@@ -195,6 +195,21 @@ public class Main {
         because they are error prone.
         */
          //Array
+         //Series of sametype values stored in the memory sequentially.
+         int[] array = new array[5]; //Creates 5 integer values (you can not change it's size)
+         int[] array2 = {1,2,3,4,5}; //Initializing it's values while creating
+         //index numbers 0,1,2,3,4 
+         //Warning: be carefull of the indexes. Indexes start from zero and goes to size-1( because mathematically series goes n, n+1, n+2).
+         array2[0]=2; //Changing the first element of array
+         //Trying to reach to a value that is out of the boundaries will give outofboundaries error. It is very common to get while using arrays, be carefull. 
+        //To add or change all values of an array you can use a loop
+         for(int i=0;i<5;i++){
+            array2[i]=i+1; //Increases every value by 1
+         }
+         for(int i=0;i<array2.length;i++){ //Checks length every time loop runs
+            array2[i]=i+1;
+         }
+        
          //ArrayList
          //String
          //LinkedList
