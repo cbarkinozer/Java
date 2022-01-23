@@ -210,6 +210,8 @@ public class Main {
             The "instanceof" keyword checks if object is instance of the class.
             Account account = new Account("barkin","1234",2000);
             if(account instanceof Account){System.out.println("It is an instance");} //Prints
+            Note: subclass's object is an instanceof superclass too.
+            Object class is the global superclass. All classes inherit from the Object class as they created.
             
         */
         //Abstract Class
