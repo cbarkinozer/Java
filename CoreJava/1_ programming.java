@@ -209,6 +209,27 @@ public class Main {
          for(int i=0;i<array2.length;i++){ //Checks length every time loop runs
             array2[i]=i+1;
          }
+        //You can sort an array using sort method in Arrays library in java.util.Arrays. It is an implementation of QuickSort algorithm.
+        Arrays.sort(array2);
+        
+        //You can not check equality of arrays using "==" because it checks memory adress's equality (same as String equality checking).
+        int[] array1 = {1,2,3,4,5};
+        int[] array2 = {1,2,3,4,5};
+        
+        if(array1==array2){ //Prints Not equal.
+          System.out.println("Equal");
+        }else{
+          System.out.println("Not equal");
+        }
+        
+        //Instead use equals() method in Arrays
+        
+        if(Arrays.equals(array1,array2)){ //Prints Equal.
+          System.out.println("Equal");
+        }else{
+          System.out.println("Not equal");
+        }
+        
         
          //ArrayList
          //String
