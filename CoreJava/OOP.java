@@ -206,7 +206,11 @@ public class Main {
         /*
             Poly(many) morphism (forms): An object acting like another object.
             @Override : This is annotation (like a tag) that tells the reader that method is a override of a superclass's method( works without it too).
-            The most common polymorphism in OOP is when a parent class reference is used to refer to a child class object.
+            The most common polymorphism in OOP is when a parent class reference is used to refer to a child class object(child class is inherited from parent class).
+            The "instanceof" keyword checks if object is instance of the class.
+            Account account = new Account("barkin","1234",2000);
+            if(account instanceof Account){System.out.println("It is an instance");} //Prints
+            
         */
         //Abstract Class
         //Inner Class
