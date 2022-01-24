@@ -196,9 +196,12 @@ public class Main {
                     this.monitor=monitor;
                     this.case=case;
                 }
-                public Monitor getMonitor(){return this.monitor;}
+                //In get we can not do "return this.monitor;" because it does not get data instead points to the location.
+                // We must copy the data with "monitor.clone()" to not cause errors.
+                
+                public Monitor getMonitor(){return monitor.clone();}
                 public void setMonitor(Monitor monitor){this.monitor=monitor;}
-                public Case getCase(){return this.case;}
+                public Case getCase(){return case.clone();}
                 public void setCase(Case case){this.case=case;}
             }
         */
