@@ -236,6 +236,10 @@ public class Main {
             
             
             public class Engineer implements Employee, IT{
+                private String name;
+                private boolean atWork;
+                private double sgk;
+                
                 @Override
                 String checkEmployeeId(double EmployeeId){
                     ...(checks EmployeeId)
@@ -251,6 +255,7 @@ public class Main {
             
         */
         //Abstract Class
+        
         //Inner Class
         //Generics
         //Access Modifiers
