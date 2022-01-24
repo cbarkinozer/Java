@@ -218,6 +218,38 @@ public class Main {
             
         */
         //Interface
+        /*
+            Interface is an abstract class template. It is utilized to create class templates for classes by inheritance.
+            Interfaces are inherited by using "implements" keyword. Classes can implement multiple Interfaces.
+            Warning: Interface is not a class so you can not create it's objects.
+            The body of the methods are not filled, only their names and parameters are given, this is called method signiture.
+            These signature methods are filled in the classes that implement these interfaces.
+            
+            public interface Employee{
+                String checkEmployeeId(double EmployeeId);
+            }
+            
+            
+            public interface IT{
+                String checkLabId(double LabId);
+            }
+            
+            
+            public class Engineer implements Employee, IT{
+                @Override
+                String checkEmployeeId(double EmployeeId){
+                    ...(checks EmployeeId)
+                    return "Id: "+EmployeeId;
+                }
+                @Override
+                String checkLabId(double LabId){
+                    ...(checks labId)
+                    return "Lab id:"+ LabId;
+                }
+            
+            }
+            
+        */
         //Abstract Class
         //Inner Class
         //Generics
