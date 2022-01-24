@@ -334,7 +334,25 @@ public class Main {
         
           
          //LinkedList
+         /*
+            Advantageous structures for inserting and removing elements between values without shifting any values (low complexity for these operations).
+            But disadvantageous because each node also holds pointer. If memory is important prefer ArrayList.
+            A linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+         */
+        LinkedList<String> lList = new LinkedList<String>();
+        //Methods are same as in the ArrayLists
+        
+        //Iterators are objects that help us easily iterate values with predefined methods
+        ListIterator<String> it = new ListIterator<String>();
+        while(it.hasNext()){ //Iterates all
+            System.out.println(iterator.next()); //prints the next value
+        }
+        //You can also go reverse using hasPrevious() and previous() methods.
+        
+        
          //Packages
+        
          //Java Naming Conventions
+        
     }
 }
