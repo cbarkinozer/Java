@@ -298,10 +298,41 @@ public class Main {
                     num=aList.get(j);                //Unboxing
                     aList.add(j*4);                  //Autoboxing
                 }
-        
-        
-        
          //String
+        /*
+            Strings are reference type values. There are useful predefined methods inside them.
+        */
+        String string= new String("Hello Java"); //Creates a new String in memory that has "Hello Java"( or a variable).
+        //These are different
+        String str="Hello Java"; //adds a String that has "Hello Java" to string constant pool.
+        String str2="Hello Java"; //points str2 in the string constant pool because they have the same value.
+        //But don't worry, Strings are immutable( if you change what is inside, it deletes that memory and creates a new variable).
+        if(str==str2){} //Returns true because they point the same memory
+        if(string==str){} //Returns false because they do not point the same memory
+        if(string.equals(str)){}//Now returns true
+        
+        
+        //Some of the useful String methods
+        str.isEmpty(); //Returns boolean if it is empty
+        str.charAt(0);//Prints "H"        
+        str.charAt(str.length()-1); //Prints last element, "a"
+        str.startsWith("He"); //Returns true
+        str.endsWith("va");   //Returns true
+        str.toUpperCase();
+        str.toLowerCase();
+        
+        //Warning: you need to assign these "to" methods if you want to save them.
+        str=str.toUpperCase();
+        
+        String str1="1234";
+        //String to integer
+        int number= Integer.parseInt(str1); 
+        
+        //integer to String
+        int num=1234;
+        str1=String.valueOf(num);
+        
+          
          //LinkedList
          //Packages
          //Java Naming Conventions
