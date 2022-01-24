@@ -16,7 +16,7 @@ import java.io.*;
 class Main {
 
   public static String PrimeTime(int num) {
-    for(int i=2;i<num/2;i++){
+    for(int i=2;i*i <= num;i++){ //Rooting faster but floating points are problem(converting to int etc.) so using i*i<=num is better.
       if(num % i==0){
         return "false";
       }
