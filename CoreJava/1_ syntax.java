@@ -271,7 +271,7 @@ public class Main {
         /*
             The ArrayList class is a resizable array that has predefined useful methods, which can be found in the java.util package.
         */
-        ArrayList<Integer> arrList = new ArrayList<Integer>(); //You need to give wrapper classes (e.g Integer) not primitive (e.g int)
+        ArrayList<String> arrList = new ArrayList<String>(); //You need to give reference type, you can use wrapper classes (e.g Integer) not primitive (e.g int)
         arrList.add("Heartmachine"); //Adding value
         arrList.add("Echo chamber");
         arrList.add("Sleepless");
@@ -285,6 +285,19 @@ public class Main {
         
         arrList.remove("Echo chamber"); //Deletes element
         arrList.set(2,"Impulse"); //Change 2. element with Impulse
+        
+        //Boxing, unboxing and autoboxing
+        /*
+            Wrapper classes are primitive types reference versions to use (e.g in ArrayLists). Boxing is transforming primitive type to it's wrapper class.
+            And unboxing is the reverse operation. Autoboxing is boxing that is done by java compiler (automatically).
+        */
+         ArrayList<Integer> aList = new ArrayList<Integer>();
+         int num=0;
+            for(int j=0;j<aList.size();j++){
+                    aList.add(Integer.valueOf(j*4)); //Boxing
+                    num=aList.get(j);                //Unboxing
+                    aList.add(j*4);                  //Autoboxing
+                }
         
         
         
