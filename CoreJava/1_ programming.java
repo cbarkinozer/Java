@@ -267,10 +267,27 @@ public class Main {
         account_name2
         account_name3
         */
+        //ArrayList
+        /*
+            The ArrayList class is a resizable array that has predefined useful methods, which can be found in the java.util package.
+        */
+        ArrayList<Integer> arrList = new ArrayList<Integer>(); //You need to give wrapper classes (e.g Integer) not primitive (e.g int)
+        arrList.add("Heartmachine"); //Adding value
+        arrList.add("Echo chamber");
+        arrList.add("Sleepless");
+        arrList.add("Sleepless"); //There can be many amount of same values
+        
+        System.out.println(arrList.get(0)); //Gets value
+        System.out.println(arrList.size()); //Gets size
+        System.out.println(arrList.indexOf("Sleepless")); //Gets index (2)
+        System.out.println(arrList.lastIndexOf("Sleepless")); //Gets  the last Sleepless' index (3)
+        System.out.println(arrList.indexOf("Rot")); // There are no Rot so returns -1
+        
+        arrList.remove("Echo chamber"); //Deletes element
+        arrList.set(2,"Impulse"); //Change 2. element with Impulse
         
         
         
-         //ArrayList
          //String
          //LinkedList
          //Packages
