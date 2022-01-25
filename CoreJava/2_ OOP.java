@@ -307,6 +307,9 @@ public class Main {
             }
             
         //Abstract Class
+        /*
+            Abstract class's are classes that are abstract. You can not create object's of them because they are incomplete.
+        */
         //Inner Class
         //Generics
         //Access Modifiers
