@@ -309,7 +309,31 @@ public class Main {
         //Abstract Class
         /*
             Abstract class's are classes that are abstract. You can not create object's of them because they are incomplete.
+            It is also preferred when a method is must overriden because abstract classes warn the programmer to ooverride the method.
+            Prefer abstract classes over interfaces when most of the methods will not changed.
         */
+        public abstract class SuperClass{
+            public anotherMethod(int num){ //Has body, you should not override
+                ...
+                return num;
+            }
+            public myMethod(int num); //Must overriden(warns progragrammer)
+        }
+        
+        public class SubClass extends SuperClass{
+            @Override
+            public myMethod(int num){
+                ...
+                return num;
+            }
+        }
+        public class Main{
+            public static void main(String[] args){
+                SuperClass superClass = new SuperClass(); //ERROR: NOT VALID (You can not create instance of an abstract class)
+                SuperClass superClass= new SubClass();   //Valid: We can assign the references of abstract classes to subclasses
+            }
+        }
+        
         //Inner Class
         //Generics
         //Access Modifiers
