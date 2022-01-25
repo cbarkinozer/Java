@@ -224,7 +224,7 @@ public class Main {
             Warning: Interface is not a class so you can not create it's objects.
             The body of the methods are not filled, only their names and parameters are given, this is called method signiture.
             These signature methods are filled in the classes that implement these interfaces.
-            
+         */    
             public interface Employee{
                 String checkEmployeeId(double EmployeeId);
             }
@@ -253,9 +253,56 @@ public class Main {
             
             }
             
+        /*
+            Interfaces are useful for creating the Strategy design pattern. In strategy design pattern you design your interfaces and classes so that you can change
+            classes (behaviour) in your code. For example, in the following code, there are 2 different strategies classes,
+            1 strategy managin class and 1 interface and a main class. 
         */
+            
+             public interface CheckService{ //Only has strategy method sign
+                boolean checkUser(User user);
+            }
+            
+            public class SignInManager{  //Does the strategy switching
+                private CheckService checkService; //Dependency injection
+                public SignInManager(CheckService checkService){ //Constructor for interface
+                    this.checkService=chechService;
+                }
+                public void checkUser(User user){
+                    if(CheckService.checkUser(user)){ //Depending on the strategies result give result to user
+                        System.out.println("Success");
+                    }else{
+                        System.out.println("Fail");
+                    }
+                }
+             
+            }
+            
+             public class UserAgeCheck implements CheckService{ //Strategy class only implements the interface and overrides it's method
+                @Override
+                public boolean checkUser(User user){
+                    ...(age check)
+                }
+             
+            }
+             public class UserComplexCheck implements CheckService{ //Strategy class only implements the interface and overrides it's method
+                @Override
+                public boolean checkUser(User user){
+                    ...(complex check)
+                }
+             
+            }
+            
+            
+            public class Main{
+                public static void main(String[] args){
+                    SignInManager signInManager = new SignInManager(new UserAgeCheck()); //Deciding strategy here
+                    signInManager.checkUser(new User(1,1.70,"Mustafa"));
+                    
+                }
+            }
+            
         //Abstract Class
-        
         //Inner Class
         //Generics
         //Access Modifiers
