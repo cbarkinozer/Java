@@ -342,11 +342,25 @@ public class Main {
         */
         //Inner Class
         /*
+            Inner classes are classes inside other classes or interfaces (nested classes).
+            Inner classes are used to logically group classes and interfaces in one place to be more readable and maintainable
+            There are 4 types of inner classes:
             Non-static inner classes
             Static inner classes
             Local inner classes
             Anonymous inner classes
         */
+        public class Mathematic{
+            public class Factorial{
+                
+            }
+        }
+        public class Main{
+            public static void main(String[] args){
+                Mathematic.Factorial factorial = new Mathematic().new Factorial(); //Creates a factorial inner class's instance
+            }
+        }
+        
         //Generics
         //Access Modifiers
     }
