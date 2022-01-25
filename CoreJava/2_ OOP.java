@@ -333,8 +333,20 @@ public class Main {
                 SuperClass superClass= new SubClass();   //Valid: We can assign the references of abstract classes to subclasses
             }
         }
-        
+        //Static keyword
+        /*
+            Static attributes and methods does not belong to instances instead belongs to classes.
+            Because they belong to the class, they are created when the program runs.
+            To reach these attributes and methods you need to write ClassName.attribute and ClassName.method() instead instanceName.attribute and instanceName.method().
+            Static methods use static attributes.
+        */
         //Inner Class
+        /*
+            Non-static inner classes
+            Static inner classes
+            Local inner classes
+            Anonymous inner classes
+        */
         //Generics
         //Access Modifiers
     }
