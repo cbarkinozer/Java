@@ -9,9 +9,12 @@ public class Main {
             In Java you a method is defined as follows:
             access modifier extra functionalities return type
             method name (parameters){ methods behavior}
-        Example: public static void main(String[] args){
+        Example:
+        */
+        public static void main(String[] args){
             System.out.println("Hello Methods");
         }
+        /*
         You can call this function by typing main();
         
         void means there is no return statement.
@@ -30,33 +33,30 @@ public class Main {
         Method overloading is creating same named methods that has different
         functionality. Overloaded functions might have different parameter counts,
         different parameter types, different return types.
+        */
         
         public static void sum(int a, int b){System.out.println(a+b);}
         public static int sum(int a, int b){return a+b;}
         public static void sum(int a, int b, int c){System.out.println(a+b+c);}
         public static void sum(String a, String b){System.out.println(a+b);}
-            
+        
+        /*
         Scope
         
         All {} define different scopes. If you define a variable inside a scope
         you can not reach that variable. This avoids name conflict.
-        
+        */
         int a=10;
         if(a<11){
             int b=5;
         }
         System.out.println(b); //You cannot reach b here
-        
+        /*
         You can not also reach variables that are defined inside other methods
         (unless you do not send these values as parameters).
         
-        
-        
-        
-        */
-        
         //Classes
-        /*
+        
             Object oriented programming is programming by creating structures as
             objects. These objects have attributes (variables) and they do behaviours(methods).
             
@@ -68,6 +68,8 @@ public class Main {
             and read values with getter. This is called encapsulation.
             
             Example:
+            */
+        
             public class Car{
                 private int doorNumber;
             
@@ -75,20 +77,21 @@ public class Main {
                     this.model=model;
                 }
             }
+            /*
             this keyword tells the compiler that,
             the variable we are using is the variable that is defined inside that
             scope.
-        
-            
-        */
+    
         //Constructors
-        /*
+       
             Classes have methods with the same name as they are constructors
             (for class Account, method named Account() is a constructor).
             Constructors work when an object is created.
             Constructors generally used to give initial values to class's attributes.
             
             Example:
+            */
+        
             public class Account{
                 int accountId;
                 String accountName;
@@ -100,11 +103,11 @@ public class Main {
                 }
             }
             
-            Inside Main class, and main() method:
+            //Inside Main class, and main() method:
                 //Object created initial values are given to constructor
                 Account account = new Account(12345,"first account");
                 
-        
+            /*
             Also in c++ there are destructors for deleting object. But in Java
             there is no direct equivalent of destructor because there is garbage
             collector that automatically deletes object memory.
@@ -115,6 +118,8 @@ public class Main {
             And you can assign default values.
             
             Example:
+            */
+        
             public class Account{
                 int accountId;
                 String accountName;
@@ -132,7 +137,7 @@ public class Main {
             
             //Object References
         
-            Question: Does below code print anything?
+            //Question: Does below code print anything?
             Account account1 = new Account();
             Account account2 = new Account();
         
@@ -142,28 +147,28 @@ public class Main {
                 System.out.println("They have the same memory");
             }
         
-            Yes , it prints "They have the same memory". They are reference type
-            objects they can point each other in memory.
+            //Yes , it prints "They have the same memory". They are reference type
+            //objects they can point each other in memory.
         
         
-            The below lines are also legal.
+            //The below lines are also legal.
             new Account(1234,"abc");
             new Account(1234,"abc").printValues();
         
-            Constructors and methods used without creating reference.
-            These techniques are prefered for single line operations.
+            //Constructors and methods used without creating reference.
+            //These techniques are prefered for single line operations.
         
-        */
+        
         //Inheritence
         /* 
             IS-A relationship between classes is inheritance.
             Subclasses inherit superclasses.
             
             A class inherits another class by extends keyword.
-        
+        */
             public class Worker{}
             public class Manager extends Worker{} //Because Manager IS-A Worker
-        
+        /*
             But there is a problem. You can not use Worker private attributes
             inside Manager class's constructor. You have to use "super()" to reach
             inherited classes constructor. You can also reach different named
@@ -174,15 +179,14 @@ public class Main {
             body different specificly for our subclass's needs(improve/change).
             This is called method overriding.
             
-        
-        
         */
+        
         //Composition
         /*
             Has-a relationship. For example Computer has a monitor,
             a case.
         
-            
+        */    
             public class Monitor{
                 //Monitor class's attributes,constructor,getters&setters
             }
@@ -204,7 +208,7 @@ public class Main {
                 public Case getCase(){return case.clone();}
                 public void setCase(Case case){this.case=case;}
             }
-        */
+        /*
         //Polymorphism
         /*
             Poly(many) morphism (forms): An object acting like another object.
