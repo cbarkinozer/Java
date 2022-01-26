@@ -350,6 +350,7 @@ public class Main {
             Local inner classes
             Anonymous inner classes
         */
+        //Non-static inner class example
         public class Mathematic{
             public class Factorial{
                 
@@ -358,6 +359,17 @@ public class Main {
         public class Main{
             public static void main(String[] args){
                 Mathematic.Factorial factorial = new Mathematic().new Factorial(); //Creates a factorial inner class's instance
+            }
+        }
+        //Static inner class example
+        public class Mathematic{
+            public class Factorial{
+                
+            }
+        }
+        public class Main{
+            public static void main(String[] args){
+                Mathematic.Factorial factorial = new Mathematic.Factorial(); //Creates a static factorial inner class's instance
             }
         }
         
