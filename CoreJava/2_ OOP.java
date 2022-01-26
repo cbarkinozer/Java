@@ -372,6 +372,39 @@ public class Main {
                 Mathematic.Factorial factorial = new Mathematic.Factorial(); //Creates a static factorial inner class's instance
             }
         }
+        //Local inner classes
+        //Local scope is inside a method.
+        //Used if a class will be only used inside a method
+        //You can not use public or static keywords for classes inside methods
+        public class Main{
+            public static void main(String[] args){
+                class Mathematic{
+                    class Factorial{
+                        
+                    }
+                }
+            }
+        }
+        
+        //Anonymous inner classes
+        // Defining methods of a class inside a instance creating operation. They take a lot of space, preferred at gui button operations in Android.
+        
+        public class Main{
+            public static void main(String[] args){
+                BaseStudent bStudent = new BaseStudent(){ //You can not create an object of interface but this is an anonymous class
+                    @Override
+                    public void study(){} 
+                }; 
+            }
+            
+            public interface BaseStudent{
+                public void study(){}
+            }
+            public static abstract class AStudent{ //has to be static contrary to interface because it is inside the Main class
+                abstract void register(){};
+            } 
+        
+        }
         
         //Generics
         //Access Modifiers
