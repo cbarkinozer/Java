@@ -10,6 +10,7 @@ You need to be careful when writing a test that fails, we need to test what we w
 There should be 2 different classes main and test. The main class should have your developement code and test file should have their tests.  
 Let's say we want to create PhoneNumberValidator class. It is a util so we create "utils" file inside both main and test files.  
 Now inside test/utils we create PhoneNumberValidatorTest and write following template.  
+Note: For unit testing Junit, for mocking Mockitoo is used.  
 
 ```java
 import org.junit.jupiter.api.BeforeEach;
