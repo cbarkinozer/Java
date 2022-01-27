@@ -418,17 +418,49 @@ public class Main {
                 }
             }
         }
-        //Generic method
+        
+        //Generic method including example
         public class Main{
             public static void main(String[] args){
-                    
+                    ScienceMajor scienceMajor1 = new ScienceMajor();
+                    ScienceMajor scienceMajor1 = new ScienceMajor();
+                   
+                    LiberalArtsMajor liberalArtsMajor1 = new LiberalArtsMajor();
+                    LiberalArtsMajor liberalArtsMajor2 = new LiberalArtsMajor();
+                
+                    // firstCandidate method works for both of them
+                    ScienceMajor firstScienceMajor = firstCandidate(scienceMajor1,scienceMajor2);
+                    LiberalArtsMajor firstLiberalArtsMajor = firstCandidate(liberalArtsMajor1,liberalArtsMajor2);
+                
+                }
+            //E can be ScienceMajor or LiberalArtsMajor, this method works for both of them
+            public static <E extends Candidate> firstCandidate(E e1, E e2){ // E extends Candidate because it should only work for Candidate's values
+                    if(e1.calculatePoint()>e2.calculatePoint()){
+                        return e1;
+                    }else{
+                        return e2;
+                    }
                 }
             }
-        public class ScienceMajor{
-            
+        
+        public class ScienceMajor extends Candidate{
+                public ScienceMajor(int mathematics, int english, int science, int liberalArts){
+                    super(mathematics,english,science,liberalArts);
+                }
+                @Override
+                public int calculatePoint(){
+                    return getMathematics()*getEnglish()*getScience()*getLiberalArts();
+                }
             }
-        public class LiberalArtsMajor{
-            
+        
+        public class LiberalArtsMajor extends Candidate{
+                public LiberalArtsMajor(int mathematics, int english, int science, int liberalArts){
+                    super(mathematics,english,science,liberalArts);
+                }
+                @Override
+                public int calculatePoint(){
+                    return getMathematics()*getEnglish()*getScience()*getLiberalArts();
+                }
             }
         
          public abstract class Candidate{
@@ -443,20 +475,24 @@ public class Main {
                 this.science=science;
                 this.liberalArts=liberalArts; 
              }
-             public getMathematics(){}
-             public setMathematics(){}
              
-             public getEnglish(){}
-             public setEnglish(){}
+             //Getters and setters
+             public getMathematics(){return this.mathematics;}
+             public setMathematics(int mathematics){this.mathematics=mathematics;}
              
-             public getScience(){}
-             public setScience(){}
+             public getEnglish(){return this.english;}
+             public setEnglish(int english){this.english=english;}
              
-             public getLiberalArts(){}
-             public setLiberalArts(){}
+             public getScience(){return get.science;}
+             public setScience(int science){this.science=science;}
              
+             public getLiberalArts(){return get.liberalScience;}
+             public setLiberalArts(int liberalArts){this.liberalArts=liberalArts;}
+             
+             //abstract method
              abstract int calculatePoint();
             }
+        
         //Access Modifiers
         
     }
