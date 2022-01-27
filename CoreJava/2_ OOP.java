@@ -407,6 +407,57 @@ public class Main {
         }
         
         //Generics
+        //Generic type algorithms are written with a generic type and can work with any type of variable that will be given later.
+        //Generic naming conventions: T: type E: element or enum K: key V: value
+        //Let's write a generic type of array that can work with any variable type
+        //Following works for all type of arrays (Object,int,char,String)
+        public printArray<E>{
+            public void print(E[] array){
+                for(E e: array){
+                    System.out.println(e);
+                }
+            }
+        }
+        //Generic method
+        public class Main{
+            public static void main(String[] args){
+                    
+                }
+            }
+        public class ScienceMajor{
+            
+            }
+        public class LiberalArtsMajor{
+            
+            }
+        
+         public abstract class Candidate{
+             private int mathematics;
+             private int english;
+             private int science;
+             private int liberalArts;
+             
+             public Candidate(int mathematics, int english, int science, int liberalArts){
+                this.mathematics= mathematics;
+                this.english=english;
+                this.science=science;
+                this.liberalArts=liberalArts; 
+             }
+             public getMathematics(){}
+             public setMathematics(){}
+             
+             public getEnglish(){}
+             public setEnglish(){}
+             
+             public getScience(){}
+             public setScience(){}
+             
+             public getLiberalArts(){}
+             public setLiberalArts(){}
+             
+             abstract int calculatePoint();
+            }
         //Access Modifiers
+        
     }
 }
