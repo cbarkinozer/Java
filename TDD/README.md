@@ -70,7 +70,7 @@ public class PhoneNumberValidator implements Predicate<String>{
   }
 }
 ```
-Now test passes. We want to add another case as test.
+Now test passes. We want to add another test cases.
 ```java
 //inside test file
 ...
@@ -84,19 +84,28 @@ Now test passes. We want to add another case as test.
     assertThat(isValid).isTrue();
   }
   @Test
-  @DisplayName("")
+  @DisplayName("Should fail when length is bigger than 13")
   void itShouldValidatePhoneNumberWhenIncorrectAndHasLengthBiggerThan13(){
     //Given
-    String phoneNumber="+447000000000";
+    String phoneNumber="+447000000000888776";
     //When
     boolean isValid = underTest.test(phoneNumber);
     //Then
-    assertThat(isValid).isTrue();
+    assertThat(isValid).isFalse(); //It should fail so we check by isFalse()
   }
   
-  
+  @Test
+  @DisplayName("Should fail when does not start with +")
+  void itShouldValidatePhoneNumberWhenDoesNotStartWithPlusSign(){
+    //Given
+    String phoneNumber="4470000000000";
+    //When
+    boolean isValid = underTest.test(phoneNumber);
+    //Then
+    assertThat(isValid).isFalse();
+  }
 ```
-
+We want to combine these tests to a single test (parameterized test) to make it look more neat.  
 
 
 
