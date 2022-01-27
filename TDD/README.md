@@ -108,11 +108,11 @@ By doing the following we do not have to create new methods for each different t
 ```java
 //inside test file
 @ParameterizedTest
-@CsvSource({"+447000000000,TRUE",     //Input case and result are given by the CsvSource
-            "",
-            ""
+@CsvSource({"+447000000000,true",     //Input case and result are given by the CsvSource
+            "+447000000000888776,false",
+            "4470000000000,false"
 }) 
-  void itShouldValidatePhoneNumber(String phoneNumber, String expected){
+  void itShouldValidatePhoneNumber(String phoneNumber, boolean expected){
     //No need for the "Given" line because input is already given by CsvSource
     //When
     boolean isValid = underTest.test(phoneNumber);
@@ -120,7 +120,7 @@ By doing the following we do not have to create new methods for each different t
     assertThat(isValid).isEqualTo(Boolean.valueOf(expected)); //Result is given by the CsvSource
   } 
 ```
-
+At this stage, our tests are ready.  
 
 
 Reference: Amigoscode,(1 June 2020), Test Driven Development (TDD) | Crash Course | 2020   
