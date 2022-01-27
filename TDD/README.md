@@ -46,7 +46,6 @@ Now it passes.
 Now we refactor our test for a wanted case.
 ```java
 //inside test file
-...
 @Test
   void itShouldValidatePhoneNumber(){
     //Given
@@ -73,7 +72,6 @@ public class PhoneNumberValidator implements Predicate<String>{
 Now test passes. We want to add another test cases.
 ```java
 //inside test file
-...
 @Test
   void itShouldValidatePhoneNumber(){
     //Given
@@ -105,10 +103,25 @@ Now test passes. We want to add another test cases.
     assertThat(isValid).isFalse();
   }
 ```
-We want to combine these tests to a single test (parameterized test) to make it look more neat.  
+We want to combine these tests to a single test (parameterized test) to make it look more neat and loosely coupled to parameters.  
+By doing the following we do not have to create new methods for each different test case.  
+```java
+//inside test file
+@ParameterizedTest
+@CsvSource({"+447000000000,TRUE",     //Input case and result are given by the CsvSource
+            "",
+            ""
+}) 
+  void itShouldValidatePhoneNumber(String phoneNumber, String expected){
+    //No need for the "Given" line because input is already given by CsvSource
+    //When
+    boolean isValid = underTest.test(phoneNumber);
+    //Then
+    assertThat(isValid).isEqualTo(Boolean.valueOf(expected)); //Result is given by the CsvSource
+  } 
+```
 
 
 
 Reference: Amigoscode,(1 June 2020), Test Driven Development (TDD) | Crash Course | 2020   
-https://www.youtube.com/watch?v=z6gOPonp2t0&t=928s
-
+[https://www.youtube.com/watch?v=z6gOPonp2t0&t=928s]
