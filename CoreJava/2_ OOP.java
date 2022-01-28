@@ -494,6 +494,16 @@ public class Main {
             }
         
         //Access Modifiers
+        /*
+            We are defining access modifiers at methods, classes, variables to define their access conditions.
+            There are 4 access modifiers in java: public, private, protected, default (no parameter).
+            Private is only reachable from the same class.
+            Default is reachable from the same class, and from the same package.
+            Protected is reachable from the same class, same package, and also from subclasses from out of the package that inherits the class.
+            The public is reachable from everywhere.
+            
+            The top level class can be either public or default (can not be private or protected). 
+        */
         
     }
 }
