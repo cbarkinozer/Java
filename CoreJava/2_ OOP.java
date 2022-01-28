@@ -495,7 +495,7 @@ public class Main {
         
         //Access Modifiers
         /*
-            We are defining access modifiers at methods, classes, variables to define their access conditions.
+            We are defining access modifiers at methods, classes, class variables(attributes, variables that are outside of a method) to define their access conditions.
             There are 4 access modifiers in java: public, private, protected, default (no parameter).
             Private is only reachable from the same class.
             Default is reachable from the same class, and from the same package.
