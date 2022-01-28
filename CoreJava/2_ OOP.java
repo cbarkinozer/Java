@@ -505,5 +505,30 @@ public class Main {
             The top level class can be either public or default (can not be private or protected). 
         */
         
+        //Note: final variables' values are are given only when created. Therefore you can assaign its value from a constructor. 
+        //And if the class is not static, and the final variable is static (created when program starts), you can increment this final value when an object is created.
+        
+        public class Student{
+            private static final int STUDENT_NO=0;
+            public Student(){
+                this.STUDENT_NO++; // Gives an incremented student no to every new student
+            }
+            //No setter because it is final
+            public getSTUDENT_NO(){
+                return this.STUDENT_NO;
+            }
+            
+        }
+        public class Main{
+            public static void main(String[] args){
+                Student student1 = new Student();
+                Student student2 = new Student();
+                
+                System.out.println(student1.getSTUDENT_NO() +" and "+student2.getSTUDENT_NO()); //Returns "1 and 2"
+                
+            }
+        }
+        
+        
     }
 }
