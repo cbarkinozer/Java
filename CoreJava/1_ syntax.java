@@ -393,8 +393,14 @@ public class Main {
                 org.w3c.dom.Node node2 = null;
             }
         }
-        
-        
+        //JAR Files
+        /*
+            JAR files: JAR stands for Java ARchive. It's a file format based on the popular ZIP file format and is used for aggregating many files into one.
+            By adding jar files to your project you can use classes inside them.
+            You can compress your files to jar files and share them. Also you can download jar files and add them to your projects Libaries file.
+            In modern projects these are added  from a repository  on internet (or deleted) 
+            with the help of software project management tools such as Maven or Gradle using XML or JSON.
+        */
         
         
     }
