@@ -349,10 +349,37 @@ public class Main {
         }
         //You can also go reverse using hasPrevious() and previous() methods.
         
-        
+         //Java Naming Conventions
+         /*
+            These are some of the conventions we follow when giving names.
+            While we don't have to follow these conventions, our compliance will increase the readability of the code.
+            
+            Variable naming conventions:
+            Use camelCase, English nouns that denote the purpose of the variable. Variables inside loops should name i,j,k.
+            Example: accountSize .
+            
+            Constant vairable naming conventions:
+            Constant values are the ones that have the "final" keyword. Use full uppercase words that are snake_case.
+            Example: MAX_SIZE .
+            
+            Method naming conventions:
+            Use camelCase, English verbs that denote the purpose of the method. Getters and setters must include get and set words.
+            Example: getNumber(), setNumber(), accountCreator().
+            
+            Class, abstract class and interface naming conventions:
+            Use PascalCase, English nouns that denote the purpose of their methods( method names must be relevant with the class's name).
+            Example: CandidateStudent, OnClickListener, LinkedList.
+            
+            Package naming conventions:
+            Starts with lowercase. Must be unique. If your project has a website, package name can be the reverse of that website.
+            Use "_" instead of "-". Your Package name overlap with java packages, fix it with using "_" or renaming.
+            Example: 
+            If your website is "www.sheqer.com/miniq" package name can be  "com.sheqer.miniq".
+            while.xyz.com package name can be "com.xyz._while"
+             
+         */   
          //Packages
         
-         //Java Naming Conventions
         
     }
 }
