@@ -379,6 +379,19 @@ public class Main {
              
          */   
          //Packages
+         /*
+            Why we should use packages? There are 10 million Java developers in the world. Class and interface names might overlap so you should use packages.
+            By using packages we can contain many same name classes in a project. Lets use 2 different Node classes.
+         */
+        import javax.xml.soap.Node; //You can not import both of the Nodes
+        public class Main(){
+            public static void main(String[] args){
+                Node node = null; //Using javax.xml.soap.Node
+                org.w3c.dom.Node node2 = null;
+            }
+        }
+        
+        
         
         
     }
