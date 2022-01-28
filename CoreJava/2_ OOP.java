@@ -504,9 +504,14 @@ public class Main {
             
             The top level class can be either public or default (can not be private or protected). 
         */
+        //Constants (final variables, final methods, final parameters)
+        /*
+            Final values of variables are given only when created. Therefore you can assaign its value from a constructor. 
+            And if the class is not static, and the final variable is static (created when program starts), you can increment this final value when an object is created.
+            
+            
+        */
         
-        //Note: final variables' values are are given only when created. Therefore you can assaign its value from a constructor. 
-        //And if the class is not static, and the final variable is static (created when program starts), you can increment this final value when an object is created.
         
         public class Student{
             private static final int STUDENT_NO=0;
@@ -528,6 +533,15 @@ public class Main {
                 
             }
         }
+     
+        /*
+            If you want your method or class to be not overridable make it final.
+            You can also use final at method parameters if you want your parameters to be unchangable.
+        */
+        public void connect(final String username, final String password){
+            //username="abc"; //gives error
+        }
+        
         
         
     }
