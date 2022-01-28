@@ -20,18 +20,18 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 13 ou
 import java.util.*; 
 import java.io.*;
 
-class Main {
+public class Main {
 
-  public static String TwoSum(int[] arr) {
+    public static String TwoSum(int[] arr) {
     int firstNum= arr[0];
     StringBuffer sBuffer = new StringBuffer();
     for(int i=1;i<arr.length-1;i++){
-      sBuffer.append(" ");
-      for(int j=i+1;i<arr.length-1;j++){
-        if(arr[0]==arr[i]+arr[j]){
+      for(int j=i+1;j<arr.length;j++){
+        if(firstNum==(arr[i]+arr[j]) ){
           sBuffer.append(arr[i]);
           sBuffer.append(",");
-          sBuffer.append(arr[i]);
+          sBuffer.append(arr[j]);
+          sBuffer.append(" ");
         }
       }
     }
@@ -43,13 +43,11 @@ class Main {
     }
 
 
-
   }
-
   public static void main (String[] args) {  
     // keep this function call here     
-    Scanner s = new Scanner(System.in);
-    System.out.print(TwoSum(s.nextLine())); 
+    int[] x= new int[] {17, 4, 5, 6, 10, 11, 4, -3, -5, 3, 15, 2, 7};
+    System.out.print(TwoSum(x)); 
   }
 
 }
