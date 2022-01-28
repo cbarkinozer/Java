@@ -41,7 +41,9 @@ public class Main {
         System.out.println(value); //Or you can just print a value
         System.out.println(str+value); //Printing values together
         
-        
+        //Constants
+        //To create constants final keyword is used.
+        int final MAX_SIZE =100;
 
 
         //Basic arithmetic operations
