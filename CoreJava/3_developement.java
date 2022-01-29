@@ -16,12 +16,34 @@
                  When adding to the head of the list: LinkedList is faster. When adding to the tail of the list: ArrayList is faster.
                  
                  //Set
-                 Sets hold non-duplicate values not stored in insertion order. There are 2 extensions, TreeSet (ordered) and HashSet (non-ordered).
+                 Sets hold non-duplicate values not stored in insertion order. There are 2 extensions, TreeSet (ordered by value or alphabetically) and HashSet (non-ordered).
                  HashSet has O(1) time complexity for all search, add algorithms. HashSet has larger space complexity.
-                 Note: space complexity
                  
+                 //Map
+                 Holds key and value pairs. Has O(1) complexity. In contrast to set, you need to give key for the values in map.
+                 
+                 Example: Find character frequency of a sentence using a map:
          */
+                  import java.util.*;
+                  public class Main{
+                           public static void main(String[] args){
+                                    String sentence = new String("Hello Java");
+                                    TreeMap<Character,Integer> frequency= new TreeMap<Character,Integer>();
+                                    for(int i=0;i<sentence.length();i++){
+                                             char c = sentence.charAt(i);
+                                             if(frequency.containsKey(c)){
+                                                      frequency.replace(c,frequency.get(c)+1);
+                                             }else{
+                                                      frequency.put(c,1);
+                                    }
+                           }
+                                    for(Map.Entry<Character,Integer> entry: frequency.entrySet()){
+                                             System.out.println("Key: "+entry.getKey()+" Value: "+entry.getValue());
+                                    }   
+                           }
          
+         
+
          //Exception Handling
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
