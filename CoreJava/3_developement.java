@@ -22,6 +22,8 @@
                  //Map
                  Holds key and value pairs. Has O(1) complexity. In contrast to set, you need to give key for the values in map.
                  
+                 Collections.sort(collection_name); //To sort a collection
+                 
                  Example: Find character frequency of a sentence using a map:
          */
                   import java.util.*;
@@ -42,8 +44,56 @@
                                     }   
                            }
          
+         //Comparing your objects using Comparable interface. By doing this you can sort your objects by only one rule.
          
-
+         class Player implements Comparable<Player>{
+                  private String name;
+                  private int id;
+                  public Player(String name, int id){
+                           this.name=name;
+                           this.id=id;
+                  }
+                  @Override
+                  public String toString(){
+                           return id+name;
+                  }
+                  @Override
+                  public int compareTo(Player player){ //We can override compareTo method as we pleased and sort our objects by this order
+                           if(this.id<player.id){
+                                    return -1;
+                           }else if(this.id>player.id){
+                                    return 1;
+                           }
+                           return 0;
+                  }
+         }
+          public class Main{
+                           public static void main(String[] args){
+                                    ArrayList<Player> playerList = new ArrayList<Player>();
+                                    playerList.add(new Player("player1",1));
+                                    playerList.add(new Player("player2",2));
+                                    Collection.sort(playerList);
+                           }
+          }                           
+                           
+         //If we want diferrent sorting rules applied to our objects when we sort them, we implement the Comparator interface.                           
+         
+          public class sortByDescending implements Comparator<String>{
+                  @Override
+                   public int compare(String s1, String s2){
+                            return -o1.compareTo(o2);
+                   }
+          }                 
+          
+         public class Main{
+                           public static void main(String[] args){
+                                    ArrayList<Player> playerList = new ArrayList<Player>();
+                                    playerList.add(new Player("player1",1));
+                                    playerList.add(new Player("player2",2));
+                                    Collection.sort(playerList,new sortByDescending());
+                           }
+          } 
+                           
          //Exception Handling
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
