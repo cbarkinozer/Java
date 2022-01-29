@@ -15,6 +15,11 @@
                  Note: LinkedList has bigger space-complexity than ArrayList.
                  When adding to the head of the list: LinkedList is faster. When adding to the tail of the list: ArrayList is faster.
                  
+                 //Set
+                 Sets hold non-duplicate values not stored in insertion order. There are 2 extensions, TreeSet (ordered) and HashSet (non-ordered).
+                 HashSet has O(1) time complexity for all search, add algorithms. HashSet has larger space complexity.
+                 Note: space complexity
+                 
          */
          
          //Exception Handling
