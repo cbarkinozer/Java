@@ -181,6 +181,13 @@ public class Main {
             
         */
         
+        //Adding feature or method to interfaces
+        /*
+            Instances from interfaces can not be created, so interface variables are static even they do not have the static keyword.
+            Interface variables can not be private because only constructors or methods can change private variables and interfaces do not have them.
+        */
+        
+        
         //Composition
         /*
             Has-a relationship. For example Computer has a monitor,
