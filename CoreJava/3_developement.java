@@ -142,7 +142,11 @@
           return true;
                   
          }        
-                           
+         //LinkedList that implements Queue interface
+          /*      
+                  LinkedList is the only collection that implements 2 different collection interfaces. We saw LinkedList that implements List interface.
+                  But LinkedList can also implement Queue's. Queue is a data structure that works FIFO (first in first out).
+          */
          //Exception Handling
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
