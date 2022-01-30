@@ -93,6 +93,39 @@
                                     Collection.sort(playerList,new sortByDescending());
                            }
           } 
+           
+         //synchronized
+         /*
+                  In the Multithreading concept, multiple threads try to access the shared resources at a time, and this might cause inconsistent results.
+                  The "synchronized" keyword controls the access of multiple threads to any shared resource.
+                  So in thread operations Vector is preferred instead ArrayList.
+         */
+         //stack
+         // A stack data structure is a list that works as LIFO( last in first out).                       
+         
+         //enumeration                           
+         /*
+                 A structure for iterating collection elements. Similar to iterator.
+                 Differences of enumeration and iterator: 
+                  Iterator can remove the element during traversal of collection as it has remove() method.
+                  Enumeration does not have remove() method.
+                  Iterator is new Enumeration is legacy.
+                  Iterator is used for HashMap, LinkedList, ArrayList, HashSet, TreeMap, TreeSet.
+                  Enumeration is used for Vector and Hashtable.
+                  Enumeration does not throw ConcurrentModificationException if Collection is modified during the traversal.
+                  Iterator throws ConcurrentModificationException if a Collection is modified while iterating other than its own remove() method.
+             
+         */
+                           Stack<String> stack = Stack<String>();
+                           stack.push("J2EE");
+                           stack.push("J2SE");
+                           Enumerations<String> enum = stack.elements(); //Creating enum to traverse elements in stack
+                           while(enum.hasMoreElements()){
+                                    System.out.println(enum.nextElement());
+                           }
+                           stack.peek(); //Check the element at the top
+                           stack.pop(); //Remove the top element
+                           stack.empty();//Checks if empty and returns boolean
                            
          //Exception Handling
         //Java I/O (Input/Output)
