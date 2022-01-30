@@ -156,13 +156,14 @@
         
          //Priority Queue : All elements has priorities and if an element has greater priority, it goes to front.
         //Hospital Emergency example with priority queue
-         public class Patient{
+         public class Patient implements Comparable<Patient>{
                   private String name;
                   private String complaint;
                   private int priority;
                   public Patient(String name, String complaint){
                            this.name=name;
                            this.complaint=complaint;
+                           complaint=complaint.toLowerCase();
                            if(complaint.equals("apandisit")){
                                     this.priority=1;
                            }else if(complaint.equals("burn")){
@@ -176,6 +177,16 @@
                            String info=getName()+"has complaint: "+getComplaint+" with priority: "+getPriority;
                            return info;
                   }
+                  @Override
+                  public int compareTo(Patience patience){
+                           if(this.priority>patience.priority){
+                                    return -1;
+                           }else if(this.priority<patience.priority){
+                                    return 1;
+                           }else{
+                                    return 0;
+                           }
+                  }
          }
         //ListIterator vs iterator
         /*
@@ -186,9 +197,22 @@
             
         */                   
                            
+        public class Main{
+                           public static void main(String[] args){
+                                    Queue<Patient> emergency= PriorityQueue<Patient>();
+                                    queue.offer(new Patient("Ben X","headache"));
+                                    queue.offer(new Patient("May X","apandisit"));
+                                    queue.offer(new Patient("Peter X","burn"));
+                                    int i=1;
+                                    while(emergency.isEmpty()!=true){
+                                             System.out.println(i+". patient");
+                                             System.out.println(emergency.poll());
+                                             i++
+                                    }
+                           }
+        }                   
                            
-                           
-                           
+        //Creating custom iterable class                   
                            
                            
                            
