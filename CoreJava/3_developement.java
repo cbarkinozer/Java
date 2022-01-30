@@ -147,7 +147,55 @@
                   LinkedList is the only collection that implements 2 different collection interfaces. We saw LinkedList that implements List interface.
                   But LinkedList can also implement Queue's. Queue is a data structure that works FIFO (first in first out).
           */
-         //Exception Handling
+           Queue<String> queue = new LinkedList<String>();
+           queue.offer("J2EE"); //add
+           queue.offer("J2SE");
+           queue.peek();
+           queue.isEmpty(); 
+           queue.poll();//remove 
+        
+         //Priority Queue : All elements has priorities and if an element has greater priority, it goes to front.
+        //Hospital Emergency example with priority queue
+         public class Patient{
+                  private String name;
+                  private String complaint;
+                  private int priority;
+                  public Patient(String name, String complaint){
+                           this.name=name;
+                           this.complaint=complaint;
+                           if(complaint.equals("apandisit")){
+                                    this.priority=1;
+                           }else if(complaint.equals("burn")){
+                                    this.priority=2;
+                           }else{
+                                    this.priority=3;
+                           }
+                  }
+                  @Override
+                  public String toString(){
+                           String info=getName()+"has complaint: "+getComplaint+" with priority: "+getPriority;
+                           return info;
+                  }
+         }
+        //ListIterator vs iterator
+        /*
+            ListIterator is only used by structures that implements List interface.
+            Iterator is used by all structures.
+            Iterator can not remove or add an element, ListIterator can remove or add.
+            ListIterator can go backwards with previous() and add elements with add() where iterator can not.
+            
+        */                   
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+        //Exception Handling
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
         //UI developement with Swing
