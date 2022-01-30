@@ -127,6 +127,22 @@
                            stack.pop(); //Remove the top element
                            stack.empty();//Checks if empty and returns boolean
                            
+         //Palindrom example with stack
+         public Boolean isPalindrome(String sentence){                           
+                  
+          Stack<Character> charStack = new Stack<Character>();
+          for(int i=0;i<sentence.length()/2;i++){
+                  stack.push(sentence.charAt(i));
+          }          
+          for(int i=sentence.lengh()/2;i<sentence.length();i++){
+                  if(sentence.charAt(i)!=stack.pop()){
+                           return false;
+                  }
+          }  
+          return true;
+                  
+         }        
+                           
          //Exception Handling
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
