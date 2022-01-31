@@ -327,8 +327,32 @@
                   //Exception can be caught in any calling method.
                            
                   //Writing custom exceptions
-                           
-                  
+                  public class InvalideAgeException extends ArithmeticException{
+                           public InvalidAgeException(String message){
+                                    super(message); //Send message to superclass's constructor
+                           }
+                           @Override
+                           public void printStackTrace(){
+                                    System.out.println("This is a invalid age exception...");
+                           }
+                  }         
+                  public class Main{
+                           public static void main(String[] args){
+                                    int age 17;
+                                    try{
+                                             pubEntranceControl(17);
+                                    }catch(InvalidAgeException e){
+                                             e.printStackTrace();
+                                    }
+                           }
+                           public static void pubEntranceControl(int age) throws InvalidAgeException{
+                                    if(if age<18){
+                                             throw new InvalidAgeException("Invalid age"); //Invalid Age is the message
+                                    }else{
+                                             System.out.println("Welcome to the pub...");
+                                    }
+                           }
+                  }
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
         //UI developement with Swing
