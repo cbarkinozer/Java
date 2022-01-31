@@ -354,6 +354,13 @@
                            }
                   }
         //Java I/O (Input/Output)
+        /*
+                  I/O is a API for reading and writing data to files or other resources.
+                  Java uses streams to increase the speed of I/O operations.
+                  I/O API has many classes for I/O operations.
+                  //Stream
+                  
+        */
         //Multithreading and Concurrency
         //UI developement with Swing
         //JDBC and Mysql
