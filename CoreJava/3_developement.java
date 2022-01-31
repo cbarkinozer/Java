@@ -322,6 +322,12 @@
                                     throw new IOException();
                            }
                   }
+                  // Working principle of exception catching in nested methods
+                  //In nested methods, methods keep calls the other method and does not throw exception until it reaches the main method.
+                  //Exception can be caught in any calling method.
+                           
+                  //Writing custom exceptions
+                           
                   
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
