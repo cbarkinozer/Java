@@ -278,7 +278,27 @@
                   }
          } 
         //Exception Handling
-        
+        /*
+                  //Exception
+                  Exceptions are runtime incidents that disrupts the flow of events.
+                  Exception handling is applied when there is an error possibility expected at runtime and
+                  cannot be fixed by programming. These exceptions are caught and handled so our program do not crash.
+                  Example for these exceptions: InputOutput, database connection, arithmetical exceptions.
+                  Note: Do not apply exception handling when not needed, they are costly by performance.
+                  //Error vs Exception:
+                  Errors are serious problems that should not be tried to catch but should be fixed by programmers.
+                  Exceptions are non-expected possible events that should be catched by programs.
+                  Exception hierachy: Throwable>Error(>StackOverFlow,VirtualMachine,OutOfMemory(s)) and Exception.
+                  Exception>IO,SQL,ClassNotFound(s),RunTime(>Arithmetic,NullPointer,NumberOfFormat,IndexOutOfBound).
+                  //Checked Exception:
+                  They do not derive from RunTimeExceptions, java compiler foresees that codes might throw these exceptions and warns us to catch.
+                  Example: IOException and SQLException.
+                  //Unchecked Exception:
+                  They derive from RunTimeExceptions, java compiler do not foresee these exceptions.
+                  Implementation of exception handling is programmers responsibility.
+                  Example: ArithmeticException, NullPointerException.
+                  
+        */
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
         //UI developement with Swing
