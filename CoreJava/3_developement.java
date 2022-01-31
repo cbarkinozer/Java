@@ -212,14 +212,73 @@
                            }
         }                   
                            
-        //Creating custom iterable class                   
+        //Iterating your objects                   
+         public class Radio implements Iterable<String>{
+                  private ArrayList<String> channelList = new ArrayList<String>();
+                  public Radio(String[] channels){
+                           for(String channel:channels){
+                                    channelList.add(channel);
+                           }
+                  }
+                  @Override
+                  public Iterator<String> iterator(){
+                           return channelList.iterator();
+                  }
+         }                  
+         public class Main{
+                  public static void main(String[] args){
+                           String[] channels = {"ATV","BTV","CTV","DTV","ETV"};
+                           Radio radio = new Radio(channels);
+                           for(String str: radio){ //Only array or iterable can get iterated not object
+                                    //So we implement iterable and override the iterator method
+                                    System.out.println(str);
+                           }
+                  }
+         }                  
                            
-                           
-                           
-                           
-                           
-                           
+        //Creating custom iterable class
+        public class RadioIterator implements Iterator<String>{
+                 private int index=0;
+                 @Override
+                 public Boolean hasNext(){
+                          if(index<chanelList.size()){
+                                    return true;
+                          }else{
+                                    return false;
+                          }
+                 }
+                 @Override
+                 public String next(){
+                          String value = channelList.get(index);
+                          index++;
+                          return value;
+                 }
+        }                   
+         public class Radio implements Iterable<String>{
+                  private ArrayList<String> channelList = new ArrayList<String>();
+                  public Radio(String[] channels){
+                           for(String channel:channels){
+                                    channelList.add(channel);
+                           }
+                  }
+                  @Override
+                  public Iterator<String> iterator(){
+                           return new RadioIterator();
+                  }
+         }                     
+         
+         public class Main{
+                  public static void main(String[] args){
+                           String[] channels = {"ATV","BTV","CTV","DTV","ETV"};
+                           Radio radio = new Radio(channels);
+                           Iterator<String> iterator = new Iterator<String>(); //We can iterate over our objects
+                           while(iterator.hasNext()){
+                                    System.out.println(iterator.next());
+                           }
+                  }
+         } 
         //Exception Handling
+        
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
         //UI developement with Swing
