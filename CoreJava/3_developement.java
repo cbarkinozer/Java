@@ -297,8 +297,32 @@
                   They derive from RunTimeExceptions, java compiler do not foresee these exceptions.
                   Implementation of exception handling is programmers responsibility.
                   Example: ArithmeticException, NullPointerException.
+        */         
+                  try{
+                        int a = 30/0; //Checked code  
+                  }catch(Exception e){//exception that wanted to catched
+                          System.out.println("You can not divide a number with 0"); //behaviour for that exception
+                          e.printStackTrace(); //Do not print e, instead use this method to find exception
+                  }finally{
+                           System.out.println("Please enter a new number");//final behaviour preferably
+                  }
                   
-        */
+                  //Warning: When multiple exceptions will be caught, these catch blocks should have exceptions from the specific to the general.
+                  //Throw : Used when there is no reason to get an exception but we want it to throw exception.
+                  public static void pubEntranceControl(int age){
+                           if(age<18){
+                                    throw new ArithmeticException(); //It is not handled so program stops, if it throws exception
+                           }
+                  }
+                  //ArithmeticException is a unchecked exception so this is enough.
+                  //Throws: For checked exceptions we need to add throws keyword to our method.
+                  
+                  public static void pubEntranceControl(int age) throws IOException{
+                           if(age<18){
+                                    throw new IOException();
+                           }
+                  }
+                  
         //Java I/O (Input/Output)
         //Multithreading and Concurrency
         //UI developement with Swing
