@@ -359,6 +359,8 @@
                   Java uses streams to increase the speed of I/O operations.
                   I/O API has many classes for I/O operations.
                   //Stream
+                  Streams are data in byte format that flows between resources.
+                  There are 3 predefined streams in java, standard input , output and error. System.in, System.out, System.err .
                   
         */
         //Multithreading and Concurrency
