@@ -6,6 +6,12 @@ Input: "3gy41d216"
 Output: true
 Input: "f09r27i8e67"
 Output: false
+
+1. For input "7r5gg812" the output was incorrect. The correct output is true
+
+2. For input "3gy41d216" the output was incorrect. The correct output is true
+
+3. For input "jfb735f9ph8152" the output was incorrect. The correct output is true
 */
 import java.util.*; 
 import java.io.*;
