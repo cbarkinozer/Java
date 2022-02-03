@@ -361,8 +361,43 @@
                   //Stream
                   Streams are data in byte format that flows between resources.
                   There are 3 predefined streams in java, standard input , output and error. System.in, System.out, System.err .
+                  //OutputStream
+                  A class derived from the OutputStream abstract class is used to stream data to a device.
+                  write(): writes a byte array to the target.
+                  flush(): we ensure that the buffered data is written to the target.
+                  close(): Closes the OutputStream.
+                  //InputStream
+                   A class derived from the InputStream abstract class is used to stream data to a device.
+                   read(): reads next byte from the source, if there are no bytes to read returns -1.
+                   available():Returns the number of bytes that can be read.
+                   close(): Closes the InputStream.
                   
         */
+         import java.io.FileOutputStream;
+         import java.io.File;
+         public class Main{
+                  public void main(String[] args){
+                           FileOutputStream fos= null;
+                           try{ //You must add exception handling for file operations
+                                   //File file = new File("file.txt");
+                                    //fos = new FileOutputStream(file);
+                                    fos = new FileOutputStream("file.txt");
+                                    fos.write(65);
+                           }catch(FileNotFoundException ex){
+                                    //Logger.getLogger(Main.class.getName()).log(Level.SEVERE);
+                                    System.out.println("File not found exception occurred...");
+                           }finally{
+                                    try{
+                                             fos.close();
+                                    }catch(IOException ex){
+                                             System.out.println("An error occurred when closing the file...");
+                                    }        
+                           }
+                           
+                           
+                           
+                  }
+         } 
         //Multithreading and Concurrency
         //UI developement with Swing
         //JDBC and Mysql
