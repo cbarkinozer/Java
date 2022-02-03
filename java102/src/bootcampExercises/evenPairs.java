@@ -14,16 +14,21 @@ class Main {
 
   public static String EvenPairs(String str) {
     StringBuffer sBuffer = new StringBuffer();
+    ArrayList<String> aList = new ArrayList<String>();
+    String tempStr ="";
     str= str.replaceAll("[^0-9]",".");
     for(int i=0;i<str.length();i++){
-      if(str.charAt(i)!='.'){
-        sBuffer.append(str.charAt(i));
-      }else{
-        if( sBuffer.length()!=0 && Integer.parseInt(sBuffer.toString())%2==0){
-          System.out.println(Integer.parseInt(sBuffer.toString()));
-          return "true";
+      for(int j=i+1;j<str.length();j++){
+        tempStr=str.substring(i,j);
+        if(!tempStr.contains(".")){
+          aList.add(tempStr);
         }
-        sBuffer.setLength(0); //Clear
+      }
+    }
+    for(String s: aList){
+      int tempInt = Integer.parseInt(s);
+      if(tempInt>9 && tempInt<100 && tempInt%2==0){ //double digit and even
+        return "true";
       }
     }
 
