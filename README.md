@@ -20,5 +20,5 @@ So Java becomes "Write Once Run Everywhere". <br/>
 JVM's come with JRE(Java runtime environment) that is used for running java applications. <br/>
 JRE's come with JDK (Java Developement Kit) that is a library for developing java applications. <br/>
 
-main() method must be in the Main class and program starts from this Main() method. <br/>
-A project without a main() method can not be run. <br/>
+There must be a main() method to your program to run. <br/>
+This method can be in a class with any name( Main name is not a must). <br/>
