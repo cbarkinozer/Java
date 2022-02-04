@@ -400,12 +400,51 @@
                                     }catch(IOException ex){
                                              System.out.println("An error occurred when closing the file...");
                                     }        
-                           }
-                           
-                           
+                           } 
                            
                   }
-         } 
+         }
+          
+                           
+         import java.io.FileInputStream;
+         import java.io.File;
+         public class Main{
+                  public void main(String[] args){
+                           FileInputStream fos= null;
+                           try{ 
+                                  fis = new FileInputStream("file.txt",true);
+                                  /*
+                                  System.out.println("The 1. character:  "+(char)(fis.read())); //Reads a single char
+                                  fis.skip(5); //Skips 5 character  
+                                  System.out.println("The 6. character : "+(char)(fis.read())); 
+                                  */
+                                  int value;  
+                                  String string ="";
+                                  while((value=fis.read())!=-1 ){ //fis.read() returns -1 if it is at the end of file
+                                             string += (char) value;
+                                  }
+                                  System.out.println("The content of the file: "+string);  
+                                    
+                                    
+                           }catch(FileNotFoundException ex){
+                                    
+                                    System.out.println("File not found exception occurred...");
+                           }catch(IOException ex){
+                                    
+                                    System.out.println("An error ocurred while reading the file...");
+                           }finally{
+                                    try{
+                                             if(fis !=null){ // to avoid getting a null point exception on a file that cannot be opened
+                                                  fis.close();    
+                                             }
+                                             
+                                    }catch(IOException ex){
+                                             System.out.println("An error occurred when closing the file...");
+                                    }        
+                           } 
+                           
+                  }
+         }
         //Multithreading and Concurrency
         //UI developement with Swing
         //JDBC and Mysql
