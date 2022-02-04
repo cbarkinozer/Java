@@ -461,6 +461,25 @@
           }catch(IOException ex){
                   System.out.println("Dosya oluşturulurken hata oluştu...");
           }
+         
+        //Reading a file with FileReader
+         try(Scanner scanner = new Scanner (new FileReader("file.txt"))){ //Using these resources
+                  while(scanner.hasNextLine()){
+                           
+                  }
+          }catch(FileNotFoundException ex){
+                  System.out.println("Dosya oluşturulurken hata oluştu...");
+          }
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
         //Multithreading and Concurrency
         //UI developement with Swing
         //JDBC and Mysql
