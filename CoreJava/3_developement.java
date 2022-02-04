@@ -379,13 +379,21 @@
                   public void main(String[] args){
                            FileOutputStream fos= null;
                            try{ //You must add exception handling for file operations
-                                   //File file = new File("file.txt");
-                                    //fos = new FileOutputStream(file);
-                                    fos = new FileOutputStream("file.txt");
-                                    fos.write(65);
+                                   //File file = new File("file.txt"); fos = new FileOutputStream(file);
+                                    
+                                    //fos = new FileOutputStream("file.txt"); //Clears existing file before writing
+                                    fos = new FileOutputStream("file.txt",true); //Appends to existing file
+                                    //fos.write(65); //Writes A
+                                    //byte[] array ={101,75,66,68};
+                                    String s ="Barkın Özer";
+                                    byte[] sArray = s.getBytes();
+                                    fos.write(sArray);
                            }catch(FileNotFoundException ex){
                                     //Logger.getLogger(Main.class.getName()).log(Level.SEVERE);
                                     System.out.println("File not found exception occurred...");
+                           }catch(IOException ex){
+                                    //Logger.getLogger(Main.class.getName()).log(Level.SEVERE);
+                                    System.out.println("An error ocurred while writing on the file...");
                            }finally{
                                     try{
                                              fos.close();
