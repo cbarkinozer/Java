@@ -463,23 +463,65 @@
           }
          
         //Reading a file with FileReader
-         try(Scanner scanner = new Scanner (new FileReader("file.txt"))){ //Using these resources
+         try(Scanner scanner = new Scanner (new FileReader("file.txt"))){
                   while(scanner.hasNextLine()){
-                           
+                           String studentInfo = scanner.nextLine();
+                           String[] array = studentInfo.split(",");
+                           if(array[0].equals("Computer Engineering")){
+                                    System.out.println(studentInfo);        
+                           }
                   }
           }catch(FileNotFoundException ex){
                   System.out.println("Dosya oluşturulurken hata oluştu...");
           }
                            
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
-                           
+          //FileReader calls a file and gets a character and repeats this many times, this cause performance decrease
+          //But if we use BufferedReader creates a buffer(a set), gets everything inside that file to that buffer and
+          //Gets it to the application file. By doing that we do less calls to the file.
+          //BufferedReader is good for large files.
+        try(Scanner scanner = new Scanner (new BufferedReader(new FileReader("file.txt")))){
+               //Rest of the code is same   
+        } 
+        //BufferedWriter 
+         try(BufferedWriter writer = new BufferedWriter(new FileWriter("student.txt",true))){
+               writer.write("Ekta Kumari Software Engineering\n"); 
+        }                   
+        //Serialization
+        /*        Thanks to serialization api, objects belongs to the classes that implements serializable interface are convertable to byte arrays.
+                  This operation is called serialization and reverse operation is called deserialization.
+                  Advantages:
+                                    We can save objects states. For example saving in video games.
+                                    Object transfer between 2 platforms can be done on objects.
+                                    If creating an object takes long we can serialize this object and use it later.
+        */
+         public class Student implements Serializable{
+                  private String name;
+                  private int id;
+                  private String department;
+                  public Student(String name,int id,String department){
+                           this.name=name;
+                           this.id=id;
+                           this.department=department;
+                  }
+                  @Override
+                  public String toString(){
+                           String info= " name: "+name+" id: "+id+" department: "+department;
+                           return info;
+                  }
+                  
+                  
+         }
+        public class printObject{
+                  public static void main(String[] args){
+                           try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("student.bin"))){ //.bin means binary
+                                    
+                           }catch(FileNotFoundException ex){
+                                    System.out.println("Can not find the file...");
+                           }catch(IOException ex){
+                                    System.out.println("An error ocurred while opening the file...");
+                           }
+                  }
+        }
         //Multithreading and Concurrency
         //UI developement with Swing
         //JDBC and Mysql
