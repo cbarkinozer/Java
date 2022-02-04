@@ -377,7 +377,9 @@
          import java.io.File;
          public class Main{
                   public void main(String[] args){
-                           FileOutputStream fos= null;
+                           //FileOutputStream is defined here outside of the try block, because if it is defined in the try block,
+                           //its scope stays there and cannot be used in the finally block
+                           FileOutputStream fos= null; 
                            try{ //You must add exception handling for file operations
                                    //File file = new File("file.txt"); fos = new FileOutputStream(file);
                                     
@@ -445,6 +447,20 @@
                            
                   }
          }
+         //Bytestreams are preferred for secure operations and non-string values. For non-secure string operations you can use FileWriter.
+         //TryWithResources is a Java7+ operation automatically closes files.                  
+          try(FileWriter writer = new FileWriter("file.txt")){ //Using these resources
+                  //try block
+          }catch(IOException ex){
+                  System.out.println("Dosya oluşturulurken hata oluştu...");
+          }
+         //TryWithResources with multiple resources
+         try(FileWriter writer = new FileWriter("file.txt");
+             FileWriter writer2 = new FileWriter("file2.txt"); ){
+                  
+          }catch(IOException ex){
+                  System.out.println("Dosya oluşturulurken hata oluştu...");
+          }
         //Multithreading and Concurrency
         //UI developement with Swing
         //JDBC and Mysql
