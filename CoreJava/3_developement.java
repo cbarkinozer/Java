@@ -541,6 +541,11 @@
                            }
                   }
         }
+        //If we add transient keyword to a field that filed does not gets serialized inside objects.
+         
         //Multithreading and Concurrency
+        /*
+                  
+        */                   
         //UI developement with Swing
         //JDBC and Mysql
