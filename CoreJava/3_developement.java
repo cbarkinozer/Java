@@ -495,6 +495,9 @@
                                     If creating an object takes long we can serialize this object and use it later.
         */
          public class Student implements Serializable{
+                  //SerialVersionUID, her sınıf için benzersiz bir tanımlayıcıdır, JVM, Serileştirme sırasında aynı sınıfın kullanılmasını sağlamak için
+                  //sınıfın sürümlerini karşılaştırmak için kullanır.
+                  private static final long serialVersionUID = 1000;
                   private String name;
                   private int id;
                   private String department;
@@ -511,14 +514,30 @@
                   
                   
          }
-        public class printObject{
+        public class ObjectPrinter{
                   public static void main(String[] args){
                            try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("student.bin"))){ //.bin means binary
-                                    
+                                    Student student1 = new Student("Barkın Özer",1234,"Computer Engineering");
+                                    Student student1 = new Student("Soner ZencirKıran",678,"Software Engineering");
+                                    out.writeObject(student1);
+                                    out.writeObject(student2);
                            }catch(FileNotFoundException ex){
                                     System.out.println("Can not find the file...");
                            }catch(IOException ex){
                                     System.out.println("An error ocurred while opening the file...");
+                           }
+                  }
+        }
+        public class ObjectReader(){
+                  public static void main(String[] args){
+                           try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("student.bin"))){
+                                    Student student = (Student)in.readObject();
+                           }catch(FileNotFoundException ex){
+                                    System.out.println("Can not find the file...");
+                           }catch(IOException ex){
+                                    System.out.println("An error ocurred while opening the file...");
+                           }catch(ClassNotFoundException ex){
+                                    System.out.println("Can not find the class...");
                            }
                   }
         }
