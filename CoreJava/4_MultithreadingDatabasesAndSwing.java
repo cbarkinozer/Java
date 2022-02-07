@@ -105,6 +105,90 @@ public class ThreadSafe{
        }
 }
 
+//Using multiple locks.
+//join() method allows one thread to wait until another thread completes its execution
+
+import java.util.Random;
+public class ListWorker{
+       Random random = new Random();
+       ArrayList<Integer> list1 = new ArrayList<Integer>();
+       ArrayList<Integer> list2 = new ArrayList<Integer>();
+       
+       private Object lock1 = new Object();
+       private Object lock2 = new Object();
+       
+       public void addtoList1(){
+              synchronized(lock1){
+                     try{
+                            Thread.sleep(1000);
+                     }catch(InterruptedException ex){
+                            System.out.println("List1 thread interrupted...");
+                     }
+                     list1.add(random.nextInt(100));
+              }
+       }
+       public void addtoList2(){
+              synchronized(lock2){
+                    try{
+                            Thread.sleep(1000);
+                     }catch(InterruptedException ex){
+                            System.out.println("List2 thread interrupted...");
+                     } 
+                     list2.add(random.nextInt(100));
+              }
+       }
+       public void assignValue(){
+       
+        for (int i = 0 ; i < 1000 ; i++) {
+            addtoList1();
+            addtoList2();
+            
+        }
+     
+    }
+    public void run(){
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                assignValue();
+                
+            }
+        });
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                assignValue();
+                
+            }
+        });
+        long start = System.currentTimeMillis();
+        
+        thread1.start();
+        thread2.start();
+        
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException ex) {
+            System.out.println("Thread joining interrupted...");
+        }
+        System.out.println("List1 Size :" + list1.size() + " List2 Size: " + list2.size());
+        
+        long end =  System.currentTimeMillis();
+        
+        System.out.println("Time passed : " + (end - start));
+        
+      
+    }      
+}
+public class Main{
+       public static void main(String[] args){
+              ListWorker listWorker = new ListWorker();
+              worker.run();
+       }
+}
+
+//ThreadPools and ExecutorService
 
 
 //JDBC and Mysql Database Operations
