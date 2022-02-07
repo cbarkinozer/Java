@@ -78,9 +78,32 @@ public class Main{
 }
 
 //Synchronization of the threads
+//If threads reach a value simultaneously they might give unwanted results, they must be synchronized.
 
-
-
+public class ThreadSafe{
+       private int count=0;
+       public synchronized void increment(){ //synchronized keyword only lets one thread to reach per time
+              count++;
+       }
+       public void runThreads(){
+              Thread thread1 = new Thread(new Runnable(){ //anonymous inner class( used if you have to override a method of class or interface)
+                     @Override
+                     public void run(){
+                            for(int i=0;i<10;i++){
+                                   increment();
+                            }
+                     }
+              });
+              Thread thread2 = new Thread(new Runnable(){
+                     @Override
+                     public void run(){
+                            for(int i=0;i<10;i++){
+                                   increment();
+                            }
+                     }
+              });
+       }
+}
 
 
 
