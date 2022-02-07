@@ -189,7 +189,40 @@ public class Main{
 }
 
 //ThreadPools and ExecutorService
-
+public class Worker implements Runnable{
+       private String name;
+       private int taskId;
+       public Worker(String name, int taskId){
+              this.name=name;
+              this.taskId=taskId;
+       }
+       @Override
+       public void run(){
+              try{
+                    System.out.println(name+"with taskId"+taskId+"started to work...");
+                    Thread.sleep(5000); 
+              }catch(InterruptedExecution ex){
+                     System.out.println("Thread is interrupted...");
+              }
+              System.out.println(name+"with taskId"+taskId+"finished to work...");
+              
+       }
+}
+public class Main{
+       publc static void main(String[] args){
+              ExecutorService executor = Executors.newFixedThreadPool(2); //Executor controls the threadpool with 2 threads (max 2 thread works at the same time)
+              for(int i=0;i<5;i++){
+                     executor.submit(new Worker(String.valueOf(i),i));
+              }
+              executor.shutdown(); // If we do not close the pool they will remain on the background
+              try{
+                     executor.awaitTermination(1,TimeUnit.DAYS); // Define threads maximum lifespan
+              }catch(InterruptedExecution ex){
+                     System.out.println("Thread is interrupted...");
+              }
+              
+       }
+}
 
 //JDBC and Mysql Database Operations
 /**/
