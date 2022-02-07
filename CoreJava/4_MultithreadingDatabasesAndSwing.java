@@ -223,6 +223,25 @@ public class Main{
               
        }
 }
+//ArrayBlockingQueue for Producer-Consumer problem
+/*
+       The job of the Producer is to generate the data, put it into the buffer, and again start generating data. 
+       While the job of the Consumer is to consume the data from the buffer.
+       
+       If buffer full -> producer can not put data into the buffer.
+       If buffer empty -> consumer can not take data from the buffer.
+       The producer and consumer can not access the buffer at the same time.
+       
+*/
+
+
+
+
+
+
+
+
+
 
 //JDBC and Mysql Database Operations
 /**/
