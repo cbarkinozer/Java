@@ -235,8 +235,72 @@ public class Main{
 */
 
 
-
-
+public class Main{
+       public static void main(String[] args){
+              ProducerConsumer pc = new ProducerConsuemr();
+              Thread producer= new Thread(new Runnable(){
+                     @Override
+                     public void run(){
+                            pc.produce();
+                     }
+              });
+              Thread consumer= new Thread(new Runnable(){
+                     @Override
+                     public void run(){
+                            pc.consume();
+                     }
+              
+              });
+       }
+}
+import java.util.Random;
+public class ProducerConsumer{
+       
+       Random random = new Random();
+       
+       BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
+       
+       public void produce(){
+              while(true){
+                     try{
+                            Thread.sleep(1000);
+                        }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+                     }
+              
+              
+              try{          
+                            Integer value = random.nextInt(100);
+                            queue.put(value);
+                            System.out.println("Producer producing...");
+                        }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+                     }
+                     
+              }
+       }
+       public void consume(){
+              while(true){
+                     try{
+                            Thread.sleep(5000);
+                        }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+                     }
+              
+              
+              try{          
+                            
+                            queue.take(value);
+                            System.out.println("Consumer consuming...");
+                            System.out.println("Consumer size: "+ queue.size());
+                        }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+                     }
+                     
+              }
+       }
+       
+}
 
 
 
