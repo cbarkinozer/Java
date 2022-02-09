@@ -357,7 +357,61 @@ try{
        Occur whe nthere are 2+ resources and 2+ threads.
        When two or more threads try to access the same resources at the same time deadlock occurs.
        Then these threads can never access the resource and eventually go into the waiting state forever.
+       To ressolve this problem following can be implemented.
 */
+
+public void checkLocks(Lock a, Lock b){
+       boolean aObtained=false;
+       boolean bObtained=false;
+       
+       while(true){
+              aObtained= a.tryLock();
+              bObtained = b.tryLock();
+              if(aObtained==true && bObtained==true){
+                     return;
+              }
+              if(aObtained==true){
+                     a.unlock();
+              }
+              if(bObtained==true){
+                     b.unlock();
+              }
+       }
+}
+// Using this method before thread operations be sure that both locks are not locked at the same time by using checkLocks(lock1,lock2).
+
+//Semaphore
+/*
+       A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters
+       We are going to use it for operating multiple threads.
+*/
+import java.util.concurrent.Semaphore;
+public class SemaphoreExample{
+       private Semaphore sem = new Semaphore(3); //3 threads
+       public void threadFunction(int id){
+              
+              try{
+                     sem.acquire(); //If value 0 do not continue to execute, else continue.
+              }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+              }
+              
+              System.out.println("Thread starting... ID"+ id);
+              
+              try{
+                     Thread.sleep(5000);
+              }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+              }
+              
+              System.out.println("Thread quitting... ID"+ id);
+              sem.release();
+              
+       }
+}
+
+//Callable and feature interfaces, returning value from threads
+
 
 
 //JDBC and Mysql Database Operations
