@@ -303,7 +303,36 @@ public class ProducerConsumer{
 }
 
 //Wait and Notify methods
-
+public class waitAndNotify{
+       private Object lock = new Object();
+       public void firstThread(){
+              synchronized(lock){
+                     System.out.println("First Thread is working...");
+                     System.out.println("First Thread is waiting to be awakened...");
+                     try{
+                            lock.wait(); //Waiting to get notified
+                     }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+                     }
+                     System.out.println("Thread is awake, thread continues...");
+              }
+       }
+       public void secondThread(){
+              Scanner scanner = new Scanner(System.in);
+              try{
+                     Thread.sleep(20000); //Waiting the first thread
+              }catch(InterruptedException ex){
+                            System.out.println("Thread interrupted...");
+                     }
+              synchronized(lock){
+                     System.out.println("Second Thread is working...");
+                     System.out.println("To continue press any key...");
+                     scanner.nextLine();
+                     lock.notify();
+                     System.out.println("First thread is awakened, second thread is off...");
+              }
+       }
+}
 
 
 
