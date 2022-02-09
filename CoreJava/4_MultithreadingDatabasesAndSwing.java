@@ -334,7 +334,30 @@ public class waitAndNotify{
        }
 }
 
+//Reentrant lock, condition class, await(), signal()
+//If a Thread has locked a piece of code and leaves the locked piece of code without unlocking, it can enter the locked piece of code again.
+//This feature is one of the most important features of ReentrantLock.
+import java.util.concurrent.locks.RenteredLock;
+Lock lock = new RenteredLock();
+lock.lock();
+try{
+       //code
+}finally{ //to be sure it is unlocked at the end or infinite loops occur
+       lock.unlock();
+}
+/*
+       //await()
+       Causes the current thread to wait until it is signalled or interrupted.
+       //signal()
+       Wakes up one waiting thread.
+*/
 
+//Deadlock
+/*
+       Occur whe nthere are 2+ resources and 2+ threads.
+       When two or more threads try to access the same resources at the same time deadlock occurs.
+       Then these threads can never access the resource and eventually go into the waiting state forever.
+*/
 
 
 //JDBC and Mysql Database Operations
