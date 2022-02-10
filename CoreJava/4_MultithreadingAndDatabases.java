@@ -638,13 +638,38 @@ public class Connect{
        To use commit and rollback we need to deactivate the queries running instantly by "con.setAutoCommit(false);".
 */
 public void commitAndRollback(){
+       Scanner scanner = new Scanner(System.in);
        try{
              con.setAutoCommit(false);
-              String query="DELETE FROM employees WHERE id =3";
-              String query="UPDATE employees SET email="kentmartin@gmail.com" WHERE id =1 ";
-       }catch(){
+              String query1="DELETE FROM employees WHERE id =3";
+              String query2="UPDATE employees SET email='kentmartin@gmail.com' WHERE id =1 ";
+              System.out.println("Before updating:");
+              getEmployees();
+              Statement statement = con.createStatement();
               
+              statement.executeUpdate(query1);
+              statement.executeUpdate(query2);
+              
+              System.out.println("Would you like to save operations?");
+              String answer = scanner.nextLine();
+              
+              if(answer.equals("yes")){
+                     con.commit();
+                     getEmployees();
+                     System.out.println("Database updated...");
+              
+              }else{
+                     con.rollback();
+                     System.out.println("Database update cancalled...");
+                     getEmployees();
+              }
+              
+       }catch(SQLException ex){
+                     System.out.println("Query failed...");
        }
-       
+    public static void main(String[] args){
+              CommitAndRollback comRoll = new CommitAndRollback();
+              comRoll.commitAndRollback();
+    }   
        
 }
