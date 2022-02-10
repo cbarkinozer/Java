@@ -481,7 +481,28 @@ public class Connect{
               try{
                      Class.forName("com.mysql.jdbc.Driver");
               }catch(ClassNotFoundException ex){
-                     
+                     System.out.println("Can not find driver...");
               }
+              
+              try{
+                     con=DriverManager.getConneciton(url,username,password);
+                     System.out.println("Connection successful...");
+              }catch(SQLException ex){
+                     System.out.println("Connection failed...");
+              }   
        }
+       
+       public static void main(String[] args){
+              Connect connect = new Connect();       
+       }
+
 }
+
+//Pulling data from table
+public class Connect{
+       //...
+       private Statement statement=null;
+              
+}
+
+
