@@ -450,7 +450,44 @@ try{
 thread.interrupt(); //Interrupts thread throws InterruptedException in try-catch
 
 //JDBC and Mysql Database Operations
-/**/
+/*
+       Database: Organized collection of structured information, or data, typically stored electronically in a computer system
+       Rational databse: Stores data in tables, therefore this tables can take advantage of the ACID features (mysql, postgresql,oracledb).
+       Document-based database: Stores data in documents (mongoDB,Azure document).
+       JDBC: Structure created to connect projects to relational databases.
+       We will run SQL queries over JDBC and perform operations on mysql database.
+       JDBC is compatible with different relational databases and we do not need to develop different code for each database.
+       JDBC Driver: Allows connection to databases, makes our database function calls suitable for different databases.
+       XAMPP: Is a great tool for managing multiple databases in a computer. (default credentials: username:root, password:)
+       To connect to mysql, one need to add mysql-connector.jar to the project's libraries.
+       Open XAMPP, run mysql database, add mysql-connector.jar to projects libraries.
+*/
+import java.sql.connection;
+
+public class Connect{
+       private String username="root";
+       private String password ="";
+       
+       private String dbName="demo";
+       
+       private String host="localhost";
+       
+       private int port=3306;//!ADD *YOUR* PORT(check from xampp)
+       
+       private Connection con = null;
+       
+       public Connect(){
+              String url ="jdbc:mysql://"+host+":"+port+"/"+dbName;
+              try{
+                     Class.forName("com.mysql.jdbc.Driver");
+              }catch(ClassNotFoundException ex){
+                     
+              }
+       }
+}
+
+
+
 //UI programming with Swing
 /**/
        
