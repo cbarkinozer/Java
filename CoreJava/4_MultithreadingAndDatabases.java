@@ -485,9 +485,3 @@ public class Connect{
               }
        }
 }
-
-
-
-//UI programming with Swing
-/**/
-       
