@@ -122,7 +122,7 @@ public class ListWorker{
                      try{
                             Thread.sleep(1000);
                      }catch(InterruptedException ex){
-                            System.out.println("List1 thread interrupted...");
+                            System.out.println("List1 thread is interrupted...");
                      }
                      list1.add(random.nextInt(100));
               }
@@ -132,7 +132,7 @@ public class ListWorker{
                     try{
                             Thread.sleep(1000);
                      }catch(InterruptedException ex){
-                            System.out.println("List2 thread interrupted...");
+                            System.out.println("List2 thread is interrupted...");
                      } 
                      list2.add(random.nextInt(100));
               }
@@ -170,7 +170,7 @@ public class ListWorker{
             thread1.join();
             thread2.join();
         } catch (InterruptedException ex) {
-            System.out.println("Thread joining interrupted...");
+            System.out.println("Thread joining is interrupted...");
         }
         System.out.println("List1 Size :" + list1.size() + " List2 Size: " + list2.size());
         
@@ -265,16 +265,16 @@ public class ProducerConsumer{
                      try{
                             Thread.sleep(1000);
                         }catch(InterruptedException ex){
-                            System.out.println("Thread interrupted...");
+                            System.out.println("Thread is interrupted...");
                      }
               
               
               try{          
                             Integer value = random.nextInt(100);
                             queue.put(value);
-                            System.out.println("Producer producing...");
+                            System.out.println("Producer is producing...");
                         }catch(InterruptedException ex){
-                            System.out.println("Thread interrupted...");
+                            System.out.println("Thread is interrupted...");
                      }
                      
               }
@@ -284,17 +284,17 @@ public class ProducerConsumer{
                      try{
                             Thread.sleep(5000);
                         }catch(InterruptedException ex){
-                            System.out.println("Thread interrupted...");
+                            System.out.println("Thread is interrupted...");
                      }
               
               
               try{          
                             
                             queue.take(value);
-                            System.out.println("Consumer consuming...");
-                            System.out.println("Consumer size: "+ queue.size());
+                            System.out.println("Consumer is consuming...");
+                            System.out.println("Consumer's size: "+ queue.size());
                         }catch(InterruptedException ex){
-                            System.out.println("Thread interrupted...");
+                            System.out.println("Thread is interrupted...");
                      }
                      
               }
@@ -393,25 +393,60 @@ public class SemaphoreExample{
               try{
                      sem.acquire(); //If value 0 do not continue to execute, else continue.
               }catch(InterruptedException ex){
-                            System.out.println("Thread interrupted...");
+                            System.out.println("Thread is interrupted...");
               }
               
-              System.out.println("Thread starting... ID"+ id);
+              System.out.println("Thread is starting... ID"+ id);
               
               try{
                      Thread.sleep(5000);
               }catch(InterruptedException ex){
-                            System.out.println("Thread interrupted...");
+                            System.out.println("Thread is interrupted...");
               }
               
-              System.out.println("Thread quitting... ID"+ id);
+              System.out.println("Thread is quitting... ID"+ id);
               sem.release();
               
        }
 }
 
 //Callable and feature interfaces, returning value from threads
+/*
+       Callable , represents an asynchronous task which can be executed by a separate thread.
+       Callable vs Runnable: A Runnable, does not return a result and cannot throw a checked exception.
+       Future , represents the result of an asynchronous computation.
+       The question mark (?) is known as the wildcard in generic programming. It represents an unknown type.
+*/
+Executor executor = Executors.newFixedThreadPool(1); 
+Future<?> future = executor.submit(new Callable<Integer>(){
+       @Override
+       public Integer call() throws Exception{
+              Random random = new Random();
+              System.out.println("Thread is working...");
+              int time = random.nextInt(1000)+2000;
+              if(time>2500){
+                     throws new IOException("Thread has been sleeping for too long...");
+              }
+              try{
+                            Thread.sleep(time);
+              }catch(InterruptedException ex){
+                     System.out.println("Thread is interrupted...");
+              }
+              System.out.println("Thread is quitting...");
+              return time;
+       }
 
+});
+executor.shutdown();
+try{
+       System.out.println("Returning value: "+future.get());
+}catch(InterruptedException ex){
+       System.out.println("Thread interrupted...");
+}catch(ExecutionException ex){
+       System.out.println("Execution failed...");
+}
+
+//Thread Interrupts
 
 
 //JDBC and Mysql Database Operations
