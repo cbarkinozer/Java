@@ -630,3 +630,21 @@ public class Connect{
               connect.getEmployeesPrepared(3); //where id=3
        }
 }
+//Database Transaction operations, commit() and rollback()
+/*
+       In projects we need to do databse operations repeatedly. If one of the queries fail it might affect other queries.
+       commit(): Runs all queries, used when all queries are done successfully.
+       rollback(): Cancels all queries, used when one of the related queries fail.
+       To use commit and rollback we need to deactivate the queries running instantly by "con.setAutoCommit(false);".
+*/
+public void commitAndRollback(){
+       try{
+             con.setAutoCommit(false);
+              String query="DELETE FROM employees WHERE id =3";
+              String query="UPDATE employees SET email="kentmartin@gmail.com" WHERE id =1 ";
+       }catch(){
+              
+       }
+       
+       
+}
