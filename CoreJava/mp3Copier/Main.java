@@ -36,7 +36,35 @@ public class Main {
     public static void main(String[] args){
         readFile();
         long start = System.currentTimeMillis();
-        copy("bruh2.mp3");
+        Thread thread1 = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                copy("bruh1.mp3");
+            }
+        });
+        Thread thread2 = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                copy("bruh2.mp3");
+            }
+        });
+        Thread thread3 = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                copy("bruh3.mp3");
+            }
+        });
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        
+        try{
+            thread1.join();
+            thread2.join();
+            thread3.join();
+        }catch(InterruptedException ex){
+            System.out.println("The thread is interrupted...");
+        }
         long end = System.currentTimeMillis();
         System.out.println("It took "+(end-start)/1000+" seconds to copy...");
     }
