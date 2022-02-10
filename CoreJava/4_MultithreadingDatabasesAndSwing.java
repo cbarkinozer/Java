@@ -447,7 +447,7 @@ try{
 }
 
 //Thread Interrupts
-
+thread.interrupt(); //Interrupts thread throws InterruptedException in try-catch
 
 //JDBC and Mysql Database Operations
 /**/
