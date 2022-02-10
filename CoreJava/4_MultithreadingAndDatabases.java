@@ -477,7 +477,7 @@ public class Connect{
        private Connection con = null;
        
        public Connect(){
-              String url ="jdbc:mysql://"+host+":"+port+"/"+dbName;
+              String url ="jdbc:mysql://"+host+":"+port+"/"+dbName+"?useUnicode=true&characterEncoding=utf8";
               try{
                      Class.forName("com.mysql.jdbc.Driver");
               }catch(ClassNotFoundException ex){
@@ -498,11 +498,70 @@ public class Connect{
 
 }
 
-//Pulling data from table
+//Pulling data from a table with SELECT
+
+public class Connect{
+       
+       //...
+       
+       private Statement statement=null;
+       
+       public void getEmployees(){
+              String query="SELECT * FROM employees";
+       }
+       
+       try{
+              statement=con.createStatement();
+              ResultSet resultSet= statement.executeQuery(query);
+              
+              while(resultSet.next()){
+                     int id= resultSet.getInt("id"); //id is the columns name
+                     String name = resultSet.getString("name");
+                     String surname = resultSet.getString("surname");
+                     String email= resultSet.getString("email");
+                     System.out.println("id: "+id+" name: "+name+" surname: "+surname+" email: "+email);
+              }
+       
+       }catch(SQLException ex){
+              System.out.println("Query failed...");
+       }
+       
+       //...
+       
+       public static void main(String[] args){
+              Connect connect = new Connect();
+              connect.getEmployees();
+       }             
+}
+
+//Adding value to a table
+
 public class Connect{
        //...
-       private Statement statement=null;
+       public void addEmployee(){
+              try{
+                    statement= con.createStatement();
+                    statement= con.createStatement();
+                    String name="Kent";
+                    String surname="Martin";
+                    String email="kentmartin@gmail.com";
+                    String query="INSERT INTO employees (name,surname,email)VALUES("
+                           +"'"+name+"','"+surname+"','"+email+"')";
+                     statement.executeUpdate(query);
+              }catch(SQLException ex){
+                     System.out.println("Query failed...");
+              }
               
+       }
+       //...
+       public void main(String[] args){
+              Connect connect = new Connect();
+              System.out.println("Before being added...");
+              connect.getEmployee();
+              System.out.println("******************************************************");
+              connect.addEmployee();
+              connect.getEmployee();
+       }
 }
 
 
