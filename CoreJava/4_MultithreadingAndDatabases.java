@@ -564,4 +564,6 @@ public class Connect{
        }
 }
 
+//Updating the values on the database
+public void updateEmployee(){}
 
