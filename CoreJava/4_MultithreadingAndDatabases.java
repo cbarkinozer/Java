@@ -510,17 +510,17 @@ public class Connect{
               String query="SELECT * FROM employees";
        }
        
-       try{
-              statement=con.createStatement();
-              ResultSet resultSet= statement.executeQuery(query);
+              try{
+                     statement=con.createStatement();
+                     ResultSet resultSet= statement.executeQuery(query);
               
-              while(resultSet.next()){
-                     int id= resultSet.getInt("id"); //id is the columns name
-                     String name = resultSet.getString("name");
-                     String surname = resultSet.getString("surname");
-                     String email= resultSet.getString("email");
-                     System.out.println("id: "+id+" name: "+name+" surname: "+surname+" email: "+email);
-              }
+                     while(resultSet.next()){
+                            int id= resultSet.getInt("id"); //id is the columns name
+                            String name = resultSet.getString("name");
+                            String surname = resultSet.getString("surname");
+                            String email= resultSet.getString("email");
+                            System.out.println("id: "+id+" name: "+name+" surname: "+surname+" email: "+email);
+                     }
        
        }catch(SQLException ex){
               System.out.println("Query failed...");
@@ -540,7 +540,6 @@ public class Connect{
        //...
        public void addEmployee(){
               try{
-                    statement= con.createStatement();
                     statement= con.createStatement();
                     String name="Kent";
                     String surname="Martin";
@@ -564,6 +563,70 @@ public class Connect{
        }
 }
 
-//Updating the values on the database
-public void updateEmployee(){}
+//Updating values on the database
+public void updateEmployee(){
+              try{
+                    statement= con.createStatement();
+                    String query="UPDATE employees  SET email='kent.martin@gmail.com' WHERE id=1";
+                     statement.executeUpdate(query);
+              }catch(SQLException ex){
+                     System.out.println("Query failed...");
+              }
+}
 
+//Deleting values from the table
+public void deleteEmployee(){
+              try{
+                    statement= con.createStatement();
+                    String query="DELETE FROM eployees WHERE id=1";
+                    int deletedCount= statement.executeUpdate(query);
+                     System.out.println(deletedCount+" elements affected...");
+              }catch(SQLException ex){
+                     System.out.println("Query failed...");
+              }
+}
+
+//PreparedStatements
+private PreparedStatement preparedStatement=null;
+public void getPreparedStatements(){
+              try{
+                    statement= con.createStatement();
+                    String query="SELECT * FROM employees WHERE name LIKE 'K%' ";
+                     ResultSet resultSet= statement.executeQuery(query);
+              
+                     while(resultSet.next()){
+                            System.out.println("Name: "+ resultSet.getString("name"));
+                     }
+              }catch(SQLException ex){
+                     System.out.println("Query failed...");
+              }
+}
+//Better version of getEmployees() using PreparedStatements
+public class Connect{       
+       private Connection con=null;
+       private Statement statement=null;
+       private PreparedStatement preparedStatement = null;
+       public void getEmployeesPrepared(int id){
+              String query="SELECT * FROM employees WHERE id= ? AND name LIKE ?"; // ? will be filled with using PreparedStatement
+              try{
+                    preparedStatement= con.preparedStatement(query);
+                    preparedStatement.setInt(1,id);
+                    preparedStatement.setInt(2,"M%");
+                    
+                     ResultSet resultSet= preparedStatement.executeQuery();
+                     while(resultSet.next()){
+                            String name= resultSet.getString("name");
+                            String surname= resultSet.getString("surname");
+                            String email= resultSet.getString("email");
+                            System.out.println("id: "+id+" name: "+name+" surname: "+surname+" email: "+email);
+                     }
+              }catch(SQLException ex){
+                     System.out.println("Query failed...");
+              }
+              
+       }
+       public static void main(String[] args){
+              Connect connect = new Connect();
+              connect.getEmployeesPrepared(3); //where id=3
+       }
+}
