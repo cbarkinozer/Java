@@ -38,8 +38,8 @@ public class Main{
        }
 }
 /*
-       You can also do it with implementing Runnable class.
-       Runnable vs Thread:
+       You can also do it with implementing Runnable interface.
+       Runnable interface vs Thread class:
        When we extend Thread class, we cannot extend another class even if we need it, but we can extend another class when we implement Runnable.
        When we extend the Thread class, each of our threads creates a unique object and associates them.
        When we implement Runnable, it shares the same object with multiple threads.
