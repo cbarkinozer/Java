@@ -17,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class PhoneNumberValidatorTest{
-  private PhoneNumberValidator UnderTest;
+  private PhoneNumberValidator underTest;
   
   @BeforeEach
   void setUp(){
