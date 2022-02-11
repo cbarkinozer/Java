@@ -6,8 +6,8 @@ public class Main {
         
         /*
             Methods are functions inside classes(belongs to them).
-            In Java you a method is defined as follows:
-            access modifier extra functionalities return type
+            In Javaa method is defined as follows:
+            <access modifier> <extra functionalities> <return type>
             method name (parameters){ methods behavior}
         Example:
         */
@@ -15,7 +15,7 @@ public class Main {
             System.out.println("Hello Methods");
         }
         /*
-        You can call this function by typing main();
+        You can call this function by typing in "main();" method.
         
         void means there is no return statement.
         static means do not create different methods for each object of that class type.
