@@ -5,8 +5,19 @@
 One of the most popular Java Enterprise Edition (Java EE) frameworks, Spring helps developers create high-performing applications using plain old Java objects (POJOs).  
 Rod Johnson created it in 2003 because the EJB had architectural problems. Spring is the most popular framework for java.  
 
-**Dependency of an object**: An object’s dependency is other objects that they work with (dependent to work).  
+**Plain old java object(POJO)**: An ordinary Java object, not bound by any special restriction. It should not implement or extend any class/interface.  
 
+**Bean**: A special kind of POJO that has some restrictions. Beans must be serializable. Fields must be private. Fields should have getters/setters.  
+There must be a no-argument constructor. Fields are only accessed by constructors or getters/setters.  
+
+**Extensible Markup Language(XML)**: simple text-based format for representing structured information. For example : <menu><submenuitem text=”example” file=”example.html”/></menu>  
+
+**Annotation**: In dictionary meaning, annotation is a note added by way of comment or explanation.  
+In programming, an annotation is a form of metadata that provides data about a program that is not a part of the program itself (For example @Configuration, @Bean, @Import, and @DependsOn annotations).  
+
+**Aspect-oriented Programming(AOP)**: Modularization of crosscutting concerns(concerns that affect every layer of a software architecture) such as transaction management, logging, security.  
+
+**Dependency of an object**: An object’s dependency is other objects that they work with (dependent to work).  
 
 **Inversion of Control(IoC)**: Taking the control of creating and instantiating the beans from the developer to the framework.  
 To make it possible, the Spring frameworks use abstractions and rely on object graphs generated at runtime.  
@@ -16,7 +27,7 @@ Decouples the task implementation from its execution.
 Modules are pluggable and can be easily replaced with their equivalent.  
 Eases out the modular testing.  
 
-**Methods for achieving Inversion Of Control**: Strategy Design Pattern, Service locator Pattern or Dependency Injection.
+**Methods for achieving Inversion Of Control**: Strategy Design Pattern, Service Locator Pattern, or Dependency Injection.
 
 **Dependency Injection**: An Inversion of control pattern, whereby one object supplies the dependencies of another object.  
 The dependency injection concept promotes loose coupling among Java objects.  
@@ -41,21 +52,99 @@ public class Person {
     ...
 }
 ```
-Spring supports three types of dependency injection:  
-1.Constructor-based injection  
-2.Setter injection  
-3.Property-based injection  
 
-**Plain old java object(POJO)**: An ordinary Java object, not bound by any special restriction. It should not implement or extend any class/interface.  
+Spring supports **3 types of dependency injection**:  
+1.**Constructor-based injection**  
 
-**Bean**: A special kind of POJO that has some restrictions. Beans must be serializable. Fields must be private. Fields should have getters/setters.  
-There must be a no-argument constructor. Fields are only accessed by constructors or getters/setters.  
+Spring will use the matching constructor to resolve and inject the dependency.  
 
-**ApplicationContext**: It is an object that loads the configuration(XML or annotation-based) and then Spring will start managing the beans.
+i. We can either configure the beans in applicationContext.xml:  
+
+```xml
+<bean id="address" class="com.programmergirl.domain.Address"/>
+<bean id="person" class="com.programmergirl.domain.Person">
+    <constructor-arg ref="address"/>
+</bean>
+```
+
+ii. Or, we can enable the <component-scan/> in our applicationContext.xml:  
+
+```xml
+<context:component-scan base-package="com.programmergirl.domain" />
+```
+
+Than we make the Spring configurations using the annotations:  
+
+```java
+package com.example.domain;
+@Component
+public class Person {
+    private Address address;
+    @Autowired
+    public Person(Address address) {
+        this.address = address;
+    }
+}
+```
+Spring, by default, wires the beans by their type.  
+If there are more than one beans of the same type, we can use @Qualifier annotation to reference a bean by its name:  
+
+```java
+@Component
+public class Person {
+    private Address address;
+    @Autowired
+    @Qualifier("address1")
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+}
+```
+2. Setter injection  
+Setter-based dependency injection is achieved through the setter method on the bean after instantiating it using a no-arg constructor or no-argument static factory.  
+
+XML  
+```xml
+<bean id="address" class="com.programmergirl.domain.Address"/>
+<bean id="person" class="com.programmergirl.domain.Person">
+    <property name="address" ref="address"/>
+</bean>
+```
+```java
+@Component
+public class Person {
+    
+    private Address address;
+    ...
+    @Autowired
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+    
+}
+```
+3. Property-based injection  
+We can also inject dependencies using fields or properties of a class.  
+To do so, we can simply use the @Autowired annotation over the field:  
+```java
+@Component
+public class Person {
+    @Autowired
+    private Address address;
+    ...
+}
+```
+Considering the spring documentation:
+Use constructor injection for mandatory dependencies (the dependencies they use while working).  
+Setter-based injections should be used for dependencies that are optional in nature (alternative dependencies).  
+Avoid property-based injection because Spring uses reflection for field-injected dependencies and it is costlier.  
+
+**ApplicationContext**: It is an object that loads the configuration and then Spring will start managing the beans.
 This technique benefits: beans declared in a package, beans declared by annotations, constructor, and method auto writing, bean injection, configuration, .properties, and .yaml file loading, etc.  
+There are 3 ways to configure applicationContext: XML based(configuring beans in xml), java based, annotation based( enabling <component-scan> in xml and using annotation in java code).  
 
 The Spring ApplicationContext interface represents its IoC container and has several implementation classes available.  
-Some of these include ClassPathXmlApplicationContext, FileSystemXmlApplicationContext, and WebApplicationContext.  
+Some of these include **ClassPathXmlApplicationContext**, **FileSystemXmlApplicationContext**, and **WebApplicationContext**.  
 
 Let’s instantiate the Spring container using ClassPathXmlApplicationContext:  
 
@@ -63,13 +152,6 @@ Let’s instantiate the Spring container using ClassPathXmlApplicationContext:
 //The applicationContext.xml is the file that holds the metadata required to assemble beans at runtime.
 ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");  
 ```
-
-**Extensible Markup Language(XML)**: simple text-based format for representing structured information. For example : <menu><submenuitem text=”example” file=”example.html”/></menu>  
-
-**Annotation**: In dictionary meaning, annotation is a note added by way of comment or explanation.  
-In programming, an annotation is a form of metadata that provides data about a program that is not a part of the program itself (For example @Configuration, @Bean, @Import, and @DependsOn annotations).  
-
-**Aspect-oriented Programming(AOP)**: Modularization of crosscutting concerns(concerns that affect every layer of a software architecture) such as transaction management, logging, security.  
 
 **Spring IoC container**: The core of Spring Framework. It creates the objects, configures and assembles their dependencies, manages their entire life cycle.  
 The Container uses Dependency Injection(DI) to manage the components that make up the application.  
@@ -106,7 +188,7 @@ Public class JavaBasedApplication{
 }
 ```
 
-```java
+```xml
 //xml-based
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
