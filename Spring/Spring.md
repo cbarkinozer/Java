@@ -134,7 +134,7 @@ public class Person {
     ...
 }
 ```
-Considering the spring documentation:
+**Considering the spring documentation**:  
 Use constructor injection for mandatory dependencies (the dependencies they use while working).  
 Setter-based injections should be used for dependencies that are optional in nature (alternative dependencies).  
 Avoid property-based injection because Spring uses reflection for field-injected dependencies and it is costlier.  
@@ -160,9 +160,23 @@ It gets the information about the objects from a configuration file(XML) or Java
 Following is how Spring Core works:  
 ![image](https://user-images.githubusercontent.com/43732258/153714507-fa2d5bec-fafc-4fdf-9f46-6020688d374f.png)
 
-Once the ApplicationContext is created and initialized, your application classes are combined with the configuration metadata so that you have a fully configured and executable system.
-  
+Once the ApplicationContext is created and initialized, your application classes are combined with the configuration metadata so that you have a fully configured and executable system.  
 
+## Spring Boot
+	
+**Spring Boot Architecture**
+Spring Boot is a module of the Spring Framework that is developed on top of the core Spring Framework.  
+Spring Boot is used to create stand-alone, production-grade Spring Based Applications with minimum efforts.  
+Spring Boot follows a layered architecture in which each layer communicates with the layer directly below or above (hierarchical structure) it.  
+
+There are four layers in Spring Boot are as follows:  
+![image](https://user-images.githubusercontent.com/43732258/153719029-cf9a5f60-7b51-41e2-82b7-7a20390d008e.png)  
+o	Presentation Layer (handles the HTTP requests, translates the JSON parameter to object, and authenticates the request and transfer it to the business layer).  
+o	Business Layer (authorization and validation, bussiness logic,service classes).  
+o	Persistence Layer (storage logic and translates business objects from and to database rows).  
+o	Database Layer(CRUD (create, retrieve, update, delete) operations on databases  are performed).  
+
+	
 
 
 ```java
@@ -205,4 +219,3 @@ Public class JavaBasedApplication{
 
 </beans>
 ```
-## Spring Boot
