@@ -1,3 +1,4 @@
+//java-based
 @Configuration
 Public class JavaBasedApplication{
   Public static void main(String[] args){
@@ -9,15 +10,16 @@ Public class JavaBasedApplication{
 
   @Bean
   Public Dao dao(){
-	  Return new Dao();
+	  return new Dao();
   }
   @Bean
   Public Service service(){
-	  Return new Service(dao());
+	  return new Service(dao());
   }
 
 }
 
+//xml-based
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
