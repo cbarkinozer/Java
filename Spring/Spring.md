@@ -1,3 +1,7 @@
+# Spring Notes
+## Spring Core
+
+```java
 //java-based
 @Configuration
 Public class JavaBasedApplication{
@@ -18,7 +22,9 @@ Public class JavaBasedApplication{
   }
 
 }
+```
 
+```java
 //xml-based
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -34,3 +40,5 @@ Public class JavaBasedApplication{
     </bean>
 
 </beans>
+```
+## Spring Boot
