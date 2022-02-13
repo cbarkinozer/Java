@@ -488,6 +488,7 @@
         }                   
         //Serialization
         /*        Thanks to serialization api, objects belongs to the classes that implements serializable interface are convertable to byte arrays.
+                  Serialization is the conversion of the state of an object into a byte stream.
                   This operation is called serialization and reverse operation is called deserialization.
                   Advantages:
                                     We can save objects states. For example saving in video games.
