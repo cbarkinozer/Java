@@ -192,12 +192,24 @@ Maven adds a pom.xml file to projects files. By using this file you can add or r
 
 **pom.xml(Project Object Model)**: The core business unit in Maven. An XML file containing information about the project and configuration details used by Maven to build the project.  
 
-**DAO vs DTO**:
-
+**DAO(Data Access Object) vs DTO(Data Transfer Object)**:
+DTO is a value object that is used to transfer data between classes and modules of your application.  
+DAO is used to encapsulate and hide implementation details about how your data is stored and retrievend in your data storage (database or file system).  
+	
 **Spring vs Spring Boot**:
-Spring is a Java EE framework that is used to build applications. Spring Boot framework is mainly used to develop REST API’s.  
-Spring's key feature is dependency injection. Spring Boot's key feature is autoconfiguration.  
-
+o	Spring is a Java EE framework that is used to build applications. Spring Boot framework is mainly used to develop REST API’s.  
+o	Spring's key feature is dependency injection. Spring Boot's key feature is autoconfiguration.  
+o	Spring is used to make Java EE developement easier. Spring Boot provides the RAD(Rapid Application Development) feature to the Spring framework for faster application development.  
+o	Spring framework helps to create a loosely coupled application. Spring Boot helps to create a stand-alone application.  
+o	In the Spring framework to test the Spring Project, we need to set up the servers explicitly. Spring Boot offers built-in or embedded servers such as Tomcat and jetty.  
+o	Spring framework does not support in-memory database. Spring Boot provides support for the in-memory database such as H2.  
+o	In the Spring framework, you have to build configurations manually. In Spring Boot there are default configurations that allow faster bootstrapping.  
+o	Spring requires a number of dependencies to create a web app. Spring Boot, can get an application working with just one dependency.  
+o	Testing Spring Boot is easier than testing Spring because of the reduced amount of source code.    
+o	Contrarily of the Spring, XML configuration is not a must in Spring Boot.  
+o	Contrarily of the Spring, Spring Boot provides a CLI tool for developing and testing Spring Boot applications.  
+o	Contrarily of the Spring, Spring Boot provides build tool plugins for Maven and Gradle.
+	
 
 **Spring Boot Autoconfiguration**: The method of automatically configuring a Spring application based on the dependencies found on the classpath.  
 Autoconfiguration can speed up and simplify development by removing the need to define some beans that are part of the auto-configuration classes..  
@@ -212,6 +224,7 @@ o	Project Metadata like name, packaging (Jar or War), package name etc.
 	
 **Spring Annotations**:
 
+	
 **HTTP Methods**:
 	
 **Swagger**:
