@@ -223,8 +223,33 @@ o	Language and its version.
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
 	
 **Spring Annotations**:
-
+**@Component**: Used to configure a Bean class.
+```java
+@Component
+public class Company {
+    private Address address;
+    public Company(Address address) {
+        this.address = address;
+    }
+    // getter, setter and other properties
+}
+```
+The configuration class supplying bean metadata to an IoC container:   
+**@ComponentScan**: Instructs the container to look for beans in the package containing the Company class.
+```java
+@Configuration
+@ComponentScan(basePackageClasses = Company.class)
+public class Config {
+    @Bean
+    public Address getAddress() {
+        return new Address("High Street", 1000);
+    }
+}
+```
+Spring framework provides 3 other specific annotations to be used when marking a class as a Component.  
+These specific Component annotations are @Service, @Repository, @Controller.	
 	
+
 **HTTP Methods**:
 	
 **Swagger**:
