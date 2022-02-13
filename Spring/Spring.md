@@ -29,7 +29,8 @@ Eases out the modular testing.
 
 **Methods for achieving Inversion Of Control**: Strategy Design Pattern, Service Locator Pattern, or Dependency Injection.
 
-**Dependency Injection**: An Inversion of control pattern, whereby one object supplies the dependencies of another object.  
+### **Dependency Injection**:  
+An Inversion of control pattern, whereby one object supplies the dependencies of another object.  
 The dependency injection concept promotes loose coupling among Java objects that makes the application easier to maintain and test.  
 
 The traditional method:  
@@ -140,7 +141,8 @@ Use constructor injection for mandatory dependencies (the dependencies they use 
 Setter-based injections should be used for dependencies that are optional in nature (alternative dependencies).  
 Avoid property-based injection because Spring uses reflection for field-injected dependencies and it is costlier.  
 
-**ApplicationContext**: It is an object that loads the configuration and then Spring will start managing the beans.
+### **ApplicationContext**:  
+It is an object that loads the configuration and then Spring will start managing the beans.  
 This technique benefits: beans declared in a package, beans declared by annotations, constructor, and method auto writing, bean injection, configuration, .properties, and .yaml file loading, etc.  
 There are 3 ways to configure applicationContext: XML based(configuring beans in xml), java based, annotation based( enabling <component-scan> in xml and using annotation in java code).  
 
@@ -166,7 +168,7 @@ Once the ApplicationContext is created and initialized, your application classes
 ## Spring Boot
 Spring Boot is an open-source micro framework that provides Java developers with a platform to get started with an auto configurable production-grade Spring application.  	
 
-**Spring Boot Architecture**
+### **Spring Boot Architecture**
 Spring Boot is a module of the Spring Framework that is developed on top of the core Spring Framework.  
 Spring Boot is used to create stand-alone, production-grade Spring Based Applications with minimum efforts.  
 Spring Boot follows a layered architecture in which each layer communicates with the layer directly below or above (hierarchical structure) it.  
@@ -196,7 +198,7 @@ Maven adds a pom.xml file to projects files. By using this file you can add or r
 DTO is a value object that is used to transfer data between classes and modules of your application.  
 DAO is used to encapsulate and hide implementation details about how your data is stored and retrievend in your data storage (database or file system).  
 	
-**Spring vs Spring Boot**:
+### **Spring vs Spring Boot**:
 o	Spring is a Java EE framework that is used to build applications. Spring Boot framework is mainly used to develop REST API’s.  
 o	Spring's key feature is dependency injection. Spring Boot's key feature is autoconfiguration.  
 o	Spring is used to make Java EE developement easier. Spring Boot provides the RAD(Rapid Application Development) feature to the Spring framework for faster application development.  
@@ -222,7 +224,7 @@ o	Dependencies required for the project.
 o	Language and its version.  
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
 	
-**Spring Annotations**:
+### **Spring Annotations**:
 **@Component**: Used to configure a Bean class.
 ```java
 @Component
@@ -250,14 +252,14 @@ Spring framework provides 3 other specific annotations to be used when marking a
 These specific Component annotations are @Service, @Repository, @Controller.	
 	
 
-**HTTP Methods**:
+### **HTTP Methods**:
 	
 **Swagger**:
 
-**Lombok**:
+### **Lombok**:
 
 **Java Target**:
 	
-**Hibernate**:
+### **Hibernate**:
 	
 **Java Reflection**:
