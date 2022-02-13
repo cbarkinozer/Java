@@ -178,8 +178,8 @@ o	Business Layer (authorization and validation, bussiness logic,service classes)
 o	Persistence Layer (storage logic and translates business objects from and to database rows).  
 o	Database Layer(CRUD (create, retrieve, update, delete) operations on databases  are performed).  
 
-**Spring Boot Flow Architecture**
-![image](https://user-images.githubusercontent.com/43732258/153742576-aa78883c-4394-4022-a478-fa3b9d2c808e.png)
+**Spring Boot Flow Architecture**  
+![image](https://user-images.githubusercontent.com/43732258/153742576-aa78883c-4394-4022-a478-fa3b9d2c808e.png)  
 The architecture of Spring Boot is the same as the architecture of Spring MVC, except one thing: there is no need for DAO and DAOImpl classes in Spring boot.  
 o	Creates a data access layer and performs CRUD operation.  
 o	The client makes the HTTP requests (PUT or GET).  
