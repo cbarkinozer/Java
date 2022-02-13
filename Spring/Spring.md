@@ -176,46 +176,24 @@ o	Business Layer (authorization and validation, bussiness logic,service classes)
 o	Persistence Layer (storage logic and translates business objects from and to database rows).  
 o	Database Layer(CRUD (create, retrieve, update, delete) operations on databases  are performed).  
 
+**Spring Boot Flow Architecture**
+![image](https://user-images.githubusercontent.com/43732258/153742576-aa78883c-4394-4022-a478-fa3b9d2c808e.png)
+The architecture of Spring Boot is the same as the architecture of Spring MVC, except one thing: there is no need for DAO and DAOImpl classes in Spring boot.  
+o	Creates a data access layer and performs CRUD operation.  
+o	The client makes the HTTP requests (PUT or GET).  
+o	The request goes to the controller, and the controller maps that request and handles it. After that, it calls the service logic if required.  
+o	In the service layer, all the business logic performs. It performs the logic on the data that is mapped to JPA with model classes.  
+o	A JSP page or Spring Data is returned to the user if no error occurred.  
 	
+**Maven**: Maven is a open-source build tool developed by the Apache Group to build, publish, and deploy several projects at once for better project management.  
+Maven adds a pom.xml file to projects files. By using this file you can add or remove .jar files from your project easily.  
 
+**pom.xml(Project Object Model)**: The core business unit in Maven. An XML file containing information about the project and configuration details used by Maven to build the project.  
 
-```java
-//java-based
-@Configuration
-Public class JavaBasedApplication{
-  Public static void main(String[] args){
-	ApplicationContext context = new AnnotaitonCOnfigApplicationCOntext(JavaBasedApplicaiton.class);
-
-  Service service = context.getBean(Service.class);
-  service.testService();
-  }
-
-  @Bean
-  Public Dao dao(){
-	  return new Dao();
-  }
-  @Bean
-  Public Service service(){
-	  return new Service(dao());
-  }
-
-}
-```
-
-```xml
-//xml-based
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-    http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean id="dao" class="com.softtech.model.Dao"></bean>
-
-    <bean id="service" class="com.softtech.model.Service">
-        <constructor-arg name="dao" ref="dao"/>
-    </bean>
-
-</beans>
-```
+**Spring initialzr**: Spring Initializr is a Web-based tool that generates the Spring Boot project structure.  
+The Spring Initializr tool takes care of the following configuration for any Spring-based project:  
+o	Build tool(Maven or Gradle) to build the application.  
+o	Spring Boot version(Dependencies are added based on the version).  
+o	Dependencies required for the project.  
+o	Language and its version.  
+o	Project Metadata like name, packaging (Jar or War), package name etc.  
