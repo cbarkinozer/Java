@@ -30,8 +30,9 @@ Eases out the modular testing.
 **Methods for achieving Inversion Of Control**: Strategy Design Pattern, Service Locator Pattern, or Dependency Injection.
 
 **Dependency Injection**: An Inversion of control pattern, whereby one object supplies the dependencies of another object.  
-The dependency injection concept promotes loose coupling among Java objects.  
-Traditional method:  
+The dependency injection concept promotes loose coupling among Java objects that makes the application easier to maintain and test.  
+
+The traditional method:  
 ```java
 public class Person {
     private Address address;
@@ -163,7 +164,8 @@ Following is how Spring Core works:
 Once the ApplicationContext is created and initialized, your application classes are combined with the configuration metadata so that you have a fully configured and executable system.  
 
 ## Spring Boot
-	
+Spring Boot is an open-source micro framework that provides Java developers with a platform to get started with an auto configurable production-grade Spring application.  	
+
 **Spring Boot Architecture**
 Spring Boot is a module of the Spring Framework that is developed on top of the core Spring Framework.  
 Spring Boot is used to create stand-alone, production-grade Spring Based Applications with minimum efforts.  
@@ -190,7 +192,15 @@ Maven adds a pom.xml file to projects files. By using this file you can add or r
 
 **pom.xml(Project Object Model)**: The core business unit in Maven. An XML file containing information about the project and configuration details used by Maven to build the project.  
 
+**DAO vs DTO**:
+
 **Spring vs Spring Boot**:
+Spring is a Java EE framework that is used to build applications. Spring Boot framework is mainly used to develop REST API’s.  
+Spring's key feature is dependency injection. Spring Boot's key feature is autoconfiguration.  
+
+
+**Spring Boot Autoconfiguration**: The method of automatically configuring a Spring application based on the dependencies found on the classpath.  
+Autoconfiguration can speed up and simplify development by removing the need to define some beans that are part of the auto-configuration classes..  
 	
 **Spring initialzr**: Spring Initializr is a Web-based tool that generates the Spring Boot project structure.  
 The Spring Initializr tool takes care of the following configuration for any Spring-based project:  
@@ -199,5 +209,17 @@ o	Spring Boot version(Dependencies are added based on the version).
 o	Dependencies required for the project.  
 o	Language and its version.  
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
+	
+**Spring Annotations**:
 
-**Reflection**:
+**HTTP Methods**:
+	
+**Swagger**:
+
+**Lombok**:
+
+**Java Target**:
+	
+**Hibernate**:
+	
+**Java Reflection**:
