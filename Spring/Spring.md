@@ -190,6 +190,8 @@ Maven adds a pom.xml file to projects files. By using this file you can add or r
 
 **pom.xml(Project Object Model)**: The core business unit in Maven. An XML file containing information about the project and configuration details used by Maven to build the project.  
 
+**Spring vs Spring Boot**:
+	
 **Spring initialzr**: Spring Initializr is a Web-based tool that generates the Spring Boot project structure.  
 The Spring Initializr tool takes care of the following configuration for any Spring-based project:  
 o	Build tool(Maven or Gradle) to build the application.  
@@ -197,3 +199,5 @@ o	Spring Boot version(Dependencies are added based on the version).
 o	Dependencies required for the project.  
 o	Language and its version.  
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
+
+**Reflection**:
