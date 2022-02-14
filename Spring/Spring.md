@@ -274,11 +274,11 @@ These specific Component annotations are @Service, @Repository, @Controller.
 **TRACE**:  Used for debugging which echo's back input back to the user.  
 
 **Error messages**:  
-1xx: Informative messages.  
-2xx: Success messages.  
-3xx: Redirecting messages.  
-4xx: Request error messages.  
-5xx: Server error messages.  
+**1xx**: Informative messages.  
+**2xx**: Success messages.  
+**3xx**: Redirecting messages.  
+**4xx**: Request error messages.  
+**5xx**: Server error messages.  
 	
 **Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
 
