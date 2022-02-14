@@ -102,7 +102,7 @@ public class Person {
     }
 }
 ```
-2. Setter injection  
+2. **Setter injection**  
 Setter-based dependency injection is achieved through the setter method on the bean after instantiating it using a no-arg constructor or no-argument static factory.  
 
 XML  
@@ -125,7 +125,7 @@ public class Person {
     
 }
 ```
-3. Property-based injection  
+3. **Property-based injection** 
 We can also inject dependencies using fields or properties of a class.  
 To do so, we can simply use the @Autowired annotation over the field:  
 ```java
@@ -165,7 +165,7 @@ Following is how Spring Core works:
 
 Once the ApplicationContext is created and initialized, your application classes are combined with the configuration metadata so that you have a fully configured and executable system.  
 
-## Spring Boot
+## **Spring Boot**
 Spring Boot is an open-source micro framework that provides Java developers with a platform to get started with an auto configurable production-grade Spring application.  	
 
 ### **Spring Boot Architecture**
@@ -173,7 +173,7 @@ Spring Boot is a module of the Spring Framework that is developed on top of the 
 Spring Boot is used to create stand-alone, production-grade Spring Based Applications with minimum efforts.  
 Spring Boot follows a layered architecture in which each layer communicates with the layer directly below or above (hierarchical structure) it.  
 
-There are four layers in Spring Boot are as follows:  
+There are 4 layers in Spring Boot are as follows:  
 ![image](https://user-images.githubusercontent.com/43732258/153719029-cf9a5f60-7b51-41e2-82b7-7a20390d008e.png)  
 o	Presentation Layer (handles the HTTP requests, translates the JSON parameter to object, and authenticates the request and transfer it to the business layer).  
 o	Business Layer (authorization and validation, bussiness logic,service classes).  
@@ -211,7 +211,6 @@ o	Testing Spring Boot is easier than testing Spring because of the reduced amoun
 o	Contrarily of the Spring, XML configuration is not a must in Spring Boot.  
 o	Contrarily of the Spring, Spring Boot provides a CLI tool for developing and testing Spring Boot applications.  
 o	Contrarily of the Spring, Spring Boot provides build tool plugins for Maven and Gradle.
-	
 
 **Spring Boot Autoconfiguration**: The method of automatically configuring a Spring application based on the dependencies found on the classpath.  
 Autoconfiguration can speed up and simplify development by removing the need to define some beans that are part of the auto-configuration classes..  
@@ -262,6 +261,8 @@ These specific Component annotations are @Service, @Repository, @Controller.
 **@SpringBootApplication**: Indicates Spring Boot projects main method. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
+**@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
+	
 ### **HTTP Methods and Messages**:
 
 **HTTP**: Hyper Text Transfer Protocol is used for fetching resources such as HTML documents.  
@@ -284,11 +285,15 @@ These specific Component annotations are @Service, @Repository, @Controller.
 **5xx**: Server error messages.  
 	
 **Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
-**REST API**:
-
+**REST API**: An API that conforms to the design principles of the REST, or representational state transfer architectural style.  
+**API(Applicaiton Programming Interface)**: Set of rules that define how applications or devices can connect to and communicate with each other.  
+**REST (Representational State Transfer)**: Roy Fielding's derivation of the Web's architectural style.  
+In a RESTful Web service, requests to a resource's URI are answered with data in the form of HTML, XML, JSON, or some other format.  
+**URI( Uniform Resource Identifier)**: A syntax that assigns each web document a unique address.  
+	
+![image](https://user-images.githubusercontent.com/43732258/153911790-ba6c772f-e541-4ba3-befe-94ad9a9dee9d.png)  
+	
 ### **Lombok**:
-
-**Java Target**:
 	
 ### **Hibernate**:
 	
