@@ -348,9 +348,9 @@ In a RESTful Web service, requests to a resource's URI are answered with data in
 	
 ![image](https://user-images.githubusercontent.com/43732258/153911790-ba6c772f-e541-4ba3-befe-94ad9a9dee9d.png)  
 	
-**REST API Desing**:
-The 3-letter abbreviations of the tables and attributes inside them are decided and packages with that name are created.  
-Inside each of these 3-letter abbrevations, dao, dto, entity, service( and entityservice in service), controller, converter, enums packages are created.  
+**Designing REST API**:
+Decide the 3-letter abbreviations of the tables and attributes inside them. Packages are created with the same name.  
+Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.    
 
 
 **Java Reflection**:
