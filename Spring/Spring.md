@@ -222,7 +222,13 @@ o	Spring Boot version(Dependencies are added based on the version).
 o	Dependencies required for the project.  
 o	Language and its version.  
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
-	
+
+**application.properties**: In the resources file there is a file called application.properties for setting application's properties.  
+You can set application.title, application.version and server.port inside this file.  
+Logging.level.org.springframework = debug gives more logs on higher log level(info is default). By doing that we can see what spring is doing at the background in detail.  
+Spring.datasource url, driverclassname,username,password etc. values can be given for databse configuration.  
+Also in the resources file, you can create a banner.txt file and add a custom text banner that will be shown when the spring boot application starts.  
+
 ### **Spring Annotations**
 **@Component**: Configures the Bean classes.
 ```java
@@ -300,10 +306,13 @@ public class BeanA {
   ...
 }
 ```
+**@Primary**: Used with @Qualifier and defines the primary preferenced Bean.  
+	
 **@SpringBootApplication**: Indicates Spring Boot projects main method. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
 **@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
+**@Scope**: Indicates the Bean's runtime context(scope). The default scope is Singleton.  
 	
 ### **HTTP Methods and Messages**
 
@@ -325,7 +334,11 @@ public class BeanA {
 **3xx**: Redirecting messages.  
 **4xx**: Request error messages.  
 **5xx**: Server error messages.  
+		
+### **Lombok**
 	
+### **Hibernate**
+
 **Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
 **REST API**: An API that conforms to the design principles of the REST, or representational state transfer architectural style.  
 **API(Applicaiton Programming Interface)**: Set of rules that define how applications or devices can connect to and communicate with each other.  
@@ -335,8 +348,9 @@ In a RESTful Web service, requests to a resource's URI are answered with data in
 	
 ![image](https://user-images.githubusercontent.com/43732258/153911790-ba6c772f-e541-4ba3-befe-94ad9a9dee9d.png)  
 	
-### **Lombok**
-	
-### **Hibernate**
-	
+**REST API Desing**:
+The 3-letter abbreviations of the tables and attributes inside them are decided and packages with that name are created.  
+Inside each of these 3-letter abbrevations, dao, dto, entity, service( and entityservice in service), controller, converter, enums packages are created.  
+
+
 **Java Reflection**:
