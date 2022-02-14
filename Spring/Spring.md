@@ -141,7 +141,7 @@ Use constructor injection for mandatory dependencies (the dependencies they use 
 Setter-based injections should be used for dependencies that are optional in nature (alternative dependencies).  
 Avoid property-based injection because Spring uses reflection for field-injected dependencies and it is costlier.  
 
-### **ApplicationContext**:  
+### **ApplicationContext**  
 It is an object that loads the configuration and then Spring will start managing the beans.  
 This technique benefits: beans declared in a package, beans declared by annotations, constructor, and method auto writing, bean injection, configuration, .properties, and .yaml file loading, etc.  
 There are 3 ways to configure applicationContext: XML based(configuring beans in xml), java based, annotation based( enabling <component-scan> in xml and using annotation in java code).  
@@ -198,7 +198,7 @@ Maven adds a pom.xml file to projects files. By using this file you can add or r
 DTO is a value object that is used to transfer data between classes and modules of your application.  
 DAO is used to encapsulate and hide implementation details about how your data is stored and retrievend in your data storage (database or file system).  
 	
-### **Spring vs Spring Boot**:
+### **Spring vs Spring Boot**
 o	Spring is a Java EE framework that is used to build applications. Spring Boot framework is mainly used to develop REST API’s.  
 o	Spring's key feature is dependency injection. Spring Boot's key feature is autoconfiguration.  
 o	Spring is used to make Java EE developement easier. Spring Boot provides the RAD(Rapid Application Development) feature to the Spring framework for faster application development.  
@@ -223,7 +223,7 @@ o	Dependencies required for the project.
 o	Language and its version.  
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
 	
-### **Spring Annotations**:
+### **Spring Annotations**
 **@Component**: Configures the Bean classes.
 ```java
 @Component
@@ -236,8 +236,16 @@ public class Company {
 }
 ```
 The configuration class supplying bean metadata to an IoC container:   
-**@ComponentScan**: Instructs the container to look for beans in the package containing the Company class.
-```java
+**@ComponentScan**: Instructs the container to look for beans in the package containing the Company class.  
+If specific packages are not defined, scanning will occur from the package of the class that declares this annotation.  
+
+```java@Component
+public class BeanA {
+  @Autowired
+  @Qualifier("beanB2")
+  private BeanInterface dependency;
+  ...
+}
 @Configuration
 @ComponentScan(basePackageClasses = Company.class)
 public class Config {
@@ -247,23 +255,57 @@ public class Config {
     }
 }
 ```
-Spring framework provides 3 other specific annotations to be used when marking a class as a Component.  
+**@Configuration**: This annotation is used on classes which define beans. It is an alternative for XML configuration file.  
+
+**@Lazy**: Used on Component classes and indicates that the Bean will be created and initialized only when it is first requested for.  
+**@Value**: Used at the field or method/constructor parameter level and it indicates a default value for the affected argument.  
+Commonly used to inject the configuration values to the spring boot application.  
+	
+**Stereotype Annotations**: Spring framework provides 3 other specific annotations to be used when marking a class as a Component.  
 These specific Component annotations are @Service, @Repository, @Controller.	
 **@Service**: Indicates these beans are used in Service layer and holds bussiness logic (utility classes).
 **@Repository**: Indicates these beans are used in DAO or Repository and deals with CRUD (create, read, update, delete) operations.
 **@Controller**: Indicates these beans are front controllers, used in REST Web Services and responsible to handle user requests.
 
-**@Bean**: Indicates that a method produces a bean to be managed by the Spring container.  
+**@Bean**: It is used at method level and indicates that a method produces a bean to be managed by the Spring container.  
+The method annotated with this annotation works as bean ID and it creates and returns the actual bean.  
+```java
+@Configuration
+public class AppConfig{
+  @Bean
+  public Person person(){
+    return new Person(address());
+  }
+  @Bean
+  public Address address(){
+    return new Address();
+  }
+}
+```
 **@PropertyResources**: Provides property file to Spring Environment.  
-**@Autowired**: Used for automatic injection of beans. It can be used to autowire bean on the setter method.  
-**@Qualifier**: Used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type.  
 
+**@Autowired**: Used for automatic injection of beans.   
+When you use @Autowired on setter methods, Spring tries to perform the by Type autowiring on the method.  
+When you use @Autowired on a constructor, constructor injection happens at the time of object creation.  
+NOTE: As of Spring 4.3, @Autowired became optional on classes with a single constructor.  
+	
+**@Qualifier**: Used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type.  
+Consider and example where an interface is implemented by two classes. Now when a bean autowires this interface we need to specify the class as following:  
+```java
+@Component
+public class BeanA {
+  @Autowired
+  @Qualifier("beanB2")
+  private BeanInterface dependency;
+  ...
+}
+```
 **@SpringBootApplication**: Indicates Spring Boot projects main method. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
 **@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
 	
-### **HTTP Methods and Messages**:
+### **HTTP Methods and Messages**
 
 **HTTP**: Hyper Text Transfer Protocol is used for fetching resources such as HTML documents.  
 
@@ -293,8 +335,8 @@ In a RESTful Web service, requests to a resource's URI are answered with data in
 	
 ![image](https://user-images.githubusercontent.com/43732258/153911790-ba6c772f-e541-4ba3-befe-94ad9a9dee9d.png)  
 	
-### **Lombok**:
+### **Lombok**
 	
-### **Hibernate**:
+### **Hibernate**
 	
 **Java Reflection**:
