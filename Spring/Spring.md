@@ -225,7 +225,7 @@ o	Language and its version.
 o	Project Metadata like name, packaging (Jar or War), package name etc.  
 	
 ### **Spring Annotations**:
-**@Component**: Used to configure a Bean class.
+**@Component**: Configures the Bean classes.
 ```java
 @Component
 public class Company {
@@ -250,11 +250,37 @@ public class Config {
 ```
 Spring framework provides 3 other specific annotations to be used when marking a class as a Component.  
 These specific Component annotations are @Service, @Repository, @Controller.	
-	
+**@Service**: Indicates these beans are used in Service layer and holds bussiness logic (utility classes).
+**@Repository**: Indicates these beans are used in DAO or Repository and deals with CRUD (create, read, update, delete) operations.
+**@Controller**: Indicates these beans are front controllers, used in REST Web Services and responsible to handle user requests.
+
+**@Bean**: Indicates that a method produces a bean to be managed by the Spring container.  
+**@PropertyResources**: Provides property file to Spring Environment.  
+**@Autowired**: Used for automatic injection of beans. It can be used to autowire bean on the setter method.  
+**@Qualifier**: Used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type.  
+
+**@SpringBootApplication**: Indicates Spring Boot projects main method. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
+**@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
 ### **HTTP Methods**:
+
+**GET**: Requests a resource from the server.  
+**HEAD**: Requests only headers of resources from server.  
+**POST**: Changes the content of the resource located on the server.  
+**PUT**: Requests the server to create a resource and replace that resource with another resource.  
+**DELETE**: Requests the server to delete a resource.  
+**CONNECT**: Requests to start two-way communications with the requested HTTPS resource.  
+**OPTIONS**: Requests permitted communication options for a given URL or server.  
+**TRACE**:  Used for debugging which echo's back input back to the user.  
+
+**Error messages**:  
+1xx: Informative messages.  
+2xx: Success messages.  
+3xx: Redirecting messages.  
+4xx: Request error messages.  
+5xx: Server error messages.  
 	
-**Swagger**:
+**Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
 
 ### **Lombok**:
 
