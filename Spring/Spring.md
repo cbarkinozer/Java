@@ -262,8 +262,11 @@ These specific Component annotations are @Service, @Repository, @Controller.
 **@SpringBootApplication**: Indicates Spring Boot projects main method. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
-### **HTTP Methods**:
+### **HTTP Methods and Messages**:
 
+**HTTP**: Hyper Text Transfer Protocol is used for fetching resources such as HTML documents.  
+
+**HTTP Methods**:
 **GET**: Requests a resource from the server.  
 **HEAD**: Requests only headers of resources from server.  
 **POST**: Changes the content of the resource located on the server.  
@@ -281,6 +284,7 @@ These specific Component annotations are @Service, @Repository, @Controller.
 **5xx**: Server error messages.  
 	
 **Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
+**REST API**:
 
 ### **Lombok**:
 
