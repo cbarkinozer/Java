@@ -664,8 +664,8 @@ public class Human{
 @**JoinColumn**: 
 ```java
 ```
-(Deprecated)@**ForeignKey**: It used to be used to add and customize a foreign key to the table, it is now deprecated.  
-(Deprecated)@**Index**:  It used to be used to add index to the table, it is now deprecated. The same index could be used for more than one column.  
+@**ForeignKey**(Deprecated): It used to be used to add and customize a foreign key to the table, it is now deprecated.  
+@**Index**(Deprecated):  It used to be used to add index to the table, it is now deprecated. The same index could be used for more than one column.  
 	
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
