@@ -361,11 +361,11 @@ Decide the 3-letter abbreviations of the tables and attributes inside them. Pack
 Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.     
 
 
-**Java Reflection**:
+**Java Reflection**:  
 
-**References**:
-Patika.dev & Softtech Java Spring Bootcamp
-https://javabydeveloper.com/lombok-requiredargsconstructor-examples/
-https://www.programmergirl.com/spring-dependency-injection/
-https://springframework.guru/spring-framework-annotations/
-https://www.baeldung.com/spring-boot-h2-database
+**References**:  
+Patika.dev & Softtech Java Spring Bootcamp  
+https://javabydeveloper.com/lombok-requiredargsconstructor-examples/  
+https://www.programmergirl.com/spring-dependency-injection/  
+https://springframework.guru/spring-framework-annotations/  
+https://www.baeldung.com/spring-boot-h2-database  
