@@ -504,7 +504,51 @@ public class Student{
 }
 ```
 
-@**TableGenerator**: 	
+@**TableGenerator**: Defines a primary key generator that may be referenced by name when a generator element is specified for the GeneratedValue annotation.  
+"name" is the name of the generator, table is the name of the table.  
+"pkColumnName" hold primary key column's name, valueColumnName holds last given id.  
+"allocationSize" is the increment value and it is default 50.  
+"initialValue" is the initial value and it is default 0.  
+
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@TableGenerator(
+		name="generator",
+		table="POJO_SEQ_TABLE",
+		pkColumnName="PK_NAME",
+		valueColumnName="PK_VALUE",
+		allocationSize=1
+	)
+	@Id
+	@GeneratedValue(
+		generator="generator",
+		strategy = GeenerationType.SEQUENCE
+	)
+	private Long id;
+}
+```
+@**Column**: Used to specify the details of the column to which a field or property will be mapped.  
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@TableGenerator(
+		name="generator",
+		table="POJO_SEQ_TABLE",
+		pkColumnName="PK_NAME",
+		valueColumnName="PK_VALUE",
+		allocationSize=1
+	)
+	@Id
+	@GeneratedValue(
+		generator="generator",
+		strategy = GeenerationType.SEQUENCE
+	)
+	private Long id;
+}
+```
 
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
