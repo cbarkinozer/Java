@@ -7,7 +7,7 @@ Rod Johnson created it in 2003 because the EJB had architectural problems. Sprin
 
 **Plain old java object(POJO)**: An ordinary Java object, not bound by any special restriction.  
 It should not implement or extend any class/interface.  
-POJO classes have an id value, and getter/setters.    
+POJO classes have an id value and getter/setters.    
 
 **Bean**: A special kind of POJO that has some restrictions. Beans must be serializable. Fields must be private. Fields should have getters/setters.  
 There must be a no-argument constructor. Fields are only accessed by constructors or getters/setters.  
@@ -141,7 +141,7 @@ public class Person {
 ```
 **Considering the spring documentation**:  
 Use constructor injection for mandatory dependencies (the dependencies they use while working).  
-Setter-based injections should be used for dependencies that are optional in nature (alternative dependencies).  
+Setter-based injections should be used for optional dependencies (alternative dependencies).  
 Avoid property-based injection because Spring uses reflection for field-injected dependencies and it is costlier.  
 
 ### **ApplicationContext**  
