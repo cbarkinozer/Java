@@ -128,6 +128,7 @@ public class Person {
 3. **Property-based injection** 
 We can also inject dependencies using fields or properties of a class.  
 To do so, we can simply use the @Autowired annotation over the field:  
+
 ```java
 @Component
 public class Person {
@@ -245,7 +246,8 @@ The configuration class supplying bean metadata to an IoC container:
 **@ComponentScan**: Instructs the container to look for beans in the package containing the Company class.  
 If specific packages are not defined, scanning will occur from the package of the class that declares this annotation.  
 
-```java@Component
+```java
+@Component
 public class BeanA {
   @Autowired
   @Qualifier("beanB2")
@@ -360,7 +362,6 @@ public class User implements Serializable {
 }
 ```
 
-
 @**Getter**: Used at field or class level to generate getters for private fields.  
 @**Setter**: Used at field or class level to generate setters for private fields.  
 
@@ -394,6 +395,7 @@ public class User4 {
 
 @**Builder**: Produces complex builder APIs for your classes.  
 If you are using @Data and @Builder annotations together, all-args constructor (Package access level) is generated.  
+The difference between Builder and Factory pattern is that the Builder pattern is only required when an object cannot be produced in one step. After all of the steps are done, the builder creates the instance.  
 
 Note: The elimination of boilerplate code can also be done by implementing kotlin data classes into java projects.  
 
