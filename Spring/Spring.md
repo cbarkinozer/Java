@@ -337,7 +337,66 @@ public class BeanA {
 		
 ### **Lombok**
 Lombok is a java library tool that is used to minimize/remove the boilerplate code and save time to developers during development by increasing the readability of the source code and saving space with using some annotations.   
+Lombok works by plugging into our build process and auto-generating Java bytecode into our .class files.  
+
+```java
+@Getter @Setter @NoArgsConstructor // Adding getters, setters and no-argument constructor
+public class User implements Serializable {
+
+    private Long id;
 	
+    @NonNull  
+    private String firstName;
+    @NonNull  
+    private String lastName;
+    @NonNull  
+    private int age;
+
+    public User(String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+}
+```
+
+
+@**Getter**: Used at field or class level to generate getters for private fields.  
+@**Setter**: Used at field or class level to generate setters for private fields.  
+
+@**NoArgsConstructor**: Generates a constructor with no parameters.  
+@**AllArgsConstructor**: Generates a constructor with all fields as parameters.  
+@**RequiredArgsConstructor**: Generates a constructor with with required parameters (final fields). 
+Does not generate any argument for non-final, initialized final, static, initialized non-null fields.  
+
+@**toString**:	Generates a toString() method including all class attributes. Updates itself as we enrich our data model.  
+@**EqualsHashCode**: Generates both equals() and hashCode() methods by default considering all relevant fields.  
+
+@**Data**: Sets @Getter, @Setter, @RequiredArgsConstructor, @toString, @equalsHashcode.  
+Configuring @Data by excluding example:  
+
+```java
+@Data
+public class User4 {
+  @Setter(value = AccessLevel.NONE)
+  private Long id;
+  @Getter(value = AccessLevel.NONE)
+  private String username;
+  
+  @ToString.Exclude
+  private boolean active;
+  
+  @EqualsAndHashCode.Exclude
+  @ToString.Exclude
+  private int role;
+}
+```
+
+@**Builder**: Produces complex builder APIs for your classes.  
+If you are using @Data and @Builder annotations together, all-args constructor (Package access level) is generated.  
+
+Note: The elimination of boilerplate code can also be done by implementing kotlin data classes into java projects.  
+
 ### **Hibernate**
 	
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
@@ -365,7 +424,8 @@ Inside each of these 3-letter abbrevation named packages, create dao, dto, entit
 
 **References**:  
 Sadık Bahadır Memiş    
-https://javabydeveloper.com/lombok-requiredargsconstructor-examples/  
 https://www.programmergirl.com/spring-dependency-injection/  
 https://springframework.guru/spring-framework-annotations/  
 https://www.baeldung.com/spring-boot-h2-database  
+https://www.baeldung.com/intro-to-project-lombok  
+https://javabydeveloper.com/lombok-requiredargsconstructor-examples/  
