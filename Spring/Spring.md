@@ -517,7 +517,7 @@ After we enter our credentials, a comprehensive H2 console webpage will welcome 
 
 **HTTP**: Hyper Text Transfer Protocol is used for fetching resources such as HTML documents.  
 
-**HTTP Methods**:
+**HTTP Methods**:  
 **GET**: Requests a resource from the server.  
 **HEAD**: Requests only headers of resources from server.  
 **POST**: Changes the content of the resource located on the server.  
