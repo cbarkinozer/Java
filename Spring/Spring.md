@@ -336,9 +336,17 @@ public class BeanA {
 **5xx**: Server error messages.  
 		
 ### **Lombok**
+Lombok is a java library tool that is used to minimize/remove the boilerplate code and save time to developers during development by increasing the readability of the source code and saving space with using some annotations.   
 	
 ### **Hibernate**
-
+	
+**H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
+To use H2, add dependency to pom.xml file than change application.properties file.  
+Later, arrying out CRUD operations with H2 within Spring Boot is the same as with other SQL databases.  
+To access H2 console, add "spring.h2.console.enabled=true" to application.properties.  
+Then go to "http://localhost:8080/h2-console" url which is the login page.  
+After we enter our credentials, a comprehensive H2 console webpage will welcome us.  
+	
 **Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
 **REST API**: An API that conforms to the design principles of the REST, or representational state transfer architectural style.  
 **API(Applicaiton Programming Interface)**: Set of rules that define how applications or devices can connect to and communicate with each other.  
@@ -348,9 +356,16 @@ In a RESTful Web service, requests to a resource's URI are answered with data in
 	
 ![image](https://user-images.githubusercontent.com/43732258/153911790-ba6c772f-e541-4ba3-befe-94ad9a9dee9d.png)  
 	
-**Designing REST API**:
-Decide the 3-letter abbreviations of the tables and attributes inside them. Packages are created with the same name.  
-Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.    
+**Designing REST APIs**:
+Decide the 3-letter abbreviations of the tables and attributes inside them. Packages are created with the same name.   
+Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.     
 
 
 **Java Reflection**:
+
+**References**:
+Patika.dev & Softtech Java Spring Bootcamp
+https://javabydeveloper.com/lombok-requiredargsconstructor-examples/
+https://www.programmergirl.com/spring-dependency-injection/
+https://springframework.guru/spring-framework-annotations/
+https://www.baeldung.com/spring-boot-h2-database
