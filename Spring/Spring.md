@@ -46,7 +46,7 @@ public class Person {
 }
 ```
 We’ll not create objects on our own and rather inject them.
-The Following is an example of dependency injection by using constructor:  
+The following is an example of dependency injection by using constructor:  
 ```java
 public class Person {
     private Address address;
@@ -58,7 +58,7 @@ public class Person {
 ```
 
 **Spring supports 3 types of dependency injection**:  
-1.**Constructor-based injection**  
+1. **Constructor-based injection**  
 
 Spring will use the matching constructor to resolve and inject the dependency.  
 
@@ -271,7 +271,7 @@ public class Config {
 **@Value**: Used at the field or method/constructor parameter level and it indicates a default value for the affected argument.  
 Commonly used to inject the configuration values to the spring boot application.  
 	
-**Stereotype Annotations**: Spring framework provides 3 other specific annotations to be used when marking a class as a Component.  
+**Stereotype Annotations**: The spring framework provides 3 other specific annotations to be used when marking a class as a Component.  
 These specific Component annotations are @Service, @Repository, @Controller.	
 **@Service**: Indicates these beans are used in Service layer and holds bussiness logic (utility classes).
 **@Repository**: Indicates these beans are used in DAO or Repository and deals with CRUD (create, read, update, delete) operations.
@@ -312,7 +312,7 @@ public class BeanA {
 ```
 **@Primary**: Used with @Qualifier and defines the primary preferenced Bean.  
 	
-**@SpringBootApplication**: Indicates Spring Boot projects main method. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
+**@SpringBootApplication**: Indicates the main method of the Spring Boot project. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
 **@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
@@ -348,7 +348,7 @@ public class User implements Serializable {
 
 @**NoArgsConstructor**: Generates a constructor with no parameters.  
 @**AllArgsConstructor**: Generates a constructor with all fields as parameters.  
-@**RequiredArgsConstructor**: Generates a constructor with with required parameters (final fields). 
+@**RequiredArgsConstructor**: Generates a constructor with required parameters (final fields). 
 Does not generate any argument for non-final, initialized final, static, initialized non-null fields.  
 
 @**toString**:	Generates a toString() method including all class attributes. Updates itself as we enrich our data model.  
