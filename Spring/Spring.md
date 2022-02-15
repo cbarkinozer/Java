@@ -57,7 +57,7 @@ public class Person {
 }
 ```
 
-Spring supports **3 types of dependency injection**:  
+**Spring supports 3 types of dependency injection**:  
 1.**Constructor-based injection**  
 
 Spring will use the matching constructor to resolve and inject the dependency.  
@@ -482,9 +482,30 @@ public class Student{
 	private Long id;
 }
 ```	
-@**SequenceGenerator**: 
+@**SequenceGenerator**: Defines a primary key generator that may be referenced by name when a generator element is specified for the GeneratedValue annotation.  
+**Sequence**: Database object that generates incremental integers on each successive request.  
+Sequences are more flexible than identifier columns because sequences are table-free, they may preallocate values to improve performance and same sequence can be assigned to multiple columns or tables.  
 	
-	
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@SequenceGenerator(
+		name="generator",
+		sequenceName="POJO_ID_SEQ",
+		allocationSize=1
+	)
+	@Id
+	@GeneratedValue(
+		generator="generator",
+		strategy = GeenerationType.SEQUENCE
+	)
+	private Long id;
+}
+```
+
+@**TableGenerator**: 	
+
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
 Later, arrying out CRUD operations with H2 within Spring Boot is the same as with other SQL databases.  
