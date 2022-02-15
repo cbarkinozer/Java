@@ -5,7 +5,9 @@
 One of the most popular Java Enterprise Edition (Java EE) frameworks, Spring helps developers create high-performing applications using plain old Java objects (POJOs).  
 Rod Johnson created it in 2003 because the EJB had architectural problems. Spring is the most popular framework for java.  
 
-**Plain old java object(POJO)**: An ordinary Java object, not bound by any special restriction. It should not implement or extend any class/interface.  
+**Plain old java object(POJO)**: An ordinary Java object, not bound by any special restriction.  
+It should not implement or extend any class/interface.  
+POJO classes have an id value, and getter/setters.    
 
 **Bean**: A special kind of POJO that has some restrictions. Beans must be serializable. Fields must be private. Fields should have getters/setters.  
 There must be a no-argument constructor. Fields are only accessed by constructors or getters/setters.  
@@ -315,28 +317,7 @@ public class BeanA {
 
 **@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
 **@Scope**: Indicates the Bean's runtime context(scope). The default scope is Singleton.  
-	
-### **HTTP Methods and Messages**
-
-**HTTP**: Hyper Text Transfer Protocol is used for fetching resources such as HTML documents.  
-
-**HTTP Methods**:
-**GET**: Requests a resource from the server.  
-**HEAD**: Requests only headers of resources from server.  
-**POST**: Changes the content of the resource located on the server.  
-**PUT**: Requests the server to create a resource and replace that resource with another resource.  
-**DELETE**: Requests the server to delete a resource.  
-**CONNECT**: Requests to start two-way communications with the requested HTTPS resource.  
-**OPTIONS**: Requests permitted communication options for a given URL or server.  
-**TRACE**:  Used for debugging which echo's back input back to the user.  
-
-**Error messages**:  
-**1xx**: Informative messages.  
-**2xx**: Success messages.  
-**3xx**: Redirecting messages.  
-**4xx**: Request error messages.  
-**5xx**: Server error messages.  
-		
+			
 ### **Lombok**
 Lombok is a java library tool that is used to minimize/remove the boilerplate code and save time to developers during development by increasing the readability of the source code and saving space with using some annotations.   
 Lombok works by plugging into our build process and auto-generating Java bytecode into our .class files.  
@@ -374,7 +355,7 @@ Does not generate any argument for non-final, initialized final, static, initial
 @**EqualsHashCode**: Generates both equals() and hashCode() methods by default considering all relevant fields.  
 
 @**Data**: Sets @Getter, @Setter, @RequiredArgsConstructor, @toString, @equalsHashcode.  
-Configuring @Data by excluding example:  
+**Configuring @Data by excluding, example**:  
 
 ```java
 @Data
@@ -392,14 +373,117 @@ public class User4 {
   private int role;
 }
 ```
+@**Value**: Used when creating Immutable classes.
+Sets @Getter, @FieldDefaults(makeFinal=true, level=AccessLevel.PRIVATE), @AllArgsConstructor, @ToString, and @EqualsAndHashCode.  
+
+@**FieldDefaults**: Can add an access modifier(public, private, protected) and "final" to each field.  
 
 @**Builder**: Produces complex builder APIs for your classes.  
 If you are using @Data and @Builder annotations together, all-args constructor (Package access level) is generated.  
 The difference between Builder and Factory pattern is that the Builder pattern is only required when an object cannot be produced in one step. After all of the steps are done, the builder creates the instance.  
 
+```java
+@Getter
+@Builder
+public class LombokBuilderDemo1 {
+  private Long id;
+  private String name;
+}
+public class LombokBuilderDemo1Test {
+  public static void main(String[] args) {
+    LombokBuilderDemo1 lbd1 = LombokBuilderDemo1.builder()
+        .name("Peter")
+        .id(Long.valueOf(1))
+        .build(); //Does not create instance until this line
+    System.out.println("id => "+lbd1.getId());
+    System.out.println("name => "+lbd1.getName());
+  }
+}
+```
+If not all but only few of the fields are required, then declare @Builder annotation at constructor level which is having required arguments.  
+```java
+@Getter
+public class LombokBuilderDemo2 {
+  private Long id;
+  private String name;
+  private boolean status;
+  private int role;
+  @Builder()
+  public LombokBuilderDemo2(Long id, int role) {
+    this.id = id;
+    this.role = role;
+  }
+}
+```
+If your class already have a method to create instance, you can make it as builder by declaring @Builder on that method.  
+```java
+@Getter
+public class LombokBuilderDemo3 {
+  private Long id;
+  private String name;
+  private boolean status;
+  private int role;
+  public LombokBuilderDemo3(Long id, String name, int role, boolean status) {
+    this.id = id;
+    this.name = name;
+  }
+  @Builder(builderMethodName = "builder")
+  public static LombokBuilderDemo3 createInstance(Long id, String name) {
+    // create instance with default role and status
+    return new LombokBuilderDemo3(id, name, 1, false);
+  }
+}
+```
+
 Note: The elimination of boilerplate code can also be done by implementing kotlin data classes into java projects.  
 
 ### **Hibernate**
+**Object-Relational Model(ORM)**: A programming technique for converting data between incompatible type systems using object-oriented programming languages.  
+Hibernate ORM (or simply Hibernate) is an object–relational mapping tool for the Java programming language.  
+A class is converted to database tables. In this conversion process, we define entity properties with annotations.  
+
+@**Entity**: Indicates that the POJO has an equivalent table in the database.  
+```java
+@Entity
+public class Student{
+}
+```
+@**Table**: Indicates the name of the table in the database that POJO is equivalent.   
+When not specified, a table is searched by the name of the class.  
+Has name, catalog, schema, uniqueConstraints, indexes properties.  
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+}
+```
+@**Id**: It indicates the primary key in the table.  
+Each entity must have one @Id.  
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@Id
+	private Long id;
+}
+```
+@**GeneratedValue**: Provides for the specification of generation strategies for the values.  
+Has strategy and generator properties. 
+Can be used together with SequenceGenerator and TableGenerator.  
+There are 4 strategy properties: AUTO, IDENTITY, SEQUENCE, TABLE.  
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@Id
+	@GeneratedValue(
+		strategy = GeenerationType.AUTO
+	)
+	private Long id;
+}
+```	
+@**SequenceGenerator**: 
+	
 	
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
@@ -407,7 +491,28 @@ Later, arrying out CRUD operations with H2 within Spring Boot is the same as wit
 To access H2 console, add "spring.h2.console.enabled=true" to application.properties.  
 Then go to "http://localhost:8080/h2-console" url which is the login page.  
 After we enter our credentials, a comprehensive H2 console webpage will welcome us.  
-	
+
+### **HTTP Methods and Messages**
+
+**HTTP**: Hyper Text Transfer Protocol is used for fetching resources such as HTML documents.  
+
+**HTTP Methods**:
+**GET**: Requests a resource from the server.  
+**HEAD**: Requests only headers of resources from server.  
+**POST**: Changes the content of the resource located on the server.  
+**PUT**: Requests the server to create a resource and replace that resource with another resource.  
+**DELETE**: Requests the server to delete a resource.  
+**CONNECT**: Requests to start two-way communications with the requested HTTPS resource.  
+**OPTIONS**: Requests permitted communication options for a given URL or server.  
+**TRACE**:  Used for debugging which echo's back input back to the user.  
+
+**Error messages**:  
+**1xx**: Informative messages.  
+**2xx**: Success messages.  
+**3xx**: Redirecting messages.  
+**4xx**: Request error messages.  
+**5xx**: Server error messages.  
+
 **Swagger**: Set of open-source tools that can help you design, build, document and consume REST APIs.  
 **REST API**: An API that conforms to the design principles of the REST, or representational state transfer architectural style.  
 **API(Applicaiton Programming Interface)**: Set of rules that define how applications or devices can connect to and communicate with each other.  
@@ -431,3 +536,4 @@ https://springframework.guru/spring-framework-annotations/
 https://www.baeldung.com/spring-boot-h2-database  
 https://www.baeldung.com/intro-to-project-lombok  
 https://javabydeveloper.com/lombok-requiredargsconstructor-examples/  
+https://javabydeveloper.com/lombok-builder-examples/  
