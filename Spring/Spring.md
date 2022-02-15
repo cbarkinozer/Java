@@ -534,22 +534,111 @@ public class Student{
 @Entity
 @Tablename(name="Student")
 public class Student{
-	@TableGenerator(
-		name="generator",
-		table="POJO_SEQ_TABLE",
-		pkColumnName="PK_NAME",
-		valueColumnName="PK_VALUE",
-		allocationSize=1
-	)
 	@Id
 	@GeneratedValue(
 		generator="generator",
 		strategy = GeenerationType.SEQUENCE
 	)
 	private Long id;
+	@Column(precision=15, scale=2)
+	private BigDecimal value;
+	@Column(length=100)
+	private String name;
+	@Column(name="SAVER_NAME",updatable=false)
+	private String saver;
+	@Column(name="UPDATER_NAME",insertable=false)
+	private String updater;
+}
+```
+If Updatable is false, that field will not be written in the update query when committing to the database.  
+If insertable is false, that field will not be written in the insert query when committing to the database.  
+
+@**Version**: Used for Optimistic locking while performing update operation. Indicates the table's version.  
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@Id
+	@GeneratedValue(
+		strategy = GeenerationType.AUTO
+	)
+	@Column
+	private Long id;
+	
+	@Version
+	private Long version;
 }
 ```
 
+@**Temporal**: Indicates in which format the date will be written to the database.  
+Temporal has 3 properties: DATE(dd.mm.yyyy), TIME(hh:mm:ss), DATETIME(dd.mm.yyyy hh:mm:ss).
+
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@Id
+	@GeneratedValue(
+		strategy = GeenerationType.AUTO
+	)
+	@Column
+	private Long id;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date;
+}
+```
+
+@**Transient**: It is used in cases where we want a field to be in the pojo but not in the database.  
+
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@Id
+	@GeneratedValue(
+		strategy = GeenerationType.AUTO
+	)
+	@Column
+	private Long id;
+	
+	@Transient
+	private Boolean isValid;
+}
+```
+
+@**Lob**: Lob stands for large object. Used with byte large objects and char large objects.  
+
+```java
+@Entity
+@Tablename(name="Student")
+public class Student{
+	@Id
+	@GeneratedValue(
+		strategy = GeenerationType.AUTO
+	)
+	@Column
+	private Long id;
+	
+	@Lob
+	private byte[] blobFile;
+	
+	@Lob
+	private char[] clobFile;
+	
+	@Lob
+	private Stirng text;
+}
+```
+
+@**OneToOne**:
+@**ManyToMany**:
+@**ManyToOne**:
+@**OneToMany**:
+@**JoinColumn**:
+@**ForeignKey**:
+@**Index**:
+	
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
 Later, arrying out CRUD operations with H2 within Spring Boot is the same as with other SQL databases.  
