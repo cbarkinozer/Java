@@ -631,13 +631,41 @@ public class Student{
 }
 ```
 
-@**OneToOne**:
-@**ManyToMany**:
-@**ManyToOne**:
-@**OneToMany**:
-@**JoinColumn**:
-@**ForeignKey**:
-@**Index**:
+@**OneToOne**: It is used if there is a one-to-one relationship with the joined table. As an example Humans have unique DNA's so Human-DNA tables have one-to-one relationship.  
+```java
+@Entity
+@Tablename(name="Human")
+public class Human{
+	@SequenceGenerator(name="human",sequenceName="HUMAN_ID_SEQ")
+	@Id
+	@GeneratedValue(generator="human",
+		strategy = GeenerationType.SEQUENCE)
+	@Column(name="ID")
+	private Long id;
+	@Column(name="NAME",length=100)
+	private String name;
+	@OneToOne(
+		cascade=CascadeType.ALL
+		fetch= FetchType.LAZY
+		mappedBy="human",
+		optinal=false)
+	private Dna dna;
+}
+```
+@**ManyToMany**: It is used if there is a many-to-many relationship with the joined table. As an example a book can have many writers, and a writer can have multiple books.  
+```java
+```
+@**ManyToOne**: It is used if there is a many-to-one relationship with the joined table. The most popular relationship. As an example a country has multiple cities, and a city have one country.    
+```java
+```
+@**OneToMany**: It is used if there is a one-to-many relationship with the joined table. With mappedBy, it is possible to add to the entity without creating a column in a bidirectional relationship. It can be used when joining the Cities list within the Country object. 
+```java
+```
+@**JoinColumn**: 
+```java
+```
+(Deprecated)@**ForeignKey**: It used to be used to add and customize a foreign key to the table, it is now deprecated.  
+(Deprecated)@**Index**:  It used to be used to add index to the table, it is now deprecated. The same index could be used for more than one column.  
 	
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
