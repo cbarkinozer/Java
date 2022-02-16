@@ -13,6 +13,16 @@ Input: new String[] {"A>B","A<C","C<Z"}
 Output: 1
 Input: new String[] {"A>B","B<R","R<G"}
 Output: 3
+1. For input new String[] {"A>B","A<C","C<Z"} the output was incorrect. The correct output is 1
+2. For input new String[] {"A>B","B<R","R<G"} the output was incorrect. The correct output is 3
+3. For input new String[] {"J>B","B<S","D>J"} the output was incorrect. The correct output is 3
+4. For input new String[] {"A>B","B<C"} the output was incorrect. The correct output is 2
+5. For input new String[] {"A>B","B>C","C>D"} the output was incorrect. The correct output is 1
+6. For input new String[] {"A>B","B>C","C>D","G>D"} the output was incorrect. The correct output is 4
+7. For input new String[] {"A>B","B>C","C>D","D>E","G>E"} the output was incorrect. The correct output is 5
+8. For input new String[] {"A>B","C>B","A<Q"} the output was incorrect. The correct output is 3
+9. For input new String[] {"A<B","B>A"} the output was incorrect. The correct output is 1
+10. For input new String[] {"A>C"} the output was incorrect. The correct output is 1
 */
 
 import java.util.*; 
