@@ -637,32 +637,171 @@ public class Student{
 @Tablename(name="Human")
 public class Human{
 	@SequenceGenerator(name="human",sequenceName="HUMAN_ID_SEQ")
+	
 	@Id
 	@GeneratedValue(generator="human",
 		strategy = GeenerationType.SEQUENCE)
+	
 	@Column(name="ID")
 	private Long id;
+	
 	@Column(name="NAME",length=100)
 	private String name;
+	
 	@OneToOne(
-		cascade=CascadeType.ALL
-		fetch= FetchType.LAZY
+		cascade=CascadeType.ALL,
+		fetch= FetchType.LAZY,
 		mappedBy="human",
 		optinal=false)
 	private Dna dna;
 }
 ```
+```java
+@Entity
+@Tablename(name="DNA")
+public class Dna implements Serializable{
+	@SequenceGenerator(name="dna",sequenceName="DNA_ID_SEQ")
+	
+	@Id
+	@GeneratedValue(generator="dna",
+		strategy = GeenerationType.SEQUENCE)
+	
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(length=10)
+	private String fileId;
+	
+	@OneToOne(
+		cascade=CascadeType.ALL,
+		fetch= FetchType.LAZY,
+		orphanRemoval=true)
+	private Human human;
+}
+```
 @**ManyToMany**: It is used if there is a many-to-many relationship with the joined table. As an example a book can have many writers, and a writer can have multiple books.  
 ```java
+@Entity
+@Tablename(name="BOOK")
+public class Book{
+	@SequenceGenerator(name="book",sequenceName="BOOK_ID_SEQ")
+	@Id
+	@GeneratedValue(generator="book",
+		strategy = GeenerationType.SEQUENCE)
+	
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="NAME",length=100)
+	private String name;
+	
+	@ManyToMany(
+		cascade=CascadeType.ALL,
+		targetEntity=Writer.class,
+		fetch= FetchType.LAZY)
+	private Set writers = new HashSet();
+}	
+```
+```java
+@Entity
+@Tablename(name="WRITER")
+public class Writer{
+	@SequenceGenerator(name="writer",sequenceName="WRITER_ID_SEQ")
+	@Id
+	@GeneratedValue(generator="writer",
+		strategy = GeenerationType.SEQUENCE)
+	
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="NAME",length=100)
+	private String name;
+	
+	@ManyToMany(
+		fetch= FetchType.LAZY,
+		mappedBy="writers")
+	private Set writers = new HashSet();
+}	
 ```
 @**ManyToOne**: It is used if there is a many-to-one relationship with the joined table. The most popular relationship. As an example a country has multiple cities, and a city have one country.    
 ```java
+@Entity
+@Tablename(name="CITY")
+public class City{
+	@SequenceGenerator(name="city",sequenceName="CITY_ID_SEQ")
+	
+	@Id
+	@GeneratedValue(generator="city",
+		strategy = GeenerationType.SEQUENCE)
+	
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="NAME",length=50)
+	private String name;
+	
+	@ManyToMany(
+		fetch= FetchType.LAZY,
+		cascade=CascadeType.ALL,
+		optional=false)
+	private Country country;
+}
 ```
 @**OneToMany**: It is used if there is a one-to-many relationship with the joined table. With mappedBy, it is possible to add to the entity without creating a column in a bidirectional relationship. It can be used when joining the Cities list within the Country object. 
 ```java
+@Entity
+@Tablename(name="COUNTRY")
+public class Country{
+	@SequenceGenerator(name="country",sequenceName="COUNTRY_ID_SEQ")
+	
+	@Id
+	@GeneratedValue(generator="city",
+		strategy = GeenerationType.SEQUENCE)
+	
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="NAME",length=50)
+	private String name;
+	
+	@OneToMany(
+		fetch= FetchType.LAZY,
+		mappedBy="country",
+		targetEntity=City.class,
+		orphanRemoval = true)
+	private Set country = new HashSet();
+}
 ```
-@**JoinColumn**: 
+@**JoinColumn**: It is used when an entity is defined in the Entity.  
+It helps us to specify the properties of the relation column to be created.  
 ```java
+@Entity
+@Tablename(name="CITY")
+public class City{
+	@SequenceGenerator(name="city",sequenceName="CITY_ID_SEQ")
+	
+	@Id
+	@GeneratedValue(generator="city",
+		strategy = GeenerationType.SEQUENCE)
+	
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="NAME",length=50)
+	private String name;
+	
+	@ManyToOne(
+		fetch= FetchType.LAZY,
+		cascade=CascadeType.ALL,
+		optional=false)
+	
+	@JoinColumn(
+		name="ID_COUNTRY",
+		nullable=false,
+	)
+	
+	private Country country;
+}
 ```
 @**ForeignKey**(Deprecated): It used to be used to add and customize a foreign key to the table, it is now deprecated.  
 @**Index**(Deprecated):  It used to be used to add index to the table, it is now deprecated. The same index could be used for more than one column.  
@@ -709,7 +848,25 @@ Decide the 3-letter abbreviations of the tables and attributes inside them. Pack
 Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.     
 
 
-**Java Reflection**:  
+**Java Reflection**:  A feature that provides the opportunity to examine and direct the runtime behavior of applications running in the JVM.  
+It is used to obtain, control and manage information such as names and parameters of classes, methods, properties and annotations.  
+For the use of Reflection, it will be useful to know the Class, Method, Field, Annotation classes and methods in the java.lang package.  
+The Class class has methods such as getName, getSimpleName, getModifiers, getPackage, getSuperclass, getInterfaces, getConstructors, getMethods, getFields, getAnnotations to get information about the class.  
+When it is desired to run a method with a reflection structure, the invoke() method in the Method class can be used.  
+With the Reflection structure, it is also possible to access non-accessible areas such as private and protected in the class.  
+The most important use of the Java Reflection structure is the annotations structure because structures such as Spring, Hibernate, and JAXB (XML operations) operate using reflection and annotations.  
+
+The following method prints the annotations in the class given as a parameter:  
+```java
+public static void yazdir(Class<?> annotationClass) {
+    for (Annotation annotation : annotationClass.getAnnotations()) {
+        System.out.println(annotation.toString());
+    }
+}
+```
+
+By using the reflection structure, operations such as dynamically creating objects from the class, class loading, dependency management (DI) can be done easily.  
+However, unexpected results may occur when the reflection structure is not used appropriately.  
 
 **References**:  
 Sadık Bahadır Memiş    
@@ -719,3 +876,4 @@ https://www.baeldung.com/spring-boot-h2-database
 https://www.baeldung.com/intro-to-project-lombok  
 https://javabydeveloper.com/lombok-requiredargsconstructor-examples/  
 https://javabydeveloper.com/lombok-builder-examples/  
+https://www.yusufsezer.com.tr/java-reflection/  
