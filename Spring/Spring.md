@@ -233,6 +233,9 @@ Spring.datasource url, driverclassname,username,password etc. values can be give
 Also in the resources file, you can create a banner.txt file and add a custom text banner that will be shown when the spring boot application starts.  
 
 ### **Spring Annotations**
+
+**Core Spring Annotations**:
+
 **@Component**: Configures the Bean classes.
 ```java
 @Component
@@ -311,13 +314,61 @@ public class BeanA {
 }
 ```
 **@Primary**: Used with @Qualifier and defines the primary preferenced Bean.  
+**@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
+**@Scope**: Indicates the Bean's runtime context(scope). The default scope is Singleton.  
+
+**Spring Boot Annotations**:
 	
 **@SpringBootApplication**: Indicates the main method of the Spring Boot project. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
 
-**@Target**: The target annotation indicates the targeted elements( such as field, method, parameter etc.) of a class in which the annotation type will be applicable.  
-**@Scope**: Indicates the Bean's runtime context(scope). The default scope is Singleton.  
-			
+**Spring MVC and REST Annotations**:
+
+**@RequestMapping**: A method and class level annotation that is used to mapping between the request path and the handler method.  
+The value attribute of @RequestMapping annotation on class is used to specify the URL pattern.  
+The method property of @RequestMapping annotation on method is used to specify the HTTP method.  
+
+```java
+@Controller
+@RequestMapping("/welcome")
+public class WelcomeController{
+  @RequestMapping(method = RequestMethod.GET)
+  public String welcomeAll(){
+    return "welcome all";
+  }  
+}
+```
+*Following are @RequestMapping variants*
+
+**@CookieValue**: Method level annotation that is used in the method annotated with @RequestMapping as argument of request mapping method.  
+```java
+@RequestMapping("/cookieValue")
+  public void getCookieValue(@CookieValue "JSESSIONID" String cookie){ //JSESSIONID=418AB76CD83EF94U85YD34W
+}
+```
+**@CrossOrigin**: Class and method level annotation to enable cross origin requests.  
+In many cases the host that serves JavaScript will be different from the host that serves the data.  
+In such a case Cross Origin Resource Sharing (CORS) enables cross-domain communication.  
+```java
+@CrossOrigin(maxAge = 3600)
+@RestController
+@RequestMapping("/account")
+public class AccountController {
+@CrossOrigin(origins = "http://example.com")
+@RequestMapping("/message")
+  public Message getMessage() {
+      // ...
+    }
+ 
+@RequestMapping("/note")
+    public Note getNote() {
+        // ...
+    }
+}
+```
+In this example, both getExample() and getNote() methods will have a maxAge of 3600 seconds.
+Also, getExample() will only allow cross-origin requests from "http://example.com", while getNote() will allow cross-origin requests from all hosts.  
+	
 ### **Lombok**
 Lombok is a java library tool that is used to minimize/remove the boilerplate code and save time to developers during development by increasing the readability of the source code and saving space with using some annotations.   
 Lombok works by plugging into our build process and auto-generating Java bytecode into our .class files.  
@@ -343,18 +394,18 @@ public class User implements Serializable {
 }
 ```
 
-@**Getter**: Used at field or class level to generate getters for private fields.  
-@**Setter**: Used at field or class level to generate setters for private fields.  
+**@Getter**: Used at field or class level to generate getters for private fields.  
+**@Setter**: Used at field or class level to generate setters for private fields.  
 
-@**NoArgsConstructor**: Generates a constructor with no parameters.  
-@**AllArgsConstructor**: Generates a constructor with all fields as parameters.  
-@**RequiredArgsConstructor**: Generates a constructor with required parameters (final fields). 
+**@NoArgsConstructor**: Generates a constructor with no parameters.  
+**@AllArgsConstructor**: Generates a constructor with all fields as parameters.  
+**@RequiredArgsConstructor**: Generates a constructor with required parameters (final fields). 
 Does not generate any argument for non-final, initialized final, static, initialized non-null fields.  
 
-@**toString**:	Generates a toString() method including all class attributes. Updates itself as we enrich our data model.  
-@**EqualsHashCode**: Generates both equals() and hashCode() methods by default considering all relevant fields.  
+**@toString**:	Generates a toString() method including all class attributes. Updates itself as we enrich our data model.  
+**@EqualsHashCode**: Generates both equals() and hashCode() methods by default considering all relevant fields.  
 
-@**Data**: Sets @Getter, @Setter, @RequiredArgsConstructor, @toString, @equalsHashcode.  
+**@Data**: Sets @Getter, @Setter, @RequiredArgsConstructor, @toString, @equalsHashcode.  
 **Configuring @Data by excluding, example**:  
 
 ```java
@@ -373,12 +424,12 @@ public class User4 {
   private int role;
 }
 ```
-@**Value**: Used when creating Immutable classes.
+**@Value**: Used when creating Immutable classes.
 Sets @Getter, @FieldDefaults(makeFinal=true, level=AccessLevel.PRIVATE), @AllArgsConstructor, @ToString, and @EqualsAndHashCode.  
 
-@**FieldDefaults**: Can add an access modifier(public, private, protected) and "final" to each field.  
+**@FieldDefaults**: Can add an access modifier(public, private, protected) and "final" to each field.  
 
-@**Builder**: Produces complex builder APIs for your classes.  
+**@Builder**: Produces complex builder APIs for your classes.  
 If you are using @Data and @Builder annotations together, all-args constructor (Package access level) is generated.  
 The difference between Builder and Factory pattern is that the Builder pattern is only required when an object cannot be produced in one step. After all of the steps are done, the builder creates the instance.  
 
@@ -442,13 +493,13 @@ Note: The elimination of boilerplate code can also be done by implementing kotli
 Hibernate ORM (or simply Hibernate) is an object–relational mapping tool for the Java programming language.  
 A class is converted to database tables. In this conversion process, we define entity properties with annotations.  
 
-@**Entity**: Indicates that the POJO has an equivalent table in the database.  
+**@Entity**: Indicates that the POJO has an equivalent table in the database.  
 ```java
 @Entity
 public class Student{
 }
 ```
-@**Table**: Indicates the name of the table in the database that POJO is equivalent.   
+**@Table**: Indicates the name of the table in the database that POJO is equivalent.   
 When not specified, a table is searched by the name of the class.  
 Has name, catalog, schema, uniqueConstraints, indexes properties.  
 ```java
@@ -457,7 +508,7 @@ Has name, catalog, schema, uniqueConstraints, indexes properties.
 public class Student{
 }
 ```
-@**Id**: It indicates the primary key in the table.  
+**@Id**: It indicates the primary key in the table.  
 Each entity must have one @Id.  
 ```java
 @Entity
@@ -467,7 +518,7 @@ public class Student{
 	private Long id;
 }
 ```
-@**GeneratedValue**: Provides for the specification of generation strategies for the values.  
+**@GeneratedValue**: Provides for the specification of generation strategies for the values.  
 Has strategy and generator properties. 
 Can be used together with SequenceGenerator and TableGenerator.  
 There are 4 strategy properties: AUTO, IDENTITY, SEQUENCE, TABLE.  
@@ -482,7 +533,7 @@ public class Student{
 	private Long id;
 }
 ```	
-@**SequenceGenerator**: Defines a primary key generator that may be referenced by name when a generator element is specified for the GeneratedValue annotation.  
+**@SequenceGenerator**: Defines a primary key generator that may be referenced by name when a generator element is specified for the GeneratedValue annotation.  
 **Sequence**: Database object that generates incremental integers on each successive request.  
 Sequences are more flexible than identifier columns because sequences are table-free, they may preallocate values to improve performance and same sequence can be assigned to multiple columns or tables.  
 	
@@ -504,7 +555,7 @@ public class Student{
 }
 ```
 
-@**TableGenerator**: Defines a primary key generator that may be referenced by name when a generator element is specified for the GeneratedValue annotation.  
+**@TableGenerator**: Defines a primary key generator that may be referenced by name when a generator element is specified for the GeneratedValue annotation.  
 "name" is the name of the generator, table is the name of the table.  
 "pkColumnName" hold primary key column's name, valueColumnName holds last given id.  
 "allocationSize" is the increment value and it is default 50.  
@@ -529,7 +580,7 @@ public class Student{
 	private Long id;
 }
 ```
-@**Column**: Used to specify the details of the column to which a field or property will be mapped.  
+**@Column**: Used to specify the details of the column to which a field or property will be mapped.  
 ```java
 @Entity
 @Tablename(name="Student")
@@ -553,7 +604,7 @@ public class Student{
 If Updatable is false, that field will not be written in the update query when committing to the database.  
 If insertable is false, that field will not be written in the insert query when committing to the database.  
 
-@**Version**: Used for Optimistic locking while performing update operation. Indicates the table's version.  
+**@Version**: Used for Optimistic locking while performing update operation. Indicates the table's version.  
 ```java
 @Entity
 @Tablename(name="Student")
@@ -570,7 +621,7 @@ public class Student{
 }
 ```
 
-@**Temporal**: Indicates in which format the date will be written to the database.  
+**@Temporal**: Indicates in which format the date will be written to the database.  
 Temporal has 3 properties: DATE(dd.mm.yyyy), TIME(hh:mm:ss), DATETIME(dd.mm.yyyy hh:mm:ss).
 
 ```java
@@ -589,7 +640,7 @@ public class Student{
 }
 ```
 
-@**Transient**: It is used in cases where we want a field to be in the pojo but not in the database.  
+**@Transient**: It is used in cases where we want a field to be in the pojo but not in the database.  
 
 ```java
 @Entity
@@ -607,7 +658,7 @@ public class Student{
 }
 ```
 
-@**Lob**: Lob stands for large object. Used with byte large objects and char large objects.  
+**@Lob**: Lob stands for large object. Used with byte large objects and char large objects.  
 
 ```java
 @Entity
@@ -631,7 +682,7 @@ public class Student{
 }
 ```
 
-@**OneToOne**: It is used if there is a one-to-one relationship with the joined table. As an example Humans have unique DNA's so Human-DNA tables have one-to-one relationship.  
+**@OneToOne**: It is used if there is a one-to-one relationship with the joined table. As an example Humans have unique DNA's so Human-DNA tables have one-to-one relationship.  
 ```java
 @Entity
 @Tablename(name="Human")
@@ -679,7 +730,7 @@ public class Dna implements Serializable{
 	private Human human;
 }
 ```
-@**ManyToMany**: It is used if there is a many-to-many relationship with the joined table. As an example a book can have many writers, and a writer can have multiple books.  
+**@ManyToMany**: It is used if there is a many-to-many relationship with the joined table. As an example a book can have many writers, and a writer can have multiple books.  
 ```java
 @Entity
 @Tablename(name="BOOK")
@@ -723,7 +774,7 @@ public class Writer{
 	private Set writers = new HashSet();
 }	
 ```
-@**ManyToOne**: It is used if there is a many-to-one relationship with the joined table. The most popular relationship. As an example a country has multiple cities, and a city have one country.    
+**@ManyToOne**: It is used if there is a many-to-one relationship with the joined table. The most popular relationship. As an example a country has multiple cities, and a city have one country.    
 ```java
 @Entity
 @Tablename(name="CITY")
@@ -747,7 +798,7 @@ public class City{
 	private Country country;
 }
 ```
-@**OneToMany**: It is used if there is a one-to-many relationship with the joined table. With mappedBy, it is possible to add to the entity without creating a column in a bidirectional relationship. It can be used when joining the Cities list within the Country object. 
+**@OneToMany**: It is used if there is a one-to-many relationship with the joined table. With mappedBy, it is possible to add to the entity without creating a column in a bidirectional relationship. It can be used when joining the Cities list within the Country object. 
 ```java
 @Entity
 @Tablename(name="COUNTRY")
@@ -772,7 +823,7 @@ public class Country{
 	private Set country = new HashSet();
 }
 ```
-@**JoinColumn**: It is used when an entity is defined in the Entity.  
+**@JoinColumn**: It is used when an entity is defined in the Entity.  
 It helps us to specify the properties of the relation column to be created.  
 ```java
 @Entity
@@ -803,8 +854,8 @@ public class City{
 	private Country country;
 }
 ```
-@**ForeignKey**(Deprecated): It used to be used to add and customize a foreign key to the table, it is now deprecated.  
-@**Index**(Deprecated):  It used to be used to add index to the table, it is now deprecated. The same index could be used for more than one column.  
+**@ForeignKey**(Deprecated): It used to be used to add and customize a foreign key to the table, it is now deprecated.  
+**@Index**(Deprecated):  It used to be used to add index to the table, it is now deprecated. The same index could be used for more than one column.  
 	
 **H2 Database**: H2 is a lightweight relational database management system written in Java that can be embedded in Java applications or run in client-server mode.  
 To use H2, add dependency to pom.xml file than change application.properties file.  
@@ -877,3 +928,4 @@ https://www.baeldung.com/intro-to-project-lombok
 https://javabydeveloper.com/lombok-requiredargsconstructor-examples/  
 https://javabydeveloper.com/lombok-builder-examples/  
 https://www.yusufsezer.com.tr/java-reflection/  
+https://springframework.guru/spring-framework-annotations/  
