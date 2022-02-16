@@ -320,7 +320,20 @@ public class BeanA {
 **Spring Boot Annotations**:
 	
 **@SpringBootApplication**: Indicates the main method of the Spring Boot project. Marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.  
+It combines three annotations like @Configuration, @EnableAutoConfiguration, and @ComponentScan.  
+If you use Spring Boot, then you can run your application without deploying it into a web server. 
+
 **@EnableAutoConfiguration**: Enables Spring Boot to auto-configure the application context, so Spring Boot automatically creates and registers beans.  
+It was constantly used with @Configuration and @ComponentScan on an earlier version of Spring boot, they have come up with a convenient @SpringBootApplication annotation.  
+Though you can still use @EnableAutoConfiguration annotation if you want to customize or have some control over auto-configuration.  
+Excluding certain classes from auto-configuration:  
+```java
+@Configuration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+public class MyConfiguration {
+  //.. Java code
+}
+```
 
 **Spring MVC and REST Annotations**:
 
@@ -338,7 +351,57 @@ public class WelcomeController{
   }  
 }
 ```
-*Following are @RequestMapping variants*
+*Following are @RequestMapping variants to better express the semantics of the annotated methods**
+**@GetMapping**: Used for mapping HTTP GET requests onto specific handler methods. Shortcut for @RequestMapping(method = RequestMethod.GET) .  
+**@PostMapping**: Used for mapping HTTP POST requests onto specific handler methods. Shortcut for @RequestMapping(method = RequestMethod.POST).  
+**@PutMapping**: Used for mapping HTTP PUT requests onto specific handler methods. Shortcut for @RequestMapping(method = RequestMethod.PUT).  
+**@PatchMapping**: Used for mapping HTTP PATCH requests onto specific handler methods. Shortcut for @RequestMapping(method = RequestMethod.PATCH).  
+**@DeleteMapping**: Used for mapping HTTP DELETE requests onto specific handler methods. Shortcut for @RequestMapping(method = RequestMethod.DELETE).
+
+**@ExceptionHandler**: Used at method levels to handle exception at the controller level.  
+**@InitBinder**: Method-level annotation that plays the role of identifying the methods which initialize the WebDataBinder (a DataBinder that binds the request parameter to JavaBean objects).  
+**@PathVariable**: Used to retrieve data from the URL. Unlike @RequestParam, this annotation enables the controller to handle a request for parameterized URLs (e.g http://localhost:8080/books/900083838).  
+Retrieving ISBN number "900083838" from the URL as a method argument:  
+
+```java
+@RequestMapping(value="/books/{ISBN}",
+                        method= RequestMethod.GET)
+public String showBookDetails(@PathVariable("ISBN") String id,
+Model model){
+   model.addAttribute("ISBN", id);
+   return "bookDetails";
+}
+```
+	
+**@RequestAttribute**: Used to bind the request attribute to a handler method parameter.  
+**@RequestBody**:  Used to convert inbound HTTP data into Java objects passed into the controller's handler method.  
+```java
+@RequestMapping(method=RequestMethod.POST, consumers= "application/json")
+public @ResponseBody Course saveCourse(@RequestBody Course aCourse){
+   return courseRepository.save(aCourse);
+}
+```
+**@RequestHeader**: 
+**@RequestParam**:
+**@RequestPart**:
+
+**@ResponseBody**: Used to transform a Java object returned from he a controller to a resource representation requested by a REST client.  
+
+**@ResponseStatus**:
+
+**@ControllerAdvice**:
+**@RestController**: The combination of @Controller and @ResponseBody.  
+```java
+@RestController
+class HelloControler{
+@RequestMapping("/")
+public String hello(){
+  return "Hello Spring Booot";
+}
+}
+```
+**@RestControllerAdvice**:
+**@SessionAttributes**:
 
 **@CookieValue**: Method level annotation that is used in the method annotated with @RequestMapping as argument of request mapping method.  
 ```java
@@ -929,3 +992,4 @@ https://javabydeveloper.com/lombok-requiredargsconstructor-examples/
 https://javabydeveloper.com/lombok-builder-examples/  
 https://www.yusufsezer.com.tr/java-reflection/  
 https://springframework.guru/spring-framework-annotations/  
+https://www.java67.com/2019/04/top-10-spring-mvc-and-rest-annotations-examples-java.html  
