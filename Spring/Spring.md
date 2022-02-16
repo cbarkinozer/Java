@@ -381,15 +381,27 @@ public @ResponseBody Course saveCourse(@RequestBody Course aCourse){
    return courseRepository.save(aCourse);
 }
 ```
-**@RequestHeader**: 
-**@RequestParam**:
-**@RequestPart**:
+**@RequestHeader**: Used to map controller parameter to request header value.  
+When Spring maps the request, @RequestHeader checks the header with the name specified within the annotation and binds its value to the handler method parameter.  
+This annotation helps you to get the header details within the controller class.  
+
+**@RequestParam**: Sometimes you get the parameters in the request URL, mostly in GET requests.  
+In that case, along with the @RequestMapping annotation you can use the @RequestParam annotation to retrieve the URL parameter and map it to the method argument.  
+The @RequestParam annotation is used to bind request parameters to a method parameter in your controller.  
+
+**@RequestPart**: Can be used instead of @RequestParam to get the content of a specific multipart and bind to the method argument annotated with @RequestPart.  
+This annotation takes into consideration the “Content-Type” header in the multipart(request part).  
 
 **@ResponseBody**: Used to transform a Java object returned from he a controller to a resource representation requested by a REST client.  
 
-**@ResponseStatus**:
+**@ResponseStatus**: Used on methods and exception classes.  
+@ResponseStatus marks a method or exception class with a status code and a reason that must be returned.  
+When the handler method is invoked the status code is set to the HTTP response which overrides the status information provided by any other means.  
+A controller class can also be annotated with @ResponseStatus which is then inherited by all @RequestMapping methods.  
 
-**@ControllerAdvice**:
+**@ControllerAdvice**: This annotation is used to define @ExceptionHandler, @InitBinder and @ModelAttribute methods that apply to all @RequestMapping methods.  
+Thus if you define the @ExceptionHandler annotation on a method in @ControllerAdvice class, it will be applied to all the controllers.  
+
 **@RestController**: The combination of @Controller and @ResponseBody.  
 ```java
 @RestController
@@ -400,8 +412,8 @@ public String hello(){
 }
 }
 ```
-**@RestControllerAdvice**:
-**@SessionAttributes**:
+**@RestControllerAdvice**: Used at class level, and combines @ControllerAdvice and @ResponseBody.  
+**@SessionAttributes**: Used at parameter level, and provides a convenient access to the existing or permanent session attributes.  
 
 **@CookieValue**: Method level annotation that is used in the method annotated with @RequestMapping as argument of request mapping method.  
 ```java
