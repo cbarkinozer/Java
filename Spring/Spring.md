@@ -388,7 +388,13 @@ This annotation helps you to get the header details within the controller class.
 **@RequestParam**: Sometimes you get the parameters in the request URL, mostly in GET requests.  
 In that case, along with the @RequestMapping annotation you can use the @RequestParam annotation to retrieve the URL parameter and map it to the method argument.  
 The @RequestParam annotation is used to bind request parameters to a method parameter in your controller.  
-
+```java
+@GetMapping("/sayHello")
+public String sayHelloWithParams(@RequestParam("person") String person){
+	return "Hello"+person;
+}
+```
+Now when you reach "localhost:8080/sayHello?person=bahadir" URL from your browser you will find a page with "Hello bahadir" output.
 **@RequestPart**: Can be used instead of @RequestParam to get the content of a specific multipart and bind to the method argument annotated with @RequestPart.  
 This annotation takes into consideration the “Content-Type” header in the multipart(request part).  
 
