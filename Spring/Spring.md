@@ -977,7 +977,9 @@ In a RESTful Web service, requests to a resource's URI are answered with data in
 	
 **Designing REST APIs**:
 Decide the 3-letter abbreviations of the tables and attributes inside them. Packages are created with the same name.   
-Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.     
+Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.  
+
+In controller, there can be only 1 HTTP method type (get,put,delete etc.) method in a path.  
 
 
 **Java Reflection**:  A feature that provides the opportunity to examine and direct the runtime behavior of applications running in the JVM.  
