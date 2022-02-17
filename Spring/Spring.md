@@ -567,7 +567,9 @@ public class LombokBuilderDemo3 {
 }
 ```
 
-Note: The elimination of boilerplate code can also be done by implementing kotlin data classes into java projects.  
+Notes: The elimination of boilerplate code can also be done by implementing kotlin data classes into java projects.  
+Java Records(java v14) are java-based solution alternative to Lombok that is expected to replace Lombok in the future.  
+In Intellij IDEA, we can see Lombok implemented java methods from structure section.  
 
 ### **Hibernate**
 **Object-Relational Model(ORM)**: A programming technique for converting data between incompatible type systems using object-oriented programming languages.  
