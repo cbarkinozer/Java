@@ -390,11 +390,11 @@ In that case, along with the @RequestMapping annotation you can use the @Request
 The @RequestParam annotation is used to bind request parameters to a method parameter in your controller.  
 ```java
 @GetMapping("/sayHello")
-public String sayHelloWithParams(@RequestParam("person") String person){
-	return "Hello"+person;
+public String sayHelloWithParams(@RequestParam String name, String surname){
+	return "Hello "+name+" "+surname;
 }
 ```
-Now when you reach "localhost:8080/sayHello?person=bahadir" URL from your browser you will find a page with "Hello bahadir" output.
+Now when you reach "localhost:8080/sayHello?name=bahadir&surname=memis" URL from your browser you will find a page with "Hello bahadir memis" output.
 **@RequestPart**: Can be used instead of @RequestParam to get the content of a specific multipart and bind to the method argument annotated with @RequestPart.  
 This annotation takes into consideration the “Content-Type” header in the multipart(request part).  
 
