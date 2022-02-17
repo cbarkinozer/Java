@@ -981,6 +981,20 @@ Inside each of these 3-letter abbrevation named packages, create dao, dto, entit
 
 In controller, there can be only 1 HTTP method type (get,put,delete etc.) method in a path.  
 
+A good practice example:
+```java
+@RestController
+@RequestMapping("/api/v1/tests") //Class level @RequestMapping
+public class TestController{
+	
+@GetMapping("/sayHello") //URL: "localhost:8080/api/v1/tests/sayHello"
+public String sayHello(){
+	return "Hello";
+  }
+
+}
+```
+Printing inside methods, prints to the console and can used for debugging. You need to return values to use http protocols.  
 
 **Java Reflection**:  A feature that provides the opportunity to examine and direct the runtime behavior of applications running in the JVM.  
 It is used to obtain, control and manage information such as names and parameters of classes, methods, properties and annotations.  
