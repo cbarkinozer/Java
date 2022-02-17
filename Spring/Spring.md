@@ -366,8 +366,8 @@ Retrieving ISBN number "900083838" from the URL as a method argument:
 ```java
 @RequestMapping(value="/books/{ISBN}",
                         method= RequestMethod.GET)
-public String showBookDetails(@PathVariable("ISBN") String id,
-Model model){
+//or @GetMapping("/books/{ISBN}")
+public String showBookDetails(@PathVariable("ISBN") String id, Model model){
    model.addAttribute("ISBN", id);
    return "bookDetails";
 }
