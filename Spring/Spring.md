@@ -298,8 +298,9 @@ public class AppConfig{
 **@PropertyResources**: Provides property file to Spring Environment.  
 
 **@Autowired**: Used for automatic injection of beans.   
-When you use @Autowired on setter methods, Spring tries to perform the by Type autowiring on the method.  
+When you use @Autowired on setter methods, Spring tries to perform the by Type autowiring on the method.    
 When you use @Autowired on a constructor, constructor injection happens at the time of object creation.  
+NOTE: @Autowired is not used anymore, instead use Lombok @AllArgsConstructor on a private final field.  
 NOTE: As of Spring 4.3, @Autowired became optional on classes with a single constructor.  
 	
 **@Qualifier**: Used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type.  
