@@ -15,30 +15,32 @@ import java.io.*;
 
 class Main {
 
-  public static String FibonacciChecker(int num) {
+ public static Boolean isFibonacci(int num) {
+    //starts from second step
     int previous=1;
     int next=2;
     int temp;
     
-    if(num ==1){
-      return "yes";
+    if(num ==1){ //Checks the first step
+      return true;
     }
     while(next!=num){
-      if(next>num){
-        return "no";
+      if(next>num){ //If next passes num it is not Fibonacci
+        return false;
       }
-      temp=next;
+    //Fibonacci rule
+      temp=next; 
       next+=previous;
       previous=temp;
     }
 
-    return "yes";
+    return true; //If next == num it is Fibonacci
   }
 
   public static void main (String[] args) {  
     // keep this function call here     
     Scanner s = new Scanner(System.in);
-    System.out.print(FibonacciChecker(s.nextLine())); 
+    System.out.print(isFibonacci(s.nextLine())); 
   }
 
 }
