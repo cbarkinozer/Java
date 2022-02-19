@@ -1025,6 +1025,16 @@ public static void yazdir(Class<?> annotationClass) {
 By using the reflection structure, operations such as dynamically creating objects from the class, class loading, dependency management (DI) can be done easily.  
 However, unexpected results may occur when the reflection structure is not used appropriately.  
 
+
+**Java Persistence API(JPA)**: JPA is a collection of classes and methods powered by Oracle that permanently stores large amounts of data in a database.  
+JPA creates a bridge between the relational model (database model) and the object model (Java object) and the load is significantly reduced.  
+**JPA Repository**: A specific extension of Repository.  
+It contains the full API of CrudRepository and PagingAndSortingRepository.  
+It contains API for basic CRUD operations and also API for pagination and sorting.  
+
+
+**MapStruct**:
+
 **References**:  
 Sadık Bahadır Memiş    
 https://www.programmergirl.com/spring-dependency-injection/  
