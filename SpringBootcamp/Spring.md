@@ -681,7 +681,7 @@ public class Student{
 	@Column(name="ID_LSN_LESSON") //ForeignKey
 	private Long lesonId;
 	
-	@Column(name="STD_", precision=15, scale=2)
+	@Column(name="STD_VALUE", precision=15, scale=2)
 	private BigDecimal value;
 	@Column(length=100)
 	private String name;
