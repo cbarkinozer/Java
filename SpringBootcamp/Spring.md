@@ -681,13 +681,13 @@ public class Student{
 	@Column(name="ID_LSN_LESSON") //ForeignKey
 	private Long lesonId;
 	
-	@Column(name="STD_VALUE", precision=15, scale=2)
+	@Column(name="VALUE", precision=15, scale=2)
 	private BigDecimal value;
 	@Column(length=100)
 	private String name;
-	@Column(name="STD_SAVER_NAME",updatable=false)
+	@Column(name="SAVER_NAME",updatable=false)
 	private String saver;
-	@Column(name="STD_UPDATER_NAME",insertable=false)
+	@Column(name="UPDATER_NAME",insertable=false)
 	private String updater;
 }
 ```
