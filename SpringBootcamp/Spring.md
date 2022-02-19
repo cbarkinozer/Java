@@ -676,8 +676,11 @@ public class Student{
 		generator="generator",
 		strategy = GeenerationType.SEQUENCE
 	)
-	@Column(name="ID_STD_STUDENT")
 	private Long id;
+	
+	@Column(name="ID_LSN_LESSON") //ForeignKey
+	private Long lesonId;
+	
 	@Column(name="STD_", precision=15, scale=2)
 	private BigDecimal value;
 	@Column(length=100)
