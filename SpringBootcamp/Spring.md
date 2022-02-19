@@ -665,6 +665,8 @@ public class Student{
 }
 ```
 **@Column**: Used to specify the details of the column to which a field or property will be mapped.  
+For enum values use @Enumerated(EnumType.STRING) so if someone changes your enum order, your application still works.  
+For precision values: @Column(precision=15, scale =2), (scale shows value after comma).    
 ```java
 @Entity
 @Tablename(name="Student")
@@ -674,14 +676,15 @@ public class Student{
 		generator="generator",
 		strategy = GeenerationType.SEQUENCE
 	)
+	@Column(name="ID_STD_STUDENT")
 	private Long id;
-	@Column(precision=15, scale=2)
+	@Column(name="STD_", precision=15, scale=2)
 	private BigDecimal value;
 	@Column(length=100)
 	private String name;
-	@Column(name="SAVER_NAME",updatable=false)
+	@Column(name="STD_SAVER_NAME",updatable=false)
 	private String saver;
-	@Column(name="UPDATER_NAME",insertable=false)
+	@Column(name="STD_UPDATER_NAME",insertable=false)
 	private String updater;
 }
 ```
