@@ -1033,7 +1033,54 @@ It contains the full API of CrudRepository and PagingAndSortingRepository.
 It contains API for basic CRUD operations and also API for pagination and sorting.  
 
 
-**MapStruct**:
+**MapStruct**: A Java Bean mapper that contains functions that automatically map between two Java Beans.  
+With MapStruct, we only need to create the interface, and the library will automatically create a concrete implementation during compile time.  
+
+Let's say we have 2 Pojo's called Source and Destination.  
+We define the mapper interface:  
+```java
+@Mapper
+public interface SourceDestinationMapper {
+    SimpleDestination sourceToDestination(Source source);
+    SimpleSource destinationToSource(Destination destination);
+}
+```
+We do not have to create an implementation class for our SourceDestinationMapper — because MapStruct creates it for us.  
+MapStruct gets triggered when project run (more exactly, when mvn install command runned).  
+Another example:  
+```java
+//POJOs
+public class EmployeeDTO {
+    private int employeeId;
+    private String employeeName;
+    // getters and setters
+}
+public class Employee {
+    private int id;
+    private String name;
+    // getters and setters
+}
+```
+
+```java
+@Mapper
+public interface EmployeeMapper {
+    @Mappings({
+      @Mapping(target="employeeId", source="entity.id"),
+      @Mapping(target="employeeName", source="entity.name")
+    })
+    EmployeeDTO employeeToEmployeeDTO(Employee entity);
+    @Mappings({
+      @Mapping(target="id", source="dto.employeeId"),
+      @Mapping(target="name", source="dto.employeeName")
+    })
+    Employee employeeDTOtoEmployee(EmployeeDTO dto);
+}
+```
+
+**ResponseEntity**: Represents the whole HTTP response (status code, headers, and body), as a result, we can use it to fully configure a HTTP response.  
+We just have to return ResponseEntity from the endpoint; Spring takes care of the rest.  
+ResponseEntity is a generic type therefore, we can use any type as the response body.  
 
 **References**:  
 Sadık Bahadır Memiş    
@@ -1046,3 +1093,5 @@ https://javabydeveloper.com/lombok-builder-examples/
 https://www.yusufsezer.com.tr/java-reflection/  
 https://springframework.guru/spring-framework-annotations/  
 https://www.java67.com/2019/04/top-10-spring-mvc-and-rest-annotations-examples-java.html  
+https://www.baeldung.com/mapstruct  
+https://www.baeldung.com/spring-response-entity  
