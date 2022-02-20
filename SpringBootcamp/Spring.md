@@ -881,7 +881,7 @@ public class City{
 	@Column(name="NAME",length=50)
 	private String name;
 	
-	@ManyToMany(
+	@ManyToOne(
 		fetch= FetchType.LAZY,
 		cascade=CascadeType.ALL,
 		optional=false)
