@@ -1080,7 +1080,20 @@ public interface EmployeeMapper {
 
 **ResponseEntity**: Represents the whole HTTP response (status code, headers, and body), as a result, we can use it to fully configure a HTTP response.  
 We just have to return ResponseEntity from the endpoint; Spring takes care of the rest.  
-ResponseEntity is a generic type therefore, we can use any type as the response body.  
+ResponseEntity is a generic type therefore, we can use any type as the response body. 
+Example:  
+```java
+ @GetMapping("/{id}")
+    public ResponseEntity findById(@PathVariable Long id){
+        AddAddressDto addAddressDto =addAddressService.findById(id);
+        return ResponseEntity.ok(addAddressDto);
+    }
+    @PostMapping
+    public ResponseEntity save(@RequestBody AddAddressSaveRequestDto addAddressSaveRequestDto){
+        AddAddressDto addAddressDto = addAddressService.save(addAddressSaveRequestDto);
+        return ResponseEntity.ok(addAddressDto);
+    }
+```
 
 **References**:  
 Sadık Bahadır Memiş    
