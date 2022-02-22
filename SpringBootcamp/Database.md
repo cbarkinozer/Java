@@ -153,7 +153,10 @@ SET CONSTRAINT {constraint_name[, ...] | ALL} {DEFERRED | IMMEDIATE};
 
 SET CONSTRAINT ALL IMMEDIATE;
 ````
-**Cross-Origin Resource Sharing (CORS)**  
+**Cross-Origin Resource Sharing (CORS)** 
+A web browser-managed mechanism that, using additional HTTP headers, provides access control of a web application running in one origin to a web application in a different origin.  
+![image](https://user-images.githubusercontent.com/43732258/155185467-6eaf1641-f6fd-40e7-99a2-95b496280d6e.png)
+
 **Richardson Maturity Model**  
 **TestRestTemplate**  
 **MessageBroker**  
