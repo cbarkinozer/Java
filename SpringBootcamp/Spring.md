@@ -981,13 +981,24 @@ After we enter our credentials, a comprehensive H2 console webpage will welcome 
 **REST (Representational State Transfer)**: Roy Fielding's derivation of the Web's architectural style.  
 In a RESTful Web service, requests to a resource's URI are answered with data in the form of HTML, XML, JSON, or some other format.  
 **URI( Uniform Resource Identifier)**: A syntax that assigns each web document a unique address.  
+**Endpoint**: The name given to your method created for a specific purpose on the API.  
 	
 ![image](https://user-images.githubusercontent.com/43732258/153911790-ba6c772f-e541-4ba3-befe-94ad9a9dee9d.png)  
+	
+HTTP requests has Request-Line, Header, and Body.
+**Request-Line**: The type of HTTP request, the URL to which it will be made, and the HTTP/HTTPS protocol information.  
+*Header**: Parameters that describe the request and contain basic information about the request. We can send zero or more header parameters.  
+A few of the standard parameters used for Header are Culture (language), Content-Type, Authentication.  
+With the authentication parameter, the key information (token) is transmitted to the server and only authorized people can access the API.  
+**Body**: You need to send information in the body field of a request when using POST, PUT, PATCH operations. Sending the information as JSON in a Restful API is preferable.  
+
 	
 **Designing REST APIs**:
 Decide the 3-letter abbreviations of the tables and attributes inside them (also gen for general classes). Packages are created with the same name.   
 Inside each of these 3-letter abbrevation named packages, create dao, dto, entity, service( and entityservice in service), controller, converter, enums packages.  
-
+"The URL is a sentence, where resources(controllers and classes) are nouns and HTTP methods are verbs."  
+"You will not have a problem with URLs that are shorter than 2000 characters, but you may not be able to run URLs over 2000 characters on all devices and browsers."  	
+	
 In controller, there can be only 1 HTTP method type (get,put,delete etc.) method in a path.  
 
 A good practice example:
