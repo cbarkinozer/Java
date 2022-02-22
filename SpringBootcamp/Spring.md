@@ -1116,7 +1116,7 @@ In addition, there are fields that show the relations of these tables with each 
 ```java
 @Entity //Indicate this is an entity (Spring)
 @Table(name = "ADDRESS") //Table's name (Hibernate)
-@Data //Constructor, getter, setter (Lombok)
+@Getter @Setter//getters, and setters of all fields (Lombok)
 public class Address {
 
     @Id //Show this is an Id (Hibernate)
