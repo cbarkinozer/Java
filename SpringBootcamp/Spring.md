@@ -1105,6 +1105,13 @@ Example:
         return ResponseEntity.ok(addAddressDto);
     }
 ```
+
+**Optional**
+A container object which may or may not contain a non-null value.  
+Optional object is used to represent null with absent value.  
+Great way of returning values.  
+It has isPresence() method for checking null value.  
+Also you can get entities by get() method.  
  
 
 **How a modern Spring Boot application work?**
@@ -1236,6 +1243,7 @@ public class AddAddressController {
         return ResponseEntity.ok(addAddressDto); //Sends http response OK
     }
 ```
+
 
 
 **References**:  
