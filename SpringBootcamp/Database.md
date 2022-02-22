@@ -157,7 +157,8 @@ SET CONSTRAINT ALL IMMEDIATE;
 **Richardson Maturity Model**  
 **TestRestTemplate**  
 **MessageBroker**  
-
+**Kafka vs RabbitMQ**  
+Kafka is ideal for big data use cases that require the best throughput, while RabbitMQ is ideal for low latency message delivery, guarantees on a per-message basis, and complex routing.  
 
 **References**:
 https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/
