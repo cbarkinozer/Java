@@ -1120,6 +1120,31 @@ public class Address {
 ```
 **How a modern Spring Boot application work?**
 
+**Entity Layer**
+Entities are the classes in which we specify the tables in the database and the columns in them.  
+```java
+@Entity
+@Table(name = "ADDRESS")
+@Data
+public class Address {
+
+    @Id
+    @SequenceGenerator(name = "Address" , sequenceName = "ADDRESS_ID_SEQ")
+    @GeneratedValue(generator = "Address")
+    private long id;
+
+    @Column(name = "ADDRESS_ID",nullable = false)
+    private int addressId;
+
+    @Column(name = "ADRESS_NAME",nullable = false)
+    private int addressName;
+
+    @ManyToOne
+    private Country country;
+}
+```
+**Repository Layer**
+
 Repository/dao allows us to pull data from the tables we created in the database and move it to the service layer.  
 JpaRepository is a library that defines common repository methods for us.  
 We give entity and it's id value to JpaRepository to create methods for us.  
@@ -1128,14 +1153,90 @@ We give entity and it's id value to JpaRepository to create methods for us.
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
 }
+
+```
+**DTO**
+When transferring entities between layers, the entities themselves are not used, instead data transfer objects(Dto) are used.  
+We can ensure that the features we do not want are not carried in these DTOs (for example, id or password).  
+```java
+@Data
+public class AddressDto {
+    private int doorNumber;
+    private int apartmentNumber;
+    private CountryDto country;
+}
+```
+**Converter**
+With these DTOs, we also perform the transformations between entities and dtos in our converter package.  
+Since the process of transforming each field is very repetitive, we create the mapper interface using the mapstruct package and these operations are done for us.  
+
+```java
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface AddressMapper {
+
+    AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
+
+    AddressDto convertToAddressDto(Address address);
+    List<AddressDto> convertToAddressDtoList(List<Address> addresses);
+    Address convertToAddress(AddressSaveRequestDto addressSaveRequestDto);
+}
 ```
 
+**Service Layer**
 Thanks to the JpaRepository in the Service/Bussiness layer, we pass the methods we receive to the Controller layer, after processing them.
-In professional projects, a separate layer called EntityService is used for the entities taken from the Repository and this layer communicates with the Service layer. In the service layer, the business rules we want are applied.
+In professional projects, a separate layer called EntityService is used for the entities taken from the Repository and EntityService layer communicates with the Service layer. In the service layer, the business rules are applied.  
+BaseEntityService is written in the gen(general) package so that entityservice operations are not repeated in the package reserved for each table.  
+```java
+@Service
+@RequiredArgsConstructor
+public class BaseEntityService<E, D extends JpaRepository<E, Long>> {
 
-When transferring entities between layers, the entities themselves are not used, instead data transfer objects(Dto) are used. We can ensure that the features we do not want are not carried in these DTOs (for example, id or password).
-	
-With these DTOs, we also perform the transformations between entities in our converter layer. Since the process of transforming each field is very repetitive, we create the mapper interface using the mapstruct package and these operations are done for us.
+    private final D dao;
+
+    public Optional<E> findById(Long id){
+        return dao.findById(id);
+    }
+}
+```
+
+```java
+@Service
+public class AddAddressEntityService extends BaseEntityService<AddAddress, AddAddressDao> {
+    public AddAddressEntityService(AddAddressDao addAddressDao) {
+        super(addAddressDao);
+    }
+}
+```
+
+```java
+@Service
+@RequiredArgsConstructor
+public class AddAddressService {
+
+    private final AddAddressEntityService addAddressEntityService;
+
+    public AddAddressDto findById(Long id) {
+        AddAddress addAddress = addAddressEntityService.getByIdWithControl(id);
+        return AddAddressMapper.INSTANCE.convertToAddAddressDto(addAddress);
+    }
+} 
+```
+**Controller Layer**
+In this layer, our methods are transmitted to the frontend via http protocols as Rest API.  
+```java
+@RestController
+@RequestMapping("/api/v1/addresses")
+@RequiredArgsConstructor
+public class AddAddressController {
+
+    private final AddAddressService addAddressService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity findById(@PathVariable Long id){
+        AddAddressDto addAddressDto =addAddressService.findById(id);
+        return ResponseEntity.ok(addAddressDto);
+    }
+```
 
 
 **References**:  
