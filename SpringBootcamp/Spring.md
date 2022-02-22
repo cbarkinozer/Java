@@ -1131,7 +1131,7 @@ We give entity and it's id value to JpaRepository to create methods for us.
 
 ```java
 @Repository
-public interface AddressRepository extends JpaRepository<Address, Long> {
+public interface AddressDao extends JpaRepository<Address, Long> { //Looks findById in JpaRepository methods
 }
 
 ```
@@ -1162,9 +1162,9 @@ public interface AddressMapper {
 }
 ```
 
-**Service Layer**
+**Service Layer**  
 Thanks to the JpaRepository in the Service/Bussiness layer, we pass the methods we receive to the Controller layer, after processing them.
-In professional projects, a separate layer called EntityService is used for the entities taken from the Repository and EntityService layer communicates with the Service layer. In the service layer, the business rules are applied.  
+   
 BaseEntityService is written in the gen(general) package so that entityservice operations are not repeated in the package reserved for each table.  
 ```java
 @Service
@@ -1173,20 +1173,22 @@ public class BaseEntityService<E, D extends JpaRepository<E, Long>> {
 
     private final D dao;
 
-    public Optional<E> findById(Long id){
-        return dao.findById(id);
+    public Optional<E> findById(Long id){ 
+        return dao.findById(id); //Return findById for the given dao (AddressDao)
     }
 }
 ```
-
+In professional projects, a separate layer called EntityService is used for the entities taken from the Repository and EntityService layer communicates with the Service layer.  
 ```java
 @Service
 public class AddAddressEntityService extends BaseEntityService<AddAddress, AddAddressDao> {
     public AddAddressEntityService(AddAddressDao addAddressDao) {
-        super(addAddressDao);
+        super(addAddressDao); //Calls BaseEntityService's constructor
     }
 }
 ```
+
+In the service layer, the business rules are applied.  
 
 ```java
 @Service
@@ -1196,25 +1198,26 @@ public class AddAddressService {
     private final AddAddressEntityService addAddressEntityService;
 
     public AddAddressDto findById(Long id) {
-        AddAddress addAddress = addAddressEntityService.getByIdWithControl(id);
+        AddAddress addAddress = addAddressEntityService.getByIdWithControl(id); //This is an entity operation  so calls entityservice's method
         return AddAddressMapper.INSTANCE.convertToAddAddressDto(addAddress);
     }
 } 
 ```
-**Controller Layer**
+
+**Controller Layer**  
 In this layer, our methods are transmitted to the frontend via http protocols as Rest API.  
 ```java
-@RestController
-@RequestMapping("/api/v1/addresses")
-@RequiredArgsConstructor
+@RestController //Indicates this is a controller (Spring)
+@RequestMapping("/api/v1/addresses") //Base path
+@RequiredArgsConstructor //Constructor injection (Lombok)
 public class AddAddressController {
 
-    private final AddAddressService addAddressService;
+    private final AddAddressService addAddressService; //The layer that communicates with the controller is injected
 
-    @GetMapping("/{id}")
-    public ResponseEntity findById(@PathVariable Long id){
+    @GetMapping("/{id}") //GET operation with path with id
+    public ResponseEntity findById(@PathVariable Long id){ //Gets that id in path as a parameter
         AddAddressDto addAddressDto =addAddressService.findById(id);
-        return ResponseEntity.ok(addAddressDto);
+        return ResponseEntity.ok(addAddressDto); //Sends http response OK
     }
 ```
 
