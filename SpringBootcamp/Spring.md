@@ -1146,6 +1146,11 @@ public interface AddressDao extends JpaRepository<Address, Long> { //Looks findB
 }
 
 ```
+This part works like magic. It suggest you method names and by those names it creates your method for you.  
+Country getByCityId(String cityId); //gets a country by countryId
+List<Country> getAllByCityId(String cityId); //gets a all values by cityId's (understands behaviour just by given name)
+If your operation is complex, you can also write your own query.  
+
 **DTO**
 When transferring entities between layers, the entities themselves are not used, instead data transfer objects(Dto) are used.  
 We can ensure that the features we do not want are not carried in these DTOs (for example, id or password).  
