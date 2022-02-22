@@ -191,7 +191,7 @@ o	The client makes the HTTP requests (PUT or GET).
 o	The request goes to the controller, and the controller maps that request and handles it. After that, it calls the service logic if required.  
 o	In the service layer, all the business logic performs. It performs the logic on the data that is mapped to JPA with model classes.  
 o	A JSP page or Spring Data is returned to the user if no error occurred.  
-	
+		
 **Maven**: Maven is a open-source build tool developed by the Apache Group to build, publish, and deploy several projects at once for better project management.  
 Maven adds a pom.xml file to projects files. By using this file you can add or remove .jar files from your project easily.  
 
@@ -1094,6 +1094,49 @@ Example:
         return ResponseEntity.ok(addAddressDto);
     }
 ```
+**How a modern Spring Boot Application work?**
+We have Entity/model pojo classes. They map our database tables, the fields in them show the columns of the tables.  
+In addition, there are fields that show the relations of these tables with each other.  
+```java
+@Entity //Indicate this is an entity (Spring)
+@Table(name = "ADDRESS") //Table's name (Hibernate)
+@Data //Constructor, getter, setter (Lombok)
+public class Address {
+
+    @Id //Show this is an Id (Hibernate)
+    @SequenceGenerator(name = "Address" , sequenceName = "ADDRESS_ID_SEQ") //@GeneratedValue's properties (Hibernate)
+    @GeneratedValue(generator = "Address") //Automatic increase id (Hibernate)
+    private long id;
+
+    @Column(name = "ADDRESS_NUMBER",nullable = false) //Column's name and properties (Hibernate)
+    private int addressNumber;
+
+    @Column(name = "ADDRESS_NAME",nullable = false)
+    private int addressName;
+
+    @ManyToOne //Relationship between tables (Hibernate)
+    private Country country;
+}
+```
+**How a modern Spring Boot application work?**
+
+Repository/dao allows us to pull data from the tables we created in the database and move it to the service layer.  
+JpaRepository is a library that defines common repository methods for us.  
+We give entity and it's id value to JpaRepository to create methods for us.  
+
+```java
+@Repository
+public interface AddressRepository extends JpaRepository<Address, Long> {
+}
+```
+
+Thanks to the JpaRepository in the Service/Bussiness layer, we pass the methods we receive to the Controller layer, after processing them.
+In professional projects, a separate layer called EntityService is used for the entities taken from the Repository and this layer communicates with the Service layer. In the service layer, the business rules we want are applied.
+
+When transferring entities between layers, the entities themselves are not used, instead data transfer objects(Dto) are used. We can ensure that the features we do not want are not carried in these DTOs (for example, id or password).
+	
+With these DTOs, we also perform the transformations between entities in our converter layer. Since the process of transforming each field is very repetitive, we create the mapper interface using the mapstruct package and these operations are done for us.
+
 
 **References**:  
 Sadık Bahadır Memiş    
