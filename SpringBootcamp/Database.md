@@ -153,12 +153,10 @@ SET CONSTRAINT {constraint_name[, ...] | ALL} {DEFERRED | IMMEDIATE};
 
 SET CONSTRAINT ALL IMMEDIATE;
 ````
-
-**Restful**
-**Cross-Origin Resource Sharing (CORS)**
-**Richardson Maturity Model**
-**TestRestTemplate**
-**MessageBroker**
+**Cross-Origin Resource Sharing (CORS)**  
+**Richardson Maturity Model**  
+**TestRestTemplate**  
+**MessageBroker**  
 
 
 **References**:
