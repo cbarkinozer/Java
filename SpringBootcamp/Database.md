@@ -105,32 +105,60 @@ EXPLAIN (Select * from CITY);
 ````
 
 ### DCL (Data Control Language) Commands  
-
+Used to deal with the rights, permissions, and other controls of the database system.  
 **GRANT**  
+Used to give users access privileges to the database.  
 ```sql
+GRANT privilege_name
+ON object_name
+TO {user_name |PUBLIC |role_name}
+[WITH GRANT OPTION];
+
+GRANT SELECT ON employee TO user_admin;
 ````
 **REVOKE**  
+Used to withdraw the user’s access privileges given by using the GRANT command.  
 ```sql
+REVOKE privilege_name
+ON object_name
+FROM {user_name |PUBLIC |role_name};
+
+REVOKE SELECT ON employee FROM user1;
 ````
 ### TCL (Transaction Control Language) Commands
 **COMMIT**  
+Used to commit a transaction manually.  
 ```sql
-````
-**SAVEPOINT**  
-```sql
+COMMIT;
 ````
 **ROLLBACK**  
+Used to rollback a transaction in case of any error occurs.  
 ```sql
+ROLLBACK TO SAVEPOINT_NAME;
 ````
-**SET TRANSACTION**  
+**SAVEPOINT**  
+Sets a savepoint within a transaction.  
 ```sql
+SAVEPOINT SAVEPOINT_NAME;
+````
+**SET TRANSACTION** 
+Specify the characteristics for the transaction.  
+```sql
+SET TRANSACTION READ ONLY;
 ````
 **SET CONSTRAINT**  
+The SET CONSTRAINT statement defines, for the current transaction, whether a deferrable constraint is checked after each DML statement or when the transaction is finally committed.  
 ```sql
+SET CONSTRAINT {constraint_name[, ...] | ALL} {DEFERRED | IMMEDIATE};
+
+SET CONSTRAINT ALL IMMEDIATE;
 ````
 
-
- 
+**Restful**
+**Cross-Origin Resource Sharing (CORS)**
+**Richardson Maturity Model**
+**TestRestTemplate**
+**MessageBroker**
 
 
 **References**:
