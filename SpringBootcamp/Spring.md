@@ -1094,9 +1094,14 @@ Example:
         return ResponseEntity.ok(addAddressDto);
     }
 ```
-**How a modern Spring Boot Application work?**
+ 
+
+**How a modern Spring Boot application work?**
+
+**Entity Layer**
+Entities are the classes in which we specify the tables in the database and the columns in them.  
 We have Entity/model pojo classes. They map our database tables, the fields in them show the columns of the tables.  
-In addition, there are fields that show the relations of these tables with each other.  
+In addition, there are fields that show the relations of these tables with each other. 
 ```java
 @Entity //Indicate this is an entity (Spring)
 @Table(name = "ADDRESS") //Table's name (Hibernate)
@@ -1115,31 +1120,6 @@ public class Address {
     private int addressName;
 
     @ManyToOne //Relationship between tables (Hibernate)
-    private Country country;
-}
-```
-**How a modern Spring Boot application work?**
-
-**Entity Layer**
-Entities are the classes in which we specify the tables in the database and the columns in them.  
-```java
-@Entity
-@Table(name = "ADDRESS")
-@Data
-public class Address {
-
-    @Id
-    @SequenceGenerator(name = "Address" , sequenceName = "ADDRESS_ID_SEQ")
-    @GeneratedValue(generator = "Address")
-    private long id;
-
-    @Column(name = "ADDRESS_ID",nullable = false)
-    private int addressId;
-
-    @Column(name = "ADRESS_NAME",nullable = false)
-    private int addressName;
-
-    @ManyToOne
     private Country country;
 }
 ```
