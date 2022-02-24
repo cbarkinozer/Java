@@ -1114,7 +1114,9 @@ It has isPresence() method for checking null value.
 Also you can get entities by get() method.  
  
 
-**How a modern Spring Boot application work?**
+**How a modern Spring Boot application work?**  
+
+![Spring Boot](https://user-images.githubusercontent.com/43732258/155486794-d198375a-0f8e-48eb-9b62-d98c2dfa7906.jpg)  
 
 **Entity Layer**
 Entities are the classes in which we specify the tables in the database and the columns in them.  
