@@ -15,7 +15,7 @@ import java.io.*;
 class Main {
 
   public static int ConsonantCount(String str) {
-    str= str.replaceAll("[aeiouAEIOU 0-9]","");
+    str= str.replaceAll("^[qwrtypsdfghjklzcvbnm]","");
     return str.length();
   }
 
