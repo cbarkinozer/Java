@@ -32,8 +32,9 @@ public static int getUniqueCharacter(String s) {
                     return index+1; //Return 1-based indexing  
                 }
                 
-                deletedChars.add(c); //Save the car if that char is not unique or deleted before
+                
             }
+              deletedChars.add(c); //Save the car if that char is not unique or deleted before
             
         }
             
