@@ -11,3 +11,12 @@ public class PangramChecker {
                 .allMatch(sentence.toLowerCase()::contains);
   }
 }
+
+//OR
+
+public class PangramChecker {
+  public boolean check(String sentence){
+  	return sentence.chars().map(Character::toLowerCase).filter(Character::isAlphabetic).distinct().count() == 26;
+  }
+}
+
